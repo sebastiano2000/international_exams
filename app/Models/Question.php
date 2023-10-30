@@ -25,12 +25,25 @@ class Question extends Model
     
     public static function upsertInstance($request)
     {
+        if($request->paragraph){
+            $paragraph = Paragraph::updateOrCreate(
+                [
+                    'title' => $request->paragraph,
+                ],
+                [
+                    'title' => $request->paragraph,
+                ]
+            );
+        }
+
         $question = Question::updateOrCreate(
             [
                 'id' => $request->id ?? null
             ],
             [
                 'title' => $request->name,
+                'notes' => $request->notes ?? null,
+                'paragraph_id' => $paragraph->id ?? null,
                 'subject_id' => $request->subject_id,
             ]
         );
@@ -73,5 +86,10 @@ class Question extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class, 'subject_id');
+    }
+    
+    public function paragraph()
+    {
+        return $this->belongsTo(Paragraph::class, 'paragraph_id');
     }
 }

@@ -3,16 +3,17 @@
 namespace App\Imports;
 
 use App\Models\Answer;
+use App\Models\Paragraph;
 use App\Models\Question;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class ImportQuestion implements ToModel
+class ImportParagraph implements ToModel
 {
     /**
-     * @param array $row
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
+    * @param array $row
+    *
+    * @return \Illuminate\Database\Eloquent\Model|null
+    */
     private $subjectId;
 
     public function __construct($subjectId)
@@ -22,15 +23,25 @@ class ImportQuestion implements ToModel
 
     public function model(array $row)
     {
-
         if (empty($row[0])) {
             return null;
+        }
+
+        if (!empty($row[5])) {
+            $paragraph = Paragraph::create(
+                [
+                    'title' => $row[5],
+                ]
+            );
+        }
+        else {
+            $paragraph = Paragraph::latest()->first();
         }
 
         $question = Question::create(
             [
                 'title' => $row[0],
-                'notes' => $row[5] ?? null,
+                'paragraph_id' => $paragraph->id,
                 'subject_id' => $this->subjectId,
             ]
         );

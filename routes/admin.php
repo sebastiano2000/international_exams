@@ -7,6 +7,7 @@ use App\Http\Controllers\UserResultController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\UserTestController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ParagraphController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\UserFavController;
@@ -90,6 +91,15 @@ Route::group(['prefix' => 'question'],function(){
     Route::post('/modify',[QuestionController::class,'modify'])->name('question.modify');
     Route::post('/delete/{question}',[QuestionController::class,'destroy'])->name('question.delete');
     Route::post('/import',[QuestionController::class,'import'])->name('question.import');
+});
+
+Route::group(['prefix' => 'paragraph'],function(){
+    Route::get('/', [ParagraphController::class,"index"])->name('paragraph');
+    Route::get('/upsert/{question?}',[ParagraphController::class,'upsert'])->name('paragraph.upsert');
+    Route::get('/filter',[ParagraphController::class,'filter'])->name('paragraph.filter');
+    Route::post('/modify',[ParagraphController::class,'modify'])->name('paragraph.modify');
+    Route::post('/delete/{question}',[ParagraphController::class,'destroy'])->name('paragraph.delete');
+    Route::post('/importParagraph',[ParagraphController::class,'importParagraph'])->name('paragraph.import');
 });
 
 Route::group(['prefix' => 'subject'],function(){

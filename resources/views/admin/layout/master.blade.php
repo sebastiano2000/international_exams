@@ -102,6 +102,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('paragraph') }}">
+                                <i class="ti-control-record text-success"></i>
+                                اسئلة القطعة
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('question') }}">
                                 <i class="ti-control-record text-success"></i>
                                 الاسئلة

@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-body custom-edit-service p-3">                 
                                 <!-- Add Blog -->
-                                <form method="post" enctype="multipart/form-data" action="{{ route('question.modify') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('question') }}">
+                                <form method="post" enctype="multipart/form-data" action="{{ route('question.modify') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('paragraph') }}">
                                     @csrf
                                     <div class="service-fields mb-3">
                                         <div class="form-group">
@@ -32,7 +32,7 @@
                                                     <label class="mb-2">اسم المادة</label>
                                                     <select class="form-control" name="subject_id">
                                                         @foreach($subjects as $subject)
-                                                            @if($subject->id != 3)
+                                                            @if($subject->id == 3)
                                                                 <option value="{{$subject->id}}" @if($subject->id == $question->subject_id) selected @endif>{{$subject->name}}</option>
                                                             @endif
                                                         @endforeach
@@ -78,8 +78,8 @@
                                                 @endif
 
                                                 <div class="col-md-12">
-                                                    <label class="mb-2">ملاحظات السؤال</label>
-                                                    <textarea class="form-control" type="text" name="notes" placeholder="ملاحظات السؤال">@isset($question->id){{$question->notes}}@endisset</textarea>
+                                                    <label class="mb-2">قطعة السؤال</label>
+                                                    <textarea class="form-control" type="text" name="paragraph" placeholder="قطعة السؤال">@isset($question->paragraph){{$question->paragraph->title}}@endisset</textarea>
                                                     <p class="error error_name"></p>
                                                 </div>
                                             </div>

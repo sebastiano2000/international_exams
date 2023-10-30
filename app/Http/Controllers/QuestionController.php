@@ -9,6 +9,7 @@ use App\Models\UserTest;
 use Auth;
 use Illuminate\Http\Request;
 use App\Imports\ImportQuestion;
+use App\Imports\ImportParagraph;
 use App\Models\Subject;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -27,8 +28,9 @@ class QuestionController extends Controller
         }
         
         $count = Question::where('subject_id', $request->subject_id)->count();
-        $total = $count > 30 ? Subject::where('id', $request->subject_id)->first()->questions_count : $count;
+        $total = Subject::where('id', $request->subject_id)->first()->questions_count;
 
+        $total = $count > $total ? $total : $count;
         $array_questions = session()->get('exam.data');
 
         if($array_questions && $array_questions->where('id', $array_questions->pluck('id')->first())->where('subject_id', $request->subject_id)->first()){
@@ -131,7 +133,7 @@ class QuestionController extends Controller
     {
         if (Auth::user()->isAdmin()) {
             return view('admin.pages.question.index', [
-                'questions' => Question::filter($request->all())->paginate(50),
+                'questions' => Question::whereNot('subject_id', 3)->filter($request->all())->paginate(50),
                 'subjects' => Subject::all(),
             ]);
         } else {

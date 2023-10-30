@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('notes');
-            $table->foreignId('paragraph_id');
+            $table->string('notes')->nullable();
+            $table->foreignId('paragraph_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
