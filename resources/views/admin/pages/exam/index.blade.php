@@ -43,7 +43,7 @@
                 </div>
                 <div class="d-flex">
                     @if($slice->first()->notes)
-                        <a href="#" class="help-btn">
+                        <a href="#" class="d-none help-btn">
                             <i class="ti-help"></i>
                         </a>
                     @endif
