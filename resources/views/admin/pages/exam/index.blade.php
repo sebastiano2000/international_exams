@@ -180,7 +180,6 @@
                     label.classList.remove('false_input')
                 }
                 $('.help-btn').removeClass('d-none')
-
                 $(`.radio-label`).addClass('false_input')
                 $(`.radio-label[answer_id='${data}']`).removeClass('false_input').addClass('true_input')
             }

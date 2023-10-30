@@ -31,6 +31,15 @@
                             </label>
                         @endforeach
                 </div>
+                <div class="d-none hint-note" style="
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 10px;
+                    margin-bottom: 35px;
+                    box-shadow: 0px 0px 10px #ccc;
+                    font-size: 18px;
+            ">
+            </div>
                 <div class="d-flex">
                     @if($page > 1)
                         @php
@@ -170,13 +179,21 @@
                 for(let label of document.querySelectorAll("label")){
                     label.classList.remove('false_input')
                 }
-
+                $('.help-btn').removeClass('d-none')
                 $(`.radio-label`).addClass('false_input')
                 $(`.radio-label[answer_id='${data}']`).removeClass('false_input').addClass('true_input')
             }
         });
     });
 
+    $('.help-btn').click(function(){
+        $('.hint-note').html(`
+        @if ($slice->first()->notes)
+            <p class="text-center m-0"> {{ $slice->first()->notes }} </p>
+        @endif
+        `)
+        $('.hint-note').toggleClass('d-none')
+    })
     $(document).ready(function(){
         if(/[A-Za-z]/.test($('.question').text())){
             $('.question').css({ direction: 'ltr' });
