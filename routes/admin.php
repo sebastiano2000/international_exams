@@ -33,6 +33,7 @@ Route::group(['prefix' => '/'],function(){
 Route::group(['prefix' => 'exam'],function(){
     Route::get('/', [QuestionController::class, "exam"])->name('exam');
     Route::get('/test', [QuestionController::class, "test"])->name('exam.test');
+    Route::get('/final-exam', [QuestionController::class, "finalExam"])->name('exam.final');
 });
 
 Route::group(['prefix' => 'report'],function(){

@@ -34,6 +34,19 @@
                         </div>
                     </div>
                     @endforeach
+                    <div class="col-xl-5 col-8">
+                        <div class="container-tenant mb-4">
+                            <div class="wrapper-tenant">
+                                <h1>
+                                    الأختبار الشامل
+                                </h1>
+                                <div class="button-wrapper">
+                                    <a href="{{ route('exam.final') }}"
+                                        class="btn-tenant fill-tenant">إبدأ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @foreach($preparators as $preparator)
                     @if($preparator->picture)
                     <div class="col-xl-5 col-8">

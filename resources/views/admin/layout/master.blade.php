@@ -164,6 +164,11 @@
                                 </a>
                             </li>
                         @endforeach
+                        <li>
+                            <a href="{{ route('exam.final') }}">
+                                <i class="ti-control-record text-success"></i>
+                                الأختبار الشامل</a>
+                        </li>
                         @foreach(\App\Models\Preparator::all() as $preparator)
                             <li>
                                 <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank">

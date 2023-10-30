@@ -17,7 +17,6 @@ class QuestionController extends Controller
 {
     public function exam(Request $request)
     {
-        
         $page = !empty($request->input('page')) ? $request->input('page') : '1';
         $perpage = '1';
         $offset = ($page - 1) * $perpage;
@@ -139,6 +138,53 @@ class QuestionController extends Controller
         } else {
             abort(404);
         }
+    }
+
+    public function finalExam (Request $request)
+    {
+        $page = !empty($request->input('page')) ? $request->input('page') : '1';
+        $perpage = '1';
+        $offset = ($page - 1) * $perpage;
+        $total1 = Subject::where('id', 1)->first()->questions_count;
+        $total2 = Subject::where('id', 2)->first()->questions_count;
+        $total3 = Subject::where('id', 3)->first()->questions_count;
+        $subject_id = 1;
+
+        $array_questions = session()->get('final.exam');
+
+        if($array_questions){
+            $count = $array_questions->where('subject_id', 1)->count();
+
+            if($count == 35){
+                $subject_id = 2;
+
+                $count2 = $array_questions->where('subject_id', 2)->count();
+                if($count2 == 35){
+                    $subject_id = 3;
+                }
+            }
+
+            $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
+
+            if($array_question){
+                $array_questions->push($array_question);
+            }
+            else {
+                $array_questions = Question::inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->get();
+            }
+        }
+        else {
+            $array_questions = Question::inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->get();
+        }
+
+        session()->put('final.exam', $array_questions);
+
+        $slice = $array_questions->slice($offset, 1);
+
+        return view('admin.pages.exam.final')
+            ->with('slice', $slice)
+            ->with('page', $page)
+            ->with('total', $total1 + $total2 + $total3);
     }
 
     /**
