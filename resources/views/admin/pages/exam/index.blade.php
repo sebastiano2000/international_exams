@@ -33,19 +33,20 @@
                         </label>
                     @endforeach
                 </div>
-                <div class="d-none hint-note" style="
-                    background: #fff;
-                    padding: 20px;
-                    border-radius: 10px;
-                    margin-bottom: 35px;
-                    box-shadow: 0px 0px 10px #ccc;
-                    font-size: 18px;
-                ">
+                <div class="d-none hint-note" 
+                        style="background: #fff;
+                        padding: 20px;
+                        border-radius: 10px;
+                        margin-bottom: 35px;
+                        box-shadow: 0px 0px 10px #ccc;
+                        font-size: 18px;">
                 </div>
                 <div class="d-flex">
-                    <a href="#" class="d-none help-btn">
-                        <i class="ti-help"></i>
-                    </a>
+                    @if($slice->first()->notes)
+                        <a href="#" class="help-btn">
+                            <i class="ti-help"></i>
+                        </a>
+                    @endif
                     @if($page < $total)
                         @php
                             $pageno = $page + 1; 
