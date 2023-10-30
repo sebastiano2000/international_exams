@@ -18,9 +18,11 @@ class Question extends Model
      */
     protected $fillable = [
         'title',
-        'subject_id'
+        'subject_id',
+        'notes',
+        'paragraph_id'
     ];
-
+    
     public static function upsertInstance($request)
     {
         $question = Question::updateOrCreate(
