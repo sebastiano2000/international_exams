@@ -174,7 +174,7 @@
             headers: {
                 'X-CSRF-TOKEN': '{{csrf_token()}}'
             },
-            url: '{{ route("save.data") }}',
+            url: '{{ route("total.data") }}',
             method: 'post',
             data: {question_id: $(this).attr("question_id"), answer_id: $(this).attr('answer_id')},
             success: (data) => {
