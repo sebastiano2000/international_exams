@@ -150,6 +150,7 @@ class QuestionController extends Controller
         if ($page == '1') {
             Auth::user()->update(['finish' => 0]);
             UserTotal::where('user_id', Auth::user()->id)->delete();
+            session()->put('final.exam', null);
         }
 
         $total1 = Subject::where('id', 1)->first()->questions_count;
@@ -170,9 +171,9 @@ class QuestionController extends Controller
                     $subject_id = 3;
                 }
             }
-            // dd($array_questions);
 
             $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
+
             if($array_question){
                 $array_questions->push($array_question);
             }
