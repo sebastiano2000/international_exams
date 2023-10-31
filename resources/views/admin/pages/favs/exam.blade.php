@@ -1,8 +1,8 @@
 @extends('admin.layout.master')
 @section('content')
-<div class="main-wrapper">
+<div class="main-wrapper" style="background: linear-gradient(to right, #d4f0fc, #ecf7ff);">
       <!-- QUIZ ONE -->
-    <section class="section-1 question-card" id="section-1" style="height: 100%; margin-top: 20px;">
+    <section class="section-1 question-card" id="section-1" style="margin-top: 20px;">
         <main class="question-main">
             <div class="{{in_array($slice->first()->id, Auth::user()->list->pluck('question_id')->toArray()) ? 'click active active-2 active-3' : 'click' }}" question_id="{{$slice->first()->id}}" style="float: left;">
                 <span class="{{in_array($slice->first()->id, Auth::user()->list->pluck('question_id')->toArray()) ? 'star ti ti-star test' : 'star ti ti-star' }}"></span>

@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 @section('content')
-<div class="main-wrapper">
-    <section class="section-1 question-card" id="section-1" style="height: 100%; margin-top: 20px; overflow-y: auto;">
+<div class="main-wrapper" style="background: linear-gradient(to right, #d4f0fc, #ecf7ff);">
+    <section class="section-1 question-card" id="section-1" style="margin-top: 20px; overflow-y: auto;">
         <main class="question-main">
             <div class="{{in_array($slice->id, Auth::user()->list->pluck('question_id')->toArray()) ? 'click active active-2 active-3' : 'click' }}" question_id="{{$slice->id}}" style="float: left;">
                 <span class="{{in_array($slice->id, Auth::user()->list->pluck('question_id')->toArray()) ? 'star ti ti-star test' : 'star ti ti-star' }}"></span>
@@ -15,22 +15,22 @@
             </div>
             <form>
                 <div class="quiz-options">
-                        @foreach($slice->answers as $key => $answer)
-                            <input type="radio" question_id="{{$slice->id}}" answer_id="{{$answer->id}}" class="input-radio" number="one-{{$key}}" id="one-{{$key + 1}}" name="answer-{{$slice->id}}" required>
-                            <label class="radio-label" for="one-{{$key + 1}}" answer_id="{{$answer->id}}">
-                                <span class="alphabet">
-                                    @if($key == 0)
-                                        ا
-                                    @elseif($key == 1)
-                                        ب
-                                    @elseif($key == 2)
-                                        ج
-                                    @elseif($key == 3)
-                                        د
-                                    @endif
-                                </span> {{ $answer->title }}
-                            </label>
-                        @endforeach
+                    @foreach($slice->answers as $key => $answer)
+                        <input type="radio" question_id="{{$slice->id}}" answer_id="{{$answer->id}}" class="input-radio" number="one-{{$key}}" id="one-{{$key + 1}}" name="answer-{{$slice->id}}" required>
+                        <label class="radio-label" for="one-{{$key + 1}}" answer_id="{{$answer->id}}">
+                            <span class="alphabet">
+                                @if($key == 0)
+                                    ا
+                                @elseif($key == 1)
+                                    ب
+                                @elseif($key == 2)
+                                    ج
+                                @elseif($key == 3)
+                                    د
+                                @endif
+                            </span> {{ $answer->title }}
+                        </label>
+                    @endforeach
                 </div>
                 <div class="d-none hint-note" 
                         style="background: #fff;
