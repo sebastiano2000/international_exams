@@ -11,6 +11,7 @@
             </div>
             <div class="text-container">
                 <h3>اختبار للأسئلة المفضلة</h3>
+                @if($slice->first()->paragraph)<p class="question" style="font-size: 22px;" onmousedown="return false" onselectstart="return false">{{$slice->first()->paragraph->title}}</p>@endif
                 <p style="font-size: 24px;" onmousedown="return false" onselectstart="return false">{{$slice->first()->title}}</p>
             </div>
             <form>
