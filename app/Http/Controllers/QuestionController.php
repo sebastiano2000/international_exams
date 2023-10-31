@@ -172,7 +172,7 @@ class QuestionController extends Controller
             }
 
             $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
-
+            dd($array_question);
             if($array_question){
                 $array_questions->push($array_question);
             }
