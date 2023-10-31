@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('result_totals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->integer('total_id');
             $table->string('score');
             $table->timestamps();
             $table->softDeletes();

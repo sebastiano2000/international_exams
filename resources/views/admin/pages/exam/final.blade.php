@@ -54,7 +54,7 @@
                         @endphp
                         <a id="btn" type="submit" href="final-exam?page={{ $pageno }}">التالي</a>
                     @else
-                        <a id="btn" type="submit" href="{{route('total.result') . '?subject_id=' . $slice->first()->subject_id}}">انهاء الاختبار</a>
+                        <a id="btn" type="submit" href="{{route('total.result') . '?total_id=' . $slice->first()->subject_id}}">انهاء الاختبار</a>
                     @endif
                 </div>
             </form>

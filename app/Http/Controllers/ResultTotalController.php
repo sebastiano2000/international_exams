@@ -22,7 +22,7 @@ class ResultTotalController extends Controller
     {
         $result = ResultTotal::enterTotal($request);
 
-        return view('admin.pages.total.result',[
+        return view('admin.pages.total.total',[
             'result' => $result,
         ]);
     }

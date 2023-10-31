@@ -164,15 +164,15 @@ class QuestionController extends Controller
 
             if($count == 35){
                 $subject_id = 2;
-
+                
                 $count2 = $array_questions->where('subject_id', 2)->count();
                 if($count2 == 35){
                     $subject_id = 3;
                 }
             }
+            // dd($array_questions);
 
             $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
-            dd($array_questions);
             if($array_question){
                 $array_questions->push($array_question);
             }

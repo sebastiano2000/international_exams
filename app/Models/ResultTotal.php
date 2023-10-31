@@ -19,7 +19,7 @@ class ResultTotal extends Model
      */
     protected $fillable = [
         'user_id',
-        'subject_id',
+        'total_id',
         'score',
     ];
 
@@ -32,11 +32,11 @@ class ResultTotal extends Model
         $user_result = ResultTotal::updateOrCreate(
             [
                 'user_id' => Auth::user()->id,
-                'subject_id' => $request->subject_id,
+                'total_id' => $request->total_id,
             ],
             [
                 'user_id' => Auth::user()->id,
-                'subject_id' => $request->subject_id,
+                'total_id' => $request->total_id,
                 'score' => $total,
             ]
         );
