@@ -22,7 +22,6 @@ class ResultController extends Controller
     public function enterTotal(Request $request)
     {
         $result = Result::enterTotal($request);
-        $count = Question::count();
 
         return view('admin.pages.result.result',[
             'result' => $result,

@@ -14,6 +14,8 @@ use App\Http\Controllers\UserFavController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\PreparatorController;
+use App\Http\Controllers\ResultTotalController;
+use App\Http\Controllers\UserTotalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,10 @@ Route::group(['prefix' => 'user_result'],function(){
     Route::post('/insert/result', [UserResultController::class, "enterResult"])->name('save.data');
 });
 
+Route::group(['prefix' => 'user_total'],function(){
+    Route::post('/insert/result', [UserTotalController::class, "enterResult"])->name('total.data');
+});
+
 Route::group(['prefix' => 'user_test'],function(){
     Route::post('/insert/result', [UserTestController::class, "enterResult"])->name('save.test');
 });
@@ -69,6 +75,12 @@ Route::group(['prefix' => 'result'],function(){
     Route::get('/', [ResultController::class, "index"])->name('result');
     Route::get('/filter',[ResultController::class,'filter'])->name('result.filter');
     Route::get('/insert/total', [ResultController::class, "enterTotal"])->name('save.result');
+});
+
+Route::group(['prefix' => 'total'],function(){
+    Route::get('/', [ResultTotalController::class, "index"])->name('total');
+    Route::get('/filter',[ResultTotalController::class,'filter'])->name('total.filter');
+    Route::get('/insert/total', [ResultTotalController::class, "enterTotal"])->name('total.result');
 });
 
 Route::group(['prefix' => 'user'],function(){

@@ -1,10 +1,8 @@
 @extends('admin.layout.master')
 @section('content')
 <div class="main-wrapper">
-    <!-- Page Wrapper -->
     <div class="page-wrapper m-4">
         <div class="content container-fluid">
-            <!-- /Page Header -->
             <div class="d-flex justify-content-center h-100">
                 <div class="col-lg-7 col-xl-7">
                     <div class="card text-black shadow" style="border-radius: 25px;">

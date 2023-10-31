@@ -59,25 +59,25 @@
                     </a>
                 </div>
                 <div class=" navbar-collapse">
-                            <ul class="navbar-nav ms-auto">
-                                <li class="nav-item"><a
-                                        class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
-                                        href="javascript:void(0)"><i class="ti-menu"></i></a></li>
-                                <li class="nav-item"><a
-                                        class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
-                                        href="javascript:void(0)"><i class="icon-menu"></i></a></li>
-                                <li class="nav-item">
-                                    <form class="app-search d-none d-md-block d-lg-block">
-                                        <input type="text" class="form-control" placeholder="Search & enter">
-                                    </form>
-                                </li>
-                            </ul>
-                            @if(Auth::user()->isAdmin())
-                            <ul class="navbar-nav my-lg-0">
-                                <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light"
-                                        href="javascript:void(0)"><i class="ti-settings"></i></a></li>
-                            </ul>
-                            @endif
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a
+                                class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                        <li class="nav-item"><a
+                                class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="icon-menu"></i></a></li>
+                        <li class="nav-item">
+                            <form class="app-search d-none d-md-block d-lg-block">
+                                <input type="text" class="form-control" placeholder="Search & enter">
+                            </form>
+                        </li>
+                    </ul>
+                    @if(Auth::user()->isAdmin())
+                        <ul class="navbar-nav my-lg-0">
+                            <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light"
+                                    href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                        </ul>
+                    @endif
                 </div>
             </nav>
         </header>
@@ -89,94 +89,100 @@
                     </div>
                     <ul id="sidebarnav">
                         @if(Auth::user()->isAdmin())
-                        <li>
-                            <a href="{{ route('user') }}">
-                                <i class="ti-control-record text-success"></i>
-                                {{ __('pages.users') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('subject') }}">
-                                <i class="ti-control-record text-success"></i>
-                                المادة
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('paragraph') }}">
-                                <i class="ti-control-record text-success"></i>
-                                اسئلة القطعة
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('question') }}">
-                                <i class="ti-control-record text-success"></i>
-                                الاسئلة
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('result') }}">
-                                <i class="ti-control-record text-success"></i>
-                                نتائج الاختبار
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('preparator') }}">
-                                <i class="ti-control-record text-success"></i>
-                                محضرين
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('report') }}">
-                                <i class="ti-control-record text-success"></i>
-                                الابلاغات
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('log') }}">
-                                <i class="ti-control-record text-success"></i>
-                                <span>سجل العمليات</span>
-                            </a>
-                        </li>
+                            <li>
+                                <a href="{{ route('user') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    {{ __('pages.users') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('subject') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    المادة
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('paragraph') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    اسئلة القطعة
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('question') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    الاسئلة
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('result') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    نتائج الاختبار
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('total') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    نتائج الاختبار الشامل
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('preparator') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    محضرين
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('report') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    الابلاغات
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('log') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    <span>سجل العمليات</span>
+                                </a>
+                            </li>
                         @else
-                        <li>
-                            <a href="{{ route('home') }}">
-                                <i class="ti-control-record text-success"></i>
-                                الصفحة الرئسية
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('question.fav') }}">
-                                <i class="ti-control-record text-success"></i>
-                                <span>الاسئلة المفضلة</span>
-                            </a>
-                        </li>
-                        @foreach(\App\Models\Subject::all() as $subject)
                             <li>
-                                <a href="{{ route('exam', ['subject_id' => $subject->id]) }}">
+                                <a href="{{ route('home') }}">
                                     <i class="ti-control-record text-success"></i>
-                                    اختبار تجريبي {{$subject->name}}
+                                    الصفحة الرئسية
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('exam.test', ['subject_id' => $subject->id]) }}">
+                                <a href="{{ route('question.fav') }}">
                                     <i class="ti-control-record text-success"></i>
-                                    مراجعة {{$subject->name}}
+                                    <span>الاسئلة المفضلة</span>
                                 </a>
                             </li>
-                        @endforeach
-                        <li>
-                            <a href="{{ route('exam.final') }}">
-                                <i class="ti-control-record text-success"></i>
-                                الأختبار الشامل</a>
-                        </li>
-                        @foreach(\App\Models\Preparator::all() as $preparator)
+                            @foreach(\App\Models\Subject::all() as $subject)
+                                <li>
+                                    <a href="{{ route('exam', ['subject_id' => $subject->id]) }}">
+                                        <i class="ti-control-record text-success"></i>
+                                        اختبار تجريبي {{$subject->name}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('exam.test', ['subject_id' => $subject->id]) }}">
+                                        <i class="ti-control-record text-success"></i>
+                                        مراجعة {{$subject->name}}
+                                    </a>
+                                </li>
+                            @endforeach
                             <li>
-                                <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank">
+                                <a href="{{ route('exam.final') }}">
                                     <i class="ti-control-record text-success"></i>
-                                    مذكرات {{$preparator->name}}
-                                </a>
+                                    الأختبار الشامل</a>
                             </li>
-                        @endforeach
+                            @foreach(\App\Models\Preparator::all() as $preparator)
+                                <li>
+                                    <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank">
+                                        <i class="ti-control-record text-success"></i>
+                                        مذكرات {{$preparator->name}}
+                                    </a>
+                                </li>
+                            @endforeach
                         @endif
                         <li><a class="waves-effect waves-dark" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();"

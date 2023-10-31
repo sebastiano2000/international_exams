@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Imports\ImportQuestion;
 use App\Imports\ImportParagraph;
 use App\Models\Subject;
+use App\Models\UserTotal;
 use Maatwebsite\Excel\Facades\Excel;
 
 class QuestionController extends Controller
@@ -145,6 +146,12 @@ class QuestionController extends Controller
         $page = !empty($request->input('page')) ? $request->input('page') : '1';
         $perpage = '1';
         $offset = ($page - 1) * $perpage;
+
+        if ($page == '1') {
+            Auth::user()->update(['finish' => 0]);
+            UserTotal::where('user_id', Auth::user()->id)->delete();
+        }
+
         $total1 = Subject::where('id', 1)->first()->questions_count;
         $total2 = Subject::where('id', 2)->first()->questions_count;
         $total3 = Subject::where('id', 3)->first()->questions_count;
