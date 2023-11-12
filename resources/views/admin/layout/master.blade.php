@@ -143,7 +143,7 @@
                                     <span>سجل العمليات</span>
                                 </a>
                             </li>
-                        @else
+                        @elseif(Auth::user()->suspend)
                             <li>
                                 <a href="{{ route('home') }}">
                                     <i class="ti-control-record text-success"></i>
@@ -180,6 +180,15 @@
                                     <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank">
                                         <i class="ti-control-record text-success"></i>
                                         مذكرات {{$preparator->name}}
+                                    </a>
+                                </li>
+                            @endforeach
+                        @else
+                            @foreach(\App\Models\Subject::all() as $subject)
+                                <li>
+                                    <a href="{{ route('exam', ['subject_id' => $subject->id]) }}">
+                                        <i class="ti-control-record text-success"></i>
+                                        Demo {{$subject->name}}
                                     </a>
                                 </li>
                             @endforeach

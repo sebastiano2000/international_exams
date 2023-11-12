@@ -35,7 +35,8 @@
                                                 <th>{{ __('pages.name') }}</th>
                                                 <th>{{ __('pages.mobile') }}</th>
                                                 <th>{{ __('pages.role') }}</th>
-                                                <th>تعليق المستخدم</th>
+                                                <th>حالة الاشتراك</th>
+                                                <th>حالة التسجيل</th>
                                                 <th> الحد الأقصي للأجزة</th>
                                                 <th class="text-end">{{ __('pages.actions') }}</th>
                                             </tr>
@@ -59,9 +60,15 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        {{-- @if($user->role_id != 1) --}}
-                                                            <input type="number" class="form-control session_limit" value="{{ $user->session_limit }}"  user_id="{{ $user->id }}" name="session_limit" style="width: 80px; height: 25px; text-align: center;" >
-                                                        {{-- @endif --}}
+                                                        @if($user->role_id != 1)
+                                                            <label class="switch switch_user_status" style="width: 50px; height: 25px;">
+                                                                <input type="checkbox" class="user_otp" @if($user->otp) value="1" @else value="0" @endif user_id="{{ $user->id }}" name="user_otp" style="width: 15px; height: 15px;">
+                                                                <span class="slider round" style="border-radius: 25px;"></span>
+                                                            </label>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" class="form-control session_limit" value="{{ $user->session_limit }}"  user_id="{{ $user->id }}" name="session_limit" style="width: 80px; height: 25px; text-align: center;" >
                                                     </td>
                                                     <td class="text-end">
                                                         <div class="actions">
@@ -233,6 +240,36 @@
         });
     });
 
+    $(".user_otp").on("change", function(){   
+        if ($(this).is(":checked"))
+        {
+            $(this).val(1);
+        }   
+        else {
+            $(this).val(0);
+        }
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': '{{csrf_token()}}'
+            },
+            url: '{{ route("user.otp") }}',
+            method: 'post',
+            data: { id: $(this).attr("user_id"), otp: $(this).val() },
+            success: () => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    icon: 'success',
+                    title: "{{ __('pages.sucessdata') }}"
+                });
+            }
+        });
+    });
+
     $(".session_limit").on("change", function(){
         $.ajax({
             headers: {
@@ -257,6 +294,16 @@
     
     $(document).ready(function(){
         for(let status of $('.user_status')){
+            if (status.value == 1)
+            {
+                status.checked = true;
+            } 
+            else{
+                status.checked = false;
+            }
+        }
+
+        for(let status of $('.user_otp')){
             if (status.value == 1)
             {
                 status.checked = true;

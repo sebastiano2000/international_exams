@@ -77,6 +77,11 @@ class Question extends Model
         $this->answers()->delete();
         return $this->delete();
     }
+    
+    static function deleteAll($request)
+    {
+        return Question::whereIn('id', $request->id)->delete();
+    }
 
     public function answers()
     {

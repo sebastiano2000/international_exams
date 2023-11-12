@@ -86,6 +86,11 @@ class User extends Authenticatable
     {
         return User::where('id', $request->id)->update(['suspend' => $request->suspend]);
     }
+    
+    static function otpUpdate($request)
+    {
+        return User::where('id', $request->id)->update(['otp' => $request->otp]);
+    }
 
     static function limitUpdate($request)
     {

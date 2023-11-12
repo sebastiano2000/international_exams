@@ -35,6 +35,7 @@ Route::group(['prefix' => '/'],function(){
 Route::group(['prefix' => 'exam'],function(){
     Route::get('/', [QuestionController::class, "exam"])->name('exam');
     Route::get('/test', [QuestionController::class, "test"])->name('exam.test');
+    Route::get('/try', [QuestionController::class, "try"])->name('exam.try');
     Route::get('/final-exam', [QuestionController::class, "finalExam"])->name('exam.final');
 });
 
@@ -91,6 +92,7 @@ Route::group(['prefix' => 'user'],function(){
     Route::get('/upsert/{user?}',[UserController::class,'upsert'])->name('user.upsert');
     Route::get('/filter',[UserController::class,'filter'])->name('user.filter');
     Route::post('/status/update',[UserController::class,'status'])->name('user.status');
+    Route::post('/status/otp',[UserController::class,'otp'])->name('user.otp');
     Route::post('/limit/update',[UserController::class,'limit'])->name('user.limit');
     Route::post('/modify',[UserController::class,'modify'])->name('user.modify');
     Route::post('/modify/password',[UserController::class,'modifyPassword'])->name('user.password');
@@ -101,6 +103,7 @@ Route::group(['prefix' => 'question'],function(){
     Route::get('/', [QuestionController::class,"index"])->name('question');
     Route::get('/upsert/{question?}',[QuestionController::class,'upsert'])->name('question.upsert');
     Route::get('/filter',[QuestionController::class,'filter'])->name('question.filter');
+    Route::post('/delete-all',[QuestionController::class,'deleteAll'])->name('questions.delete');
     Route::post('/modify',[QuestionController::class,'modify'])->name('question.modify');
     Route::post('/delete/{question}',[QuestionController::class,'destroy'])->name('question.delete');
     Route::post('/import',[QuestionController::class,'import'])->name('question.import');
