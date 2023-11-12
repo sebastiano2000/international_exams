@@ -11,23 +11,23 @@
             </div>
             <div class="text-container">
                 <h3>اختبار للأسئلة المفضلة</h3>
-                @if($slice->first()->paragraph)<p class="question" style="font-size: 22px;" onmousedown="return false" onselectstart="return false">{{$slice->first()->paragraph->title}}</p>@endif
+                @if($slice->first()->paragraph)<p class="test-paragraph" style="text-align: left; direction: ltr;" onmousedown="return false" onselectstart="return false">{!! nl2br($slice->first()->paragraph->title) !!}</p>@endif
                 <p style="font-size: 24px;" onmousedown="return false" onselectstart="return false">{{$slice->first()->title}}</p>
             </div>
             <form>
                 <div class="quiz-options">
                     @foreach($slice->first()->answers as $key => $answer)
                         <input type="radio" question_id="{{$slice->first()->id}}" answer_id="{{$answer->id}}" class="input-radio" number="one-{{$key}}" id="one-{{$key + 1}}" name="answer-{{$slice->first()->id}}" required>
-                        <label class="radio-label" for="one-{{$key + 1}}" answer_id="{{$answer->id}}">
+                        <label class="radio-label" style="direction: ltr; text-align: left;" for="one-{{$key + 1}}" answer_id="{{$answer->id}}">
                             <span class="alphabet">
                                 @if($key == 0)
-                                    ا
+                                    A
                                 @elseif($key == 1)
-                                    ب
+                                    B
                                 @elseif($key == 2)
-                                    ج
+                                    C
                                 @elseif($key == 3)
-                                    د
+                                    D
                                 @endif
                             </span> {{ $answer->title }}
                         </label>

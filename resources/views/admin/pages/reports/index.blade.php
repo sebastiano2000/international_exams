@@ -34,23 +34,25 @@
                                         </thead>
                                         <tbody>
                                             @foreach($reports as $report)
-                                                <tr class="record">
-                                                    <td>{{ $report->question->title }}</td>
-                                                    <td>{{ $report->notes }}</td>
-                                                </tr>
+                                                @if($report->question)
+                                                    <tr class="record">
+                                                        <td>  {{ $report->question->title }} </td>
+                                                        <td>{{ $report->notes }}</td>
+                                                    </tr>
+                                                @else
+                                                @endif
                                             @endforeach
                                         </tbody>  
                                     </table>
-                                </div>
-                                <nav aria-label="Page navigation example2" class="mt-2">
-                                    <ul class="pagination">
-                                        @for($i = 1; $i <= $reports->lastPage(); $i++)
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page={{$i}}">{{$i}}</a>
-                                            </li>
-                                        @endfor
-                                    </ul>
+                                  <nav aria-label="Page navigation example" class="mt-2">
+                                        <ul class="pagination">
+                                            @for($i = 1; $i <= $reports->lastPage(); $i++)
+                                                    <li class="page-item @if(request()->input('page')== $i ) active @else @endif"><a class="page-link" href="?name={{request()->input('name')}}&page={{$i}}">{{$i}}</a></li>
+                                            @endfor
+                            
+                                        </ul>
                                 </nav>
+                                </div>
                             </div>
                         </div>
                     </div>

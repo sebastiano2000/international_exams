@@ -71,16 +71,14 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
-                            <nav aria-label="Page navigation example" class="mt-2">
-                                <ul class="pagination">
-                                    @for($i = 1; $i <= $subjects->lastPage(); $i++)
-                                        <li class="page-item">
-                                            <a class="page-link" href="?page={{$i}}">{{$i}}</a>
-                                        </li>
+                                <nav aria-label="Page navigation example" class="mt-2">
+                                    <ul class="pagination">
+                                        @for($i = 1; $i <= $subjects->lastPage(); $i++)
+                                                <li class="page-item @if(request()->input('page')== $i ) active @else @endif"><a class="page-link" href="?name={{request()->input('name')}}&page={{$i}}">{{$i}}</a></li>
                                         @endfor
-                                </ul>
-                            </nav>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>

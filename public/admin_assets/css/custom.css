@@ -6589,3 +6589,13 @@ span:active {
 * {
 	transition: all .32s ease;
 }
+
+.test-paragraph {
+    font-size: 22px;
+}
+
+@media (max-width: 1000px) {
+    .test-paragraph {
+        font-size: 14px;
+    }
+}

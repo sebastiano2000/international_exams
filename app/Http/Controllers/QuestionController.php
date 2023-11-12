@@ -25,6 +25,7 @@ class QuestionController extends Controller
         if ($page == '1') {
             Auth::user()->update(['finish' => 0]);
             UserResult::where('user_id', Auth::user()->id)->delete();
+            session()->put('exam.data', null);
         }
         
         $count = Question::where('subject_id', $request->subject_id)->count();
@@ -34,7 +35,18 @@ class QuestionController extends Controller
         $array_questions = session()->get('exam.data');
 
         if($array_questions && $array_questions->where('id', $array_questions->pluck('id')->first())->where('subject_id', $request->subject_id)->first()){
-            $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+            if($array_questions->last()){
+                if($array_questions->last()->paragraph_id){
+                    $array_question = Question::where('paragraph_id', $array_questions->last()->paragraph_id)->whereNotIn('id', $array_questions->pluck('id'))->orderBy('id', 'asc')->with('answers')->take(1)->first();
+                }
+            }
+            else {
+                $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+            }
+
+            if(!$array_question){
+                $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+            }
 
             if($array_question){
                 $array_questions->push($array_question);
@@ -45,6 +57,10 @@ class QuestionController extends Controller
         }
         else {
             $array_questions = Question::inRandomOrder()->where('subject_id', $request->subject_id)->with('answers')->take(1)->get();
+
+            if($array_questions->first()->paragraph_id){
+                $array_questions = Question::where('paragraph_id', $array_questions->first()->paragraph_id)->orderBy('id', 'asc')->with('answers')->take(1)->get();
+            }
         }
 
         session()->put('exam.data', $array_questions);
@@ -93,7 +109,7 @@ class QuestionController extends Controller
 
                 if(!$question){
                     UserTest::where('user_id', Auth::user()->id)->delete();
-                    $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->get();
+                    $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
                 }
 
                 $offset_array[$offset] = [ 'id' => $question->id ];
@@ -104,17 +120,26 @@ class QuestionController extends Controller
         }
         else {
             $array_questions = UserTest::where('user_id', Auth::user()->id)->pluck('question_id');
+            
+            if(count($array_questions) > 0){
+                $last = Question::where('id', $array_questions->last())->first();
+                $question = null;
+                
+                if($last->paragraph_id){
+                    $question = Question::where('paragraph_id', $last->paragraph_id)->whereNotIn('id', $array_questions)->orderBy('id', 'asc')->with('answers')->take(1)->first();
+                }
 
-            if($array_questions){
-                $question = Question::whereNotIn('id', $array_questions)->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+                if (!$question) {
+                    $question = Question::whereNotIn('id', $array_questions)->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+                }
             }
             else {
-                $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->get();
+                $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
             }
-
+            
             if (!$question) {
                 UserTest::where('user_id', Auth::user()->id)->delete();
-                $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->get();
+                $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
             }
 
             $offset_array[$offset] = ['id' => $question->id];
@@ -167,12 +192,22 @@ class QuestionController extends Controller
                 $subject_id = 2;
                 
                 $count2 = $array_questions->where('subject_id', 2)->count();
+
                 if($count2 == 35){
                     $subject_id = 3;
                 }
             }
 
-            $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
+            if($subject_id == 3){
+                $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->where('paragraph_id', $array_questions->last()->paragraph_id)->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
+
+                if(!$array_question){
+                    $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
+                }
+            }
+            else {
+                $array_question = Question::whereNotIn('id', $array_questions->pluck('id'))->inRandomOrder()->where('subject_id', $subject_id)->with('answers')->take(1)->first();
+            }
 
             if($array_question){
                 $array_questions->push($array_question);

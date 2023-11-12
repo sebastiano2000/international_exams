@@ -58,12 +58,20 @@
                                             }}</button>
                                     </div>
                                 </form>
+                                <form method="post" enctype="multipart/form-data" action="{{ route('questions.delete') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('question') }}">
+                                @csrf
+                                    <button   class="btn btn-sm bg-danger-light " style="float:left"><i class="ti-trash"></i> {{ __('pages.delete') }} الاسئله المحدده 
+                                    </button>
                                 <table id="example" class=" display table table-hover table-center mb-0"
                                     filter="{{ route('question.filter') }}">
                                     <thead>
                                         <tr>
                                             <th>اسم المادة</th>
                                             <th>رأس السؤال</th>
+                                            <th>   
+                                                الاسئله المراد حذفها 
+                                            </th>
+
                                             <th class="text-end">{{ __('pages.actions') }}</th>
                                         </tr>
                                     </thead>
@@ -72,6 +80,8 @@
                                             <tr class="record">
                                                 <td>{{ $question->subject->name }}</td>
                                                 <td>{{ $question->title }}</td>
+                                           	<td class="text-center"><input name='id[]' type="checkbox" id="checkItem" value="{{$question->id}}"> </td>
+						
                                                 <td class="text-end">
                                                     <div class="actions">
                                                         <a href="{{ route('question.upsert',['question' => $question->id]) }}"
@@ -89,16 +99,16 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                                 </form>
                             <nav aria-label="Page navigation example" class="mt-2">
                                 <ul class="pagination">
                                     @for($i = 1; $i <= $questions->lastPage(); $i++)
-                                        <li class="page-item">
-                                            <a class="page-link" href="?page={{$i}}">{{$i}}</a>
-                                        </li>
+                                            <li class="page-item @if(request()->input('page')== $i ) active @else @endif"><a class="page-link" href="?name={{request()->input('name')}}&page={{$i}}">{{$i}}</a></li>
                                     @endfor
+                    
                                 </ul>
                             </nav>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -24,7 +24,6 @@ class ImportParagraph implements ToArray
 
     public function model(array $row)
     {
-        dd($row);
         if (empty($row[0])) {
             return null;
         }
@@ -94,7 +93,7 @@ class ImportParagraph implements ToArray
                 );
             }
             else {
-                $paragraph = Paragraph::where('title', trim($array[$key-($key%5)][5]))->first();
+                $paragraph = Paragraph::where('title', trim($array[$key-($key%5)][5]))->latest()->first();
             }
 
             $question = Question::create(
