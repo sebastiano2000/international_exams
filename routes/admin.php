@@ -94,10 +94,16 @@ Route::group(['prefix' => 'contact'],function(){
     Route::post('/delete/{contact}',[ContactController::class,'destroy'])->name('contact.delete');
 });
 
+Route::group(['prefix' => '/payment'],function(){
+    Route::post('/subscription', [UserController::class,"payment"])->name('payment.subscription');
+    Route::get('/success', [UserController::class,"paymentSucess"])->name('payment.success');
+    Route::get('/failure', [UserController::class,"paymentFailure"])->name('payment.failure');
+    Route::post('/save', [UserController::class,"save"])->name('payment.save');
+});
+
 Route::group(['prefix' => 'user'],function(){
     Route::get('/', [UserController::class,"index"])->name('user');
     Route::post('/users', [UserController::class, 'users'])->name('users');
-    Route::post('/usersTenant', [UserController::class, 'usersTenant'])->name('usersTenant');
     Route::post('api/fetch-minor', [UserController::class, 'fetchMainor'])->name('user.fetch');
     Route::get('/upsert/{user?}',[UserController::class,'upsert'])->name('user.upsert');
     Route::get('/filter',[UserController::class,'filter'])->name('user.filter');

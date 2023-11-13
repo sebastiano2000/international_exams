@@ -27,7 +27,7 @@
                     <div class="row justify-content-center">
                         @foreach($subjects as $subject)
                             <div class="col-auto">
-                                <a @if(Auth::user()->suspend) href="{{ route('exam.test', ['subject_id' => $subject->id]) }}" @else href="{{ route('pricing') }}" @endif>
+                                <a @if(Auth::user()->suspend) href="{{ route('exam.test', ['subject_id' => $subject->id]) }}" @else href="{{ route('pricing.index') }}" @endif>
                                     <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/review.svg'); width: 411px; height: 411px;">
                                         <h1 style="font-size: 24px; margin-top: -320px;">
                                             {{$subject->name}} <br> REVIEW 
@@ -36,7 +36,7 @@
                                 </a>
                             </div>
                             <div class="col-auto">
-                                <a @if(Auth::user()->suspend) href="{{ route('exam', ['subject_id' => $subject->id]) }}" @else href="{{ route('pricing') }}" @endif>
+                                <a @if(Auth::user()->suspend) href="{{ route('exam', ['subject_id' => $subject->id]) }}" @else href="{{ route('pricing.index') }}" @endif>
                                     <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/test.svg'); width: 411px; height: 411px;">
                                         <h1 style="font-size: 24px; margin-top: -320px;">
                                             {{$subject->name}} <br> PRACTICE TEST 
@@ -46,7 +46,7 @@
                             </div>
                         @endforeach
                         <div class="col-auto">
-                            <a @if(Auth::user()->suspend) href="{{ route('exam.final') }}" @else href="{{ route('pricing') }}" @endif>
+                            <a @if(Auth::user()->suspend) href="{{ route('exam.final') }}" @else href="{{ route('pricing.index') }}" @endif>
                                 <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/final.svg'); width: 411px; height: 411px;"></div>
                             </a>
                         </div>

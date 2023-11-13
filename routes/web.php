@@ -54,11 +54,7 @@ Route::group(['prefix' => 'forget-password'], function () {
 });
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('/admin');
-    } else {
-        return view('home');
-    }
+    return view('home');
 });
 
 Route::group(['prefix' => '/payment'],function(){

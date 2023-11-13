@@ -44,24 +44,26 @@
                                     redirect="{{ route('prices') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="@isset($price->id){{$price->id}}@endisset">
-                                    <div class="col-md-6">
-                                        <label class="mb-2">
-                                            اسم الباقة
-                                        </label>
-                                        <input class="form-control" type="text" name="name"
-                                            placeholder="{{ __('pages.name') }}"
-                                            value="@isset($price->id){{$price->name}}@endisset">
-                                        <p class="error error_name"></p>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="mb-2">
-                                            سعر الباقة
-                                        </label>
-                                        <input class="form-control" type="number" name="price"
-                                            placeholder="سعر الباقة"
-                                            value="@isset($price->id){{$price->price}}@endisset">
-                                        <p class="error error_name"></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="mb-2">
+                                                اسم الباقة
+                                            </label>
+                                            <input class="form-control" type="text" name="name"
+                                                placeholder="{{ __('pages.name') }}"
+                                                value="@isset($price->id){{$price->name}}@endisset">
+                                            <p class="error error_name"></p>
+                                        </div>
+    
+                                        <div class="col-md-6">
+                                            <label class="mb-2">
+                                                سعر الباقة
+                                            </label>
+                                            <input class="form-control" type="number" name="price"
+                                                placeholder="سعر الباقة"
+                                                value="@isset($price->id){{$price->price}}@endisset">
+                                            <p class="error error_name"></p>
+                                        </div>
                                     </div>
 
                                     <div class="submit-section">

@@ -108,8 +108,8 @@ class User extends Authenticatable
             'variable4' => null,
             'variable5' => null,
             'paymentType' => '0',
-            'responseUrl' => 'https://localhost:8000/admin/payment/success',
-            'failureUrl' => 'https://localhost:8000/admin/payment/failure',
+            'responseUrl' => 'https://localhost:8000/payment/success',
+            'failureUrl' => 'https://localhost:8000/payment/failure',
             'version' => '2.0',
             'isOrderReference' => '1'
         ]);

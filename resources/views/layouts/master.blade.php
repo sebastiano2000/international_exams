@@ -26,6 +26,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('admin_assets/node_modules/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
@@ -131,7 +132,6 @@
 
         <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-    @yield('js')
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -143,8 +143,12 @@
     <script src="{{ asset('assets/lib/isotope/isotope.pkgd.min.js')}}"></script>
     <script src="{{ asset('assets/lib/lightbox/js/lightbox.min.js')}}"></script>
 
-    <!-- Template Javascript -->
+    <script src="{{ asset('admin_assets/node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin_assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin_assets\js\bootstrap.main.js') }}"></script>
+    <script src="{{ asset('admin_assets/js/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js')}}"></script>
+    @yield('js')
 </body>
 
 </html>
