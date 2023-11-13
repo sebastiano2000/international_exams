@@ -144,6 +144,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('contact.admin') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    رسائل تواصل معنا
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('log') }}">
                                     <i class="ti-control-record text-success"></i>
                                     سجل العمليات

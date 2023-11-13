@@ -88,11 +88,9 @@ Route::group(['prefix' => 'total'],function(){
 });
 
 Route::group(['prefix' => 'contact'],function(){
-    Route::get('/', [ContactController::class,"index"])->name('contact');
+    Route::get('/', [ContactController::class,"adminIndex"])->name('contact.admin');
     Route::get('/filter',[ContactController::class,'filter'])->name('contact.filter');
-    Route::get('/upsert/{contact?}',[ContactController::class,'upsert'])->name('contact.upsert');
     Route::post('/modify',[ContactController::class,'modify'])->name('contact.modify');
-    Route::post('/delete/{contact}',[ContactController::class,'destroy'])->name('contact.delete');
 });
 
 Route::group(['prefix' => '/payment'],function(){
@@ -135,7 +133,6 @@ Route::group(['prefix' => 'paragraph'],function(){
     Route::post('/importParagraph',[ParagraphController::class,'importParagraph'])->name('paragraph.import');
 });
 
-
 Route::group(['prefix' => 'subject'],function(){
     Route::get('/', [SubjectController::class,"index"])->name('subject');
     Route::get('/upsert/{subject?}',[SubjectController::class,'upsert'])->name('subject.upsert');
@@ -143,7 +140,6 @@ Route::group(['prefix' => 'subject'],function(){
     Route::post('/modify',[SubjectController::class,'modify'])->name('subject.modify');
     Route::post('/delete/{subject}',[SubjectController::class,'destroy'])->name('subject.delete');
 });
-
 
 Route::group(['prefix' => 'profile'],function(){
     Route::get('/', [ProfileController::class, "index"])->name('profile');

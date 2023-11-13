@@ -26,6 +26,8 @@ class ContactRequest  extends FormRequest
     {
         return [
             'phone' => 'required|integer',
+            'name' => 'required|integer',
+            'message' => 'required|integer',
         ];
     }
 
@@ -34,6 +36,8 @@ class ContactRequest  extends FormRequest
     {
         return [
             'name' => 'الإسم',
+            'message' => 'محتوي الرساله',
+            'phone' => 'رقم الجوال',
         ];
     }
 }

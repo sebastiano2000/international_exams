@@ -11,6 +11,9 @@ class Contact extends Model
     
     protected $fillable = [
         'name',
+        'phone',
+        'email',
+        'message'
     ];
     
     static function upsertInstance($request)
