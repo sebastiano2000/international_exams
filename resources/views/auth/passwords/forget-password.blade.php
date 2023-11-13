@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+{{-- @extends('layouts.app') --}}
+@extends('layouts.master')
 @section('content')
 <section class="vh-100">
     <div class="container h-100">
@@ -17,7 +17,7 @@
                                     <x-country-phone-code></x-country-phone-code>
                                     <input id="phone" type="text"
                                         class="form-control mr-2 @error('phone') is-invalid @enderror"
-                                        placeholder="رقم الهاتف"" name=" phone" value="{{ old('phone') }}" required
+                                        placeholder="رقم الهاتف" name=" phone" value="{{ old('phone') }}" required
                                         autocomplete="phone">
                                 </div>
                                 @error('phone')
