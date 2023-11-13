@@ -32,10 +32,11 @@
         'login_to' => 'تسجيل دخول الي :attribute',
         //register
         'register_to' => 'تسجيل البيانات الي :attribute',
-        'Full name'=>'الاسم بالكامل',
+        'Full name'=>'الاسم ثلاثي',
+        'high' => 'اسم الثانوية',
         'id' => 'هوية شخصية',
         'phone_is_not_registered'=>'رقم الهاتف ليس مسجل لدينا',
-        'Email Address'=>'البريد الالكتروني ',
+        'Email Address'=>'البريد الالكتروني',
         'Password'=>'الرقم السري',
         'Data is being verified'=>'جاري التحقق من البيانات',
         'Confirm Password'=>'تأكيد الرقم السري',

@@ -45,7 +45,7 @@
                                     الدخول</button>
                             </div>
                         </form>
-                        {{-- <div class="row">
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="d-flex no-block align-items-center justify-content-between">
                                     <a href="{{ route('forget-password.reset') }}" class="text-muted">
@@ -56,7 +56,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>

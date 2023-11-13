@@ -44,17 +44,17 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ route('home') }}">
-                        <b>
-                            <img src="{{ asset('admin_assets/images/favicon.jpeg') }}" alt="homepage" class="dark-logo"
-                                style="max-height: 50px" />
-                            <img src="{{ asset('admin_assets/images/favicon.jpeg') }}" alt="homepage" class="light-logo"
-                                style="max-height: 50px" />
+                        <b class="small-icon">
+                            <!-- <img src="{{ asset('admin_assets/images/favicon.jpeg') }}" alt="homepage" class="dark-logo"
+                                style="max-height: 50px" /> -->
+                            <!-- <img src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage" class="light-logo"
+                                style="max-height: 50px; min-width: 50px;" /> -->
                         </b>
                         <span>
-                            <img src="{{ asset('admin_assets/images/logoq.png') }}" alt="homepage"
-                                class="dark-logo me-2" style="max-height: 50px" />
-                            <img src="{{ asset('admin_assets/images/logoq.png') }}" class="light-logo me-2"
-                                alt="homepage" style="max-height: 50px""/>
+                            <!-- <img src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage"
+                                class="dark-logo me-2" style="max-height: 50px" /> -->
+                            <img src="{{ asset('admin_assets/images/logo.svg') }}" class="light-logo me-2"
+                                alt="homepage" style="max-height: 50px; width: 150px;"/>
                         </span>
                     </a>
                 </div>

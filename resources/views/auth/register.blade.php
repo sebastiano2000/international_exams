@@ -18,7 +18,7 @@
                                         <label class="form-label" for="name">
                                             {{__('pages.Full name')}}
                                         </label>
-                                        <input id="name" type="name" class="form-control" name="name"
+                                        <input id="name" type="text" class="form-control" name="name"
                                             value="{{ old('name') }}" required autocomplete="name">
                                     </div>
 
@@ -30,7 +30,8 @@
                                             <x-country-phone-code></x-country-phone-code>
                                             <input id="phone" type="text"
                                                 class="form-control mr-2 @error('phone') is-invalid @enderror"
-                                                placeholder="رقم الهاتف"" name=" phone" value="{{ old('phone') }}"
+                                                style="width: 33% !important;"
+                                                placeholder="رقم الهاتف" name=" phone" value="{{ old('phone') }}"
                                                 required autocomplete="phone">
                                         </div>
                                         @error('phone')
@@ -38,6 +39,22 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
+                                    </div>
+
+                                    <div class="form-outline flex-fill mb-4">
+                                        <label class="form-label" for="name">
+                                            {{__('pages.Email Address')}}
+                                        </label>
+                                        <input id="email" type="email" class="form-control" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email">
+                                    </div>
+
+                                    <div class="form-outline flex-fill mb-4">
+                                        <label class="form-label" for="name">
+                                            {{__('pages.high')}}
+                                        </label>
+                                        <input id="high" type="text" class="form-control" name="high"
+                                            value="{{ old('high') }}" required autocomplete="high">
                                     </div>
 
                                     <div class="form-outline flex-fill mb-4">
@@ -88,11 +105,13 @@
 <script>
     function validate() {
         var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var high = document.getElementById("high").value;
         var password = document.getElementById("password").value;
         var password_confirmation = document.getElementById("password-confirm").value;
         var name = document.getElementById("name").value;
 
-        if (phone == "" || password == "" || password_confirmation == "" || name == "") {
+        if (phone == "" || password == "" || password_confirmation == "" || name == "" || high == "" || email == "") {
             event.preventDefault();
             alert("يجب ملئ جميع الحقول");
         }

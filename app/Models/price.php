@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class price extends Model
+class Price extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class price extends Model
 
 
     protected $fillable = [
-        'name',"price",
+        'name', "price",
     ];
 
 
@@ -21,7 +21,7 @@ class price extends Model
     {
         //updating the package 
        
-        if( price::updateOrCreate(
+        if( Price::updateOrCreate(
             [
                 'id' => $request->id ?? null
             ],

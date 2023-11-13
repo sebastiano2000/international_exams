@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,24 +29,22 @@ Route::group(['prefix' => 'register'], function () {
     Route::get('/success', [RegisterController::class, 'success'])->name('register.success');
 });
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Auth::routes();
 
-// Route::group(['prefix' => 'forget-password'], function () {
-//     Route::get('/', [ResetPasswordController::class, 'index'])->name('forget-password.reset');
-//     Route::post('/check', [ResetPasswordController::class, 'check'])->name('forget-password.check');
+Route::group(['prefix' => 'forget-password'], function () {
+    Route::get('/', [ResetPasswordController::class, 'index'])->name('forget-password.reset');
+    Route::post('/check', [ResetPasswordController::class, 'check'])->name('forget-password.check');
 
-//     Route::post('/change-password', [ResetPasswordController::class, 'changePassword'])->name('forget-password.change-password');
-//     Route::get('/change-password/verfication', [ResetPasswordController::class, 'changeForm'])->name('forget-password.change-password.form');
+    Route::post('/change-password', [ResetPasswordController::class, 'changePassword'])->name('forget-password.change-password');
+    Route::get('/change-password/verfication', [ResetPasswordController::class, 'changeForm'])->name('forget-password.change-password.form');
 
-//     Route::post('/store', [ResetPasswordController::class, 'store'])->name('forget-password.change-password.store');
-//     Route::get('/success', [ResetPasswordController::class, 'success'])->name('forget-password.success');
-// });
-
+    Route::post('/store', [ResetPasswordController::class, 'store'])->name('forget-password.change-password.store');
+    Route::get('/success', [ResetPasswordController::class, 'success'])->name('forget-password.success');
+});
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -53,4 +52,10 @@ Route::get('/', function () {
     } else {
         return redirect('login');
     }
+});
+
+Route::group(['prefix' => '/payment'],function(){
+    Route::get('/success', [UserController::class,"paymentSucess"])->name('payment.success');
+    Route::get('/failure', [UserController::class,"paymentFailure"])->name('payment.failure');
+    Route::post('/save', [UserController::class,"save"])->name('payment.save');
 });
