@@ -25,19 +25,20 @@ class ContactRequest  extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'required|integer',
-            'name' => 'required|integer',
-            'message' => 'required|integer',
+            'phone' => 'required',
+            'name' => 'required',
+            'message' => 'required',
         ];
     }
 
  
-    public function attributes():array
+    public function messages()
     {
         return [
-            'name' => 'الإسم',
-            'message' => 'محتوي الرساله',
-            'phone' => 'رقم الجوال',
+            'name.required' => 'يجب عليك إدخال  الإسم',
+            'phone.required' => 'يجب عليك إدخال رقم الجوال',
+            'message.required' => 'يجب عليك إدخال  محتوي الرساله',
         ];
     }
+   
 }

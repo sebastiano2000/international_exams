@@ -50,7 +50,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="">
+                        <a href="{{route('register')}}">
                             <div class="feature-item bg-light rounded text-center p-4">
                                 <h5 class="mb-3">تجربة النظام Demo  </h5>
                                 <img class="img-fluid" src="{{ asset('assets/img/Picture2.png')}}" alt="Image">
@@ -88,37 +88,42 @@
         <div class="row justify-content-center">
             <div class="col-lg-7">
                 <div class="wow fadeInUp" data-wow-delay="0.3s">
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">الإسم</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">البريد الإلكتروني</label>
-                                </div>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <div class="form-floating">
-                                    <input type="phone" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">رقم الجوال </label>
-                                </div>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                    <label for="message">محتوي الرساله</label>
-                                </div>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <button class="btn btn-primary w-100 py-3" type="submit">إرسال</button>
-                            </div>
-                        </div>
-                    </form>
+                    <form method="post" enctype="multipart/form-data" action="{{ route('contact.modify') }}"class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}"title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}">
+                        @csrf
+                       <div class="row g-3">
+                           <div class="col-md-6">
+                               <div class="form-floating">
+                                   <input  name="name" type="text" class="form-control mt-3" id="name" placeholder="Your Name">
+                                   <label for="name">الإسم</label>
+                                   <p class="error error_name"></p>
+                               </div>
+                           </div>
+                           <div class="col-md-6">
+                               <div class="form-floating">
+                                   <input name="email" type="email" class="form-control mt-3" id="email" placeholder="Your Email">
+                                   <label for="email">البريد الإلكتروني</label>
+                                   <p class="error error_email"></p>
+                               </div>
+                           </div>
+                           <div class="col-12 mt-3">
+                               <div class="form-floating">
+                                   <input name="phone" type="phone" class="form-control" id="phone" placeholder="phone">
+                                   <label for="subject">رقم الجوال </label>
+                                   <p class="error error_phone"></p>
+                               </div>
+                           </div>
+                           <div class="col-12 mt-3">
+                               <div class="form-floating">
+                                   <textarea name="message" class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                   <label for="message">محتوي الرساله</label>
+                                   <p class="error error_message"></p>
+                               </div>
+                           </div>
+                           <div class="col-12 mt-3">
+                               <button class="btn btn-primary w-100 py-3" type="submit">إرسال</button>
+                           </div>
+                       </div>
+                   </form>
                 </div>
             </div>
         </div>

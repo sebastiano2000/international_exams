@@ -835,3 +835,8 @@ pricing-end
 .btn-primary {
     background-color: #fc8422 !important;
 }
+
+.error {
+    width: 100%;
+    color: #dc3545;
+}

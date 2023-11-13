@@ -58,10 +58,35 @@
                         <div class="navbar-nav mx-auto py-0">
                             <a href="/" class="nav-item nav-link active">الرئيسيه</a>
                             <a href="{{route('contact')}}" class="nav-item nav-link">تواصل  معنا</a>
-                            <a href="/" class="nav-item nav-link">Demo </a>
+                            <a href="{{route('register')}}" class="nav-item nav-link">Demo </a>
                             <a href="{{route('pricing.index')}}" class="nav-item nav-link">الأسعار</a>
                         </div>
+   
+                    @guest	
                         <a href="{{route('login')}}" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">تسجيل الدخول </a>
+                    @else
+                    <div class="navbar-nav py-0">
+
+                        <ul class="navbar-nav header-navbar-rht">
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        @if (Auth::user()->isAdmin())
+                                            <a class="dropdown-item" href="{{ route('home') }}">{{ __('pages.dashboard') }}</a>
+                                        @else
+                                        @endif
+                                        <a class="dropdown-item"  onclick="event.preventDefault();document.getElementById('logout-form').submit();" aria-expanded="false" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                            {{ __('pages.Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+                    @endguest
                     </div>
                 </nav>
             </div>
@@ -148,6 +173,8 @@
     <script src="{{ asset('admin_assets\js\bootstrap.main.js') }}"></script>
     <script src="{{ asset('admin_assets/js/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js')}}"></script>
+    <script src="{{ asset('admin_assets\js\ajaxActions.js') }}"></script>
+    <script src="{{ asset('admin_assets\js\sweetalert2.js') }}"></script>
     @yield('js')
 </body>
 

@@ -90,7 +90,6 @@ Route::group(['prefix' => 'total'],function(){
 Route::group(['prefix' => 'contact'],function(){
     Route::get('/', [ContactController::class,"adminIndex"])->name('contact.admin');
     Route::get('/filter',[ContactController::class,'filter'])->name('contact.filter');
-    Route::post('/modify',[ContactController::class,'modify'])->name('contact.modify');
 });
 
 Route::group(['prefix' => '/payment'],function(){
