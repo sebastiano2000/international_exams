@@ -57,7 +57,7 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav mx-auto py-0">
                             <a href="/" class="nav-item nav-link active">الرئيسيه</a>
-                            <a href="{{route('terms')}}" class="nav-item nav-link">تواصل  معنا</a>
+                            <a href="{{route('contact')}}" class="nav-item nav-link">تواصل  معنا</a>
                             <a href="/" class="nav-item nav-link">Demo </a>
                             <a href="{{route('pricing.index')}}" class="nav-item nav-link">الأسعار</a>
                         </div>
@@ -78,7 +78,7 @@
                     <div class="col-md-6 col-lg-4">
                         <p class="section-title text-white h5 mb-4">الروابط<span></span></p>
                         <a class="btn btn-link" href="/">الرئيسيه</a>
-                        <a class="btn btn-link" href="{{route('login')}}">تواصل معنا </a>
+                        <a class="btn btn-link" href="{{route('contact')}}">تواصل معنا </a>
                         <a class="btn btn-link" href="">ديمو</a>
                         <a class="btn btn-link" href="{{route('pricing.index')}}">الأسعار</a>
                         <a class="btn btn-link" href="{{route('terms')}}">الشروط والأحكام</a>
