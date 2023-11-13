@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Price;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +19,14 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',["prices"=>Price::all()]);
+});
+
+
+Route::get("/TermsAndConditions",function(){
+
+    $prices=Price::all();
+    return view('TermsAndConditions',["prices"=>$prices]);
 });
 
 
