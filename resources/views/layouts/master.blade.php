@@ -56,10 +56,10 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav mx-auto py-0">
-                            <a href="/" class="nav-item nav-link active">الرئيسيه</a>
-                            <a href="{{route('contact')}}" class="nav-item nav-link">تواصل  معنا</a>
-                            <a href="{{route('register')}}" class="nav-item nav-link">Demo </a>
-                            <a href="{{route('pricing.index')}}" class="nav-item nav-link">الأسعار</a>
+                            <a href="/" class="nav-item nav-link {{is_active('')}} ">الرئيسيه</a>
+                            <a href="{{route('contact')}}" class="nav-item nav-link {{is_active('contact')}} ">تواصل  معنا</a>
+                            <a href="{{route('register')}}" class="nav-item nav-link  {{is_active('register')}}">Demo </a>
+                            <a href="{{route('pricing.index')}}" class="nav-item nav-link {{is_active('pricing')}}">الأسعار</a>
                         </div>
    
                     @guest	
