@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,9 @@ Route::group(['prefix' => 'pricing'], function () {
     Route::post('/data', [PriceController::class, 'create'])->name('register.create');
 });
 
+Route::group(['prefix' => 'we'], function () {
+    Route::get('/', [HomeController::class,"index"])->name('home.index');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

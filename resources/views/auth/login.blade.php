@@ -15,63 +15,77 @@
     </div>
 </div>
 
-<div class="container-xxl py-5">
-    <div class="container py-5 px-lg-5">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <form class="form-horizontal form-material" id="loginform" action="{{ route('login') }}" method="POST">
-                    @csrf
-                    <p class="section-title text-secondary">تسجيل الدخول لبنك الأسئلة الموضوعية<span></span></p>
-                    @if (session('message'))
-                        <div class="alert alert-danger">{{ session('message') }}</div>
-                    @endif
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                            <input class="form-control" type="text" required="" placeholder="رقم الهاتف" name="phone">
+<div class="container-xxl ">
+    <div class="container px-lg-5">
+        <div class="card text-black shadow" style="border-radius: 25px;">
+            <div class=" card-body row g-5 align-items-center">
+                
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <form class="form-horizontal form-material" id="loginform" action="{{ route('login') }}" method="POST">
+                        @csrf
+                        <p class="section-title text-secondary">تسجيل الدخول لبنك الأسئلة الموضوعية<span></span></p>
+                        <div class="skill mb-4">
+                            @if (session('message'))
+                                <div class="alert alert-danger">{{ session('message') }}</div>
+                            @endif
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <input class="form-control col-12" type="text" required="" placeholder="رقم الهاتف" name="phone">
+                            </div>
                             @error('phone')
+                            <div class="col-12 mb-4 mt-2 ">
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                    <input class="form-control" type="password" required="" placeholder="كلمة السر"
+                                        name="password">
+                            </div>
+                            @error('password')
                             <div class="alert alert-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </div>
                             @enderror
                         </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="d-flex justify-content-between">
-                                <input class="form-control" type="password" required="" placeholder="كلمة السر"
-                                    name="password">
-                        </div>
-                    </div>
-                    <div class="skill mb-4">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center justify-content-between">
-                                    <a href="{{ route('forget-password.reset') }}" class="text-muted">
-                                        نسيت كلمة السر؟
-                                    </a>
-                                    <a href="{{ route('register') }}" class="text-muted">
-                                        ليس لديك حساب؟
-                                    </a>
+                        <div class="skill mb-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex no-block align-items-center justify-content-between">
+                                        <a href="{{ route('forget-password.reset') }}" class="text-muted">
+                                            نسيت كلمة السر؟
+                                        </a>
+                                        <a href="{{ route('register') }}" class="text-muted">
+                                            ليس لديك حساب؟
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <button class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3 jus" type="submit">تسجيل
-                        الدخول</button>
-                </form>
-                    <a class="mt-3" href="https://wa.me/+96596615789">
-                        <h2 style="text-">
-                            WhatsApp
-                            <img src="{{ asset('admin_assets/images/whatsapp.png') }}" alt="whatsapp" width="40px">
-                        </h1>
-                    </a>
+    
+                        <button class="btn btn-primary py-sm-3 px-sm-5 form-control rounded-pill jus  btn-khareej" type="submit">تسجيل
+                            الدخول</button>
+                    </form>
+                        <a class=" text-center " href="https://wa.me/+96596615789">
+                            <h2 class="my-4">
+                                WhatsApp
+                                <img src="{{ asset('admin_assets/images/whatsapp.png') }}" alt="whatsapp" width="40px">
+                            </h1>
+                        </a>
+                </div>
+                <div class="col-lg-6">
+                    <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{ asset('assets/img/Mobile login-pana.svg') }}">
+                </div>
             </div>
-            <div class="col-lg-6">
-                <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img/about.png">
-            </div>
+
         </div>
     </div>
 </div>
-<section class="vh-100">
+{{-- <section class="vh-100">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100 flex-column">
             <div class=" col-lg-7 col-xl-7">
@@ -138,5 +152,13 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
+@endsection
+
+
+@section('js')
+
+<script>
+
+</script>
 @endsection
