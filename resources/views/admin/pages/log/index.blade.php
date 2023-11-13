@@ -28,12 +28,19 @@
                                         </div>
                                     </form>
                                     <table id="log" class="table display table-hover table-center mb-0"  filter="{{ route('log.filter') }}">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>الفعل</th>
+                                                <th>التاريخ</th>
+                                            </tr>
+                                        </thead>
                                         <tbody> 
                                             @foreach($logs as $log)
                                                 <tr class="record">
                                                     <td>#{{ $log->id }}</td>
-                                                    <td>{{ $log->name }}</td>
                                                     <td>{{ $log->message }}</td>
+                                                    <td>{{ $log->created_at }}</td>
                                                     <td class="text-end">
                                                     </td>
                                                 </tr>

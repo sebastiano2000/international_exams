@@ -18184,7 +18184,7 @@ Preloader
   height: 0;
   width: 0;
   box-sizing: border-box;
-  border: 0 solid #1976d2;
+  border: 0 solid #fc8423;
   border-radius: 50%;
   -webkit-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   -moz-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -18202,7 +18202,7 @@ Preloader
   font-size: 0.875em;
   letter-spacing: 0.1em;
   line-height: 1.5em;
-  color: #1976d2;
+  color: #fc8423;
   white-space: nowrap;
   -webkit-animation: loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   -moz-animation: loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -18212,9 +18212,9 @@ Preloader
   0% {
     height: 0;
     width: 0;
-    background-color: #1976d2; }
+    background-color: #fc8423; }
   29% {
-    background-color: #1976d2; }
+    background-color: #fc8423; }
   30% {
     height: 2em;
     width: 2em;
@@ -18232,9 +18232,9 @@ Preloader
   0% {
     height: 0;
     width: 0;
-    background-color: #1976d2; }
+    background-color: #fc8423; }
   29% {
-    background-color: #1976d2; }
+    background-color: #fc8423; }
   30% {
     height: 2em;
     width: 2em;
@@ -18252,9 +18252,9 @@ Preloader
   0% {
     height: 0;
     width: 0;
-    background-color: #1976d2; }
+    background-color: #fc8423; }
   29% {
-    background-color: #1976d2; }
+    background-color: #fc8423; }
   30% {
     height: 2em;
     width: 2em;
@@ -19036,7 +19036,6 @@ a.list-group-item {
     .topbar .top-navbar .dropdown-toggle::after {
       display: none; }
     .topbar .top-navbar .navbar-header {
-      background: rgba(0, 0, 0, 0.05);
       line-height: 65px;
       padding-left: 10px;
       min-width: 70px; }

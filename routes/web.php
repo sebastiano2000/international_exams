@@ -38,7 +38,6 @@ Route::group(['prefix' => 'register'], function () {
 
 Route::group(['prefix' => 'pricing'], function () {
     Route::get('/', [PriceController::class, 'indexHome'])->name('pricing.index');
-    Route::post('/data', [PriceController::class, 'create'])->name('register.create');
 });
 
 Route::group(['prefix' => 'we'], function () {

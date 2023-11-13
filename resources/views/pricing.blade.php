@@ -34,12 +34,14 @@
                                     <img src="{{ asset('assets/img/pricing-table-01.png')}}" alt="">
                                 </div>
                                 <div class="border-button">
-                                    <a href="#" 
-                                        onclick="payment(this)" 
-                                        data-target="#payment" 
-                                        data-toggle="modal" 
-                                        data-id="{{$price->id}}" 
-                                        data-user_id="{{Auth::user()->id}}"
+                                    <a href="{{route('register')}}" 
+                                        @if(Auth::user())
+                                            onclick="payment(this)" 
+                                            data-target="#payment" 
+                                            data-toggle="modal" 
+                                            data-id="{{$price->id}}" 
+                                            data-user_id="{{Auth::user()->id}}"
+                                        @endif
                                     >اشترك الان</a>
                                 </div>
                             </div>

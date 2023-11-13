@@ -96,8 +96,8 @@ class User extends Authenticatable
 
         $date = \Carbon\Carbon::now();
         $request->merge([
-            'merchantCode' => '842217',
-            // 'merchantCode' => '88750523',
+            // 'merchantCode' => '842217',
+            'merchantCode' => '88750523',
             'amount' => $request->cost,
             'currency' => 'KWD',
             'paymentType' => '1',
@@ -108,8 +108,8 @@ class User extends Authenticatable
             'variable4' => null,
             'variable5' => null,
             'paymentType' => '0',
-            'responseUrl' => 'https://localhost:8000/payment/success',
-            'failureUrl' => 'https://localhost:8000/payment/failure',
+            'responseUrl' => 'https://khereej.org/payment/success',
+            'failureUrl' => 'https://khereej.org/payment/failure',
             'version' => '2.0',
             'isOrderReference' => '1'
         ]);
