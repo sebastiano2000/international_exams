@@ -12,8 +12,8 @@
     <!--<meta http-equiv='cache-control' content='no-cache'>-->
     <!--<meta http-equiv='expires' content='0'>-->
     <!--<meta http-equiv='pragma' content='no-cache'>-->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin_assets/images/favicon.jpeg') }}">
-    <title>Q8votes</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/خريج.svg')}}">
+    <title>خريج</title>
     <!-- chartist CSS -->
     <link href="{{ asset('admin_assets/node_modules/morrisjs/morris.css') }}" rel="stylesheet">
     <!--Toaster Popup message CSS -->
