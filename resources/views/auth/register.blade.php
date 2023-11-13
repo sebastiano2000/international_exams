@@ -97,7 +97,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <input class="vehicle3" type="checkbox" type="checkbox"  id="vehicle3" name="vehicle3" >
-                                                <label for="vehicle3"> الموافقه علي  <a href="">  الشروط   والأحكام </a> </label><br>
+                                                <label for="vehicle3"> الموافقه علي  <a href="{{route('terms')}}">  الشروط   والأحكام </a> </label><br>
                                             </div>
                                         </div>
                                     </div>

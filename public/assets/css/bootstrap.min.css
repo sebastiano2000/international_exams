@@ -2095,9 +2095,9 @@ progress {
 .form-control:focus {
     color: #726D7B;
     background-color: #fff;
-    border-color: #b191e6;
+    border-color: #fc8422;
     outline: 0;
-    box-shadow: 0 0 0 .25rem rgba(98,34,204,0.25)
+    box-shadow: 0 0 0 0.25rem rgb(231 215 202);
 }
 
 .form-control::-webkit-date-and-time-value {

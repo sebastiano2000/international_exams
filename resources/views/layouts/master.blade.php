@@ -57,8 +57,8 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav mx-auto py-0">
                             <a href="/" class="nav-item nav-link active">الرئيسيه</a>
-                            <a href="contact.html" class="nav-item nav-link">تواصل  معنا</a>
-                            <a href="service.html" class="nav-item nav-link">Demo </a>
+                            <a href="{{route('terms')}}" class="nav-item nav-link">تواصل  معنا</a>
+                            <a href="/" class="nav-item nav-link">Demo </a>
                             <a href="{{route('pricing.index')}}" class="nav-item nav-link">الأسعار</a>
                         </div>
                         <a href="{{route('login')}}" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">تسجيل الدخول </a>
@@ -77,11 +77,11 @@
 
                     <div class="col-md-6 col-lg-4">
                         <p class="section-title text-white h5 mb-4">الروابط<span></span></p>
-                        <a class="btn btn-link" href="">الرئيسيه</a>
-                        <a class="btn btn-link" href="">تواصل معنا </a>
+                        <a class="btn btn-link" href="/">الرئيسيه</a>
+                        <a class="btn btn-link" href="{{route('login')}}">تواصل معنا </a>
                         <a class="btn btn-link" href="">ديمو</a>
-                        <a class="btn btn-link" href="">الأسعار</a>
-                        <a class="btn btn-link" href="">الشروط والأحكام</a>
+                        <a class="btn btn-link" href="{{route('pricing.index')}}">الأسعار</a>
+                        <a class="btn btn-link" href="{{route('terms')}}">الشروط والأحكام</a>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <p class="section-title text-white h5 mb-4">خدماتنا<span></span></p>
@@ -121,8 +121,8 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">الرئيسيه</a>
-                                <a href="">الشروط والأحكام</a>
+                                <a href="/">الرئيسيه</a>
+                                <a href="{{route('terms')}}">الشروط والأحكام</a>
                             </div>
                         </div>
                     </div>

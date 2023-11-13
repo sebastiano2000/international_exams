@@ -8,8 +8,8 @@
                 <h3 class="text-white pb-3 animated slideInDown">ثبت معلوماتك و استعد لاختباراتك مع اختبارات خريج الذكية المبنية على اختبارات سابقة و تعالج نقاط ضعفك      </h1>
                 <p class="text-white mb-4 animated slideInDown">كل اللي تحتاجه
                     للتفوق بمكان واحد</p>
-                <a href="" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">التسجيل والاشتراك</a>
-                <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">تواصل معنا</a>
+                <a href="{{route('login')}}" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">التسجيل والاشتراك</a>
+                <a href="{{route('terms')}}" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">تواصل معنا</a>
             </div>
             <div class="col-lg-6 text-center text-lg-start">
                 <img class="img-fluid animated zoomIn" src="{{ asset('assets/img/hero.png')}}" alt="">
@@ -27,7 +27,7 @@
                     <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{ asset('assets/img/about.png')}}">
 
                 </div>
-                <a href="" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">التسجيل والاشتراك</a>
+                <a href="{{route('login')}}" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">التسجيل والاشتراك</a>
             <div class="col-lg-6">
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class=" py-5 px-lg-5">
                 <div class="row g-4">
                     <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <a  href="https://wa.me/+96596615789" >
+                        <a  href="https://wa.me/+96599870752" >
                             <div class="feature-item bg-light rounded text-center p-4">
                                 <h5 class="mb-3">التواصل معنا</h5>
                                 <img class="img-fluid" src="{{ asset('assets/img/Picture1.png')}}" alt="Image">

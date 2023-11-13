@@ -2,55 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function index(Request $request)
-    {
-        if(Auth::user()->isAdmin())
-            return view('admin.pages.Contact.index',[
-                'Contacts' => Contact::filter($request->all())->paginate(10),
-        
-            ]);
-        else 
-            abort(404);
-    }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
 
     /**
-     * Show the form for creating a new resource.
+     * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function upsert(Contact $Contact)
+    public function index()
     {
-        if(Auth::user()->isAdmin())
-            return view('admin.pages.Contact.upsert',[
-                'Contact' => $Contact,
-            ]);
-        else 
-            abort(404);
+        return view('contact');
     }
-
-    public function modify(Request $request)
+    public function modify(ContactRequest $request)
     {
-        return Contact::upsertInstance($request);
-    }
-
-    public function destroy(Contact $Contact)
-    {
-        return $Contact->deleteInstance();
-    }
-
-    public function filter(Request $request)
-    {
-        if(Auth::user()->isSuperAdmin())
-            return view('admin.pages.Contact.index',[
-                'Contacts' => Contact::filter($request->all())->paginate(10)
-            ]);
-        else 
-            abort(404);
+        Contact::upsertInstance($request);
+        return redirect()->route('contact');
     }
 }

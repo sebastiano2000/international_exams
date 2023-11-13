@@ -36,7 +36,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Q8votes</p>
+            <p class="loader__label">خريج</p>
         </div>
     </div>
     <div id="main-wrapper">

@@ -4,10 +4,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Price;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,15 +20,13 @@ use App\Models\Price;
 */
 
 Route::get('/', function () {
-    return view('welcome',["prices"=>Price::all()]);
+    return view('welcome');
 });
 
 
-Route::get("/TermsAndConditions",function(){
-
-    $prices=Price::all();
-    return view('TermsAndConditions',["prices"=>$prices]);
-});
+Route::get("/terms",function(){
+    return view('TermsAndConditions');
+})->name('terms');
 
 
 Route::group(['prefix' => 'register'], function () {
@@ -53,13 +51,16 @@ Route::get('/dashboard', function () {
 
 Auth::routes();
 
+Route::group(['prefix' => 'contact'],function () {
+    Route::get('/',[ContactController::class,'index'])->name('contact');
+    Route::post('/modify',[ContactController::class,'modify'])->name('contact.modify');
+});
+
 Route::group(['prefix' => 'forget-password'], function () {
     Route::get('/', [ResetPasswordController::class, 'index'])->name('forget-password.reset');
     Route::post('/check', [ResetPasswordController::class, 'check'])->name('forget-password.check');
-
     Route::post('/change-password', [ResetPasswordController::class, 'changePassword'])->name('forget-password.change-password');
     Route::get('/change-password/verfication', [ResetPasswordController::class, 'changeForm'])->name('forget-password.change-password.form');
-
     Route::post('/store', [ResetPasswordController::class, 'store'])->name('forget-password.change-password.store');
     Route::get('/success', [ResetPasswordController::class, 'success'])->name('forget-password.success');
 });
@@ -67,6 +68,7 @@ Route::group(['prefix' => 'forget-password'], function () {
 Route::get('/', function () {
     return view('home');
 });
+
 
 Route::group(['prefix' => '/payment'],function(){
     Route::get('/success', [UserController::class,"paymentSucess"])->name('payment.success');
