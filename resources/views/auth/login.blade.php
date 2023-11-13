@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+<div class=" bg-primary hero-header">
+
+</div>
+
 <section class="vh-100">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100 flex-column">
-            <img src="{{ asset('admin_assets/images/logoq.png') }}" class="light-logo mb-3" alt="homepage"
-                style="max-height: 100px" />
             <div class=" col-lg-7 col-xl-7">
                 <div class="card text-black shadow" style="border-radius: 25px;">
                     <div class="card-body p-3">

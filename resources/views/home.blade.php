@@ -1,20 +1,116 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<div class=" bg-primary hero-header">
+    <div class=" container px-lg-5">
+        <div class="row g-5 align-items-end">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h3 class="text-white pb-3 animated slideInDown">ثبت معلوماتك و استعد لاختباراتك مع اختبارات خريج الذكية المبنية على اختبارات سابقة و تعالج نقاط ضعفك      </h1>
+                <p class="text-white mb-4 animated slideInDown">كل اللي تحتاجه
+                    للتفوق بمكان واحد</p>
+                <a href="" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">التسجيل والاشتراك</a>
+                <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">تواصل معنا</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-start">
+                <img class="img-fluid animated zoomIn" src="{{ asset('assets/img/hero.png')}}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+<div class=" ">
+    <div class=" py-5 px-lg-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-5"></h1>
+                <div class="skill mb-4">
+                    <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{ asset('assets/img/about.png')}}">
+
+                </div>
+                <a href="" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">التسجيل والاشتراك</a>
+            <div class="col-lg-6">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl ">
+    <div class="container  px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <p class="section-title text-secondary justify-content-center"><span></span>خدماتنا<span></span></p>
+        </div>
+        <div class="container  py-3">
+            <div class=" py-5 px-lg-5">
+                <div class="row g-4">
+                    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="feature-item bg-light rounded text-center p-4">
+                            <h5 class="mb-3">التواصل معنا</h5>
+                            <img class="img-fluid" src="{{ asset('assets/img/Picture1.png')}}" alt="Image">
                         </div>
-                    @endif
+                    </div>
+                    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="feature-item bg-light rounded text-center p-4">
+                            <h5 class="mb-3">تجربة النظام Demo  </h5>
+                            <img class="img-fluid" src="{{ asset('assets/img/Picture2.png')}}" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="feature-item bg-light rounded text-center p-4">
+                            <h5 class="mb-3">الأسعار</h5>
+                            <img class="img-fluid" src="{{ asset('assets/img/Picture3.png')}}" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="feature-item bg-light rounded text-center p-4">
+                            <h5 class="mb-3">التسجيل والاشتراك  </h5>
+                            <img class="img-fluid" src="{{ asset('assets/img/Picture4.png')}}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    {{ __('You are logged in!') }}
+<div class="container-xxl py-3">
+    <div class="container py-3 px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <p class="section-title text-secondary justify-content-center"><span></span>تواصل معنا <span></span></p>
+            <h1 class="text-center mb-5">تواصل معنا  للحصول على أي استفسار</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="wow fadeInUp" data-wow-delay="0.3s">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">الإسم</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">البريد الإلكتروني</label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="form-floating">
+                                    <input type="phone" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">رقم الجوال </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <label for="message">محتوي الرساله</label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button class="btn btn-primary w-100 py-3" type="submit">إرسال</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

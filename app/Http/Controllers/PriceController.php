@@ -13,40 +13,17 @@ class PriceController extends Controller
      */
     public function index(Request $request)
     {
-
-
-        
-            // if (Auth::user()->isAdmin()) {
-
-            //     $prices = Price::paginate(50);
-
-             
-            //     return view('admin.pages.prices', [
-            //         'prices' => $prices
-            //     ]);
-            // } else {
-            //     abort(404);
-            // }
-
-
-            if (Auth::user()->isAdmin()) {
-                return view('admin.pages.prices.index', [
-                    'prices' => Price::filter($request->all())->orderBy("price","desc")->paginate(50),
-                ]);
-            } else {
-                abort(404);
-            }
-
+        if (Auth::user()->isAdmin()) {
+            return view('admin.pages.prices.index', [
+                'prices' => Price::filter($request->all())->orderBy("price","desc")->paginate(50),
+            ]);
+        } else {
+            abort(404);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-
-
-     public function upsert(Price $price){
-    
-
+     public function upsert(Price $price)
+     {
         if (Auth::user()->isAdmin()) {
             return view('admin.pages.prices.upsert', [
                 'price' => $price,
@@ -54,26 +31,26 @@ class PriceController extends Controller
         } else {
             abort(404);
         }
-
-
-     }
-
-    public function create()
-    {
-        
     }
 
+    public function indexHome(Request $request)
+    {
+        return view('pricing', [
+            'prices' => Price::filter($request->all())->orderBy("price","desc")->paginate(50),
+        ]);
+    }
+
+
     public function filter(Request $request){
+    if (Auth::user()->isAdmin()) 
+    {
+        return view('admin.pages.prices.index', [
+            'prices' => Price::filter($request->all())->paginate(50),
+        ]);
 
-        if (Auth::user()->isAdmin()) {
-            return view('admin.pages.prices.index', [
-                'prices' => Price::filter($request->all())->paginate(50),
-            ]);
-        } else {
-            abort(404);
-        }
-
-
+    } else {
+        abort(404);
+    }
 
        
     }
@@ -83,41 +60,8 @@ class PriceController extends Controller
         return Price::upsertInstance($request);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(price $price)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(price $price)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, price $price)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(price $price)
     {
      

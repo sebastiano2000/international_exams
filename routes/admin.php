@@ -17,6 +17,7 @@ use App\Http\Controllers\PreparatorController;
 use App\Http\Controllers\ResultTotalController;
 use App\Http\Controllers\UserTotalController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +84,14 @@ Route::group(['prefix' => 'total'],function(){
     Route::get('/', [ResultTotalController::class, "index"])->name('total');
     Route::get('/filter',[ResultTotalController::class,'filter'])->name('total.filter');
     Route::get('/insert/total', [ResultTotalController::class, "enterTotal"])->name('total.result');
+});
+
+Route::group(['prefix' => 'contact'],function(){
+    Route::get('/', [ContactController::class,"index"])->name('contact');
+    Route::get('/filter',[ContactController::class,'filter'])->name('contact.filter');
+    Route::get('/upsert/{contact?}',[ContactController::class,'upsert'])->name('contact.upsert');
+    Route::post('/modify',[ContactController::class,'modify'])->name('contact.modify');
+    Route::post('/delete/{contact}',[ContactController::class,'destroy'])->name('contact.delete');
 });
 
 Route::group(['prefix' => 'user'],function(){

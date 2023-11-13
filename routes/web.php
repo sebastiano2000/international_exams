@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +30,12 @@ Route::group(['prefix' => 'register'], function () {
     Route::get('/success', [RegisterController::class, 'success'])->name('register.success');
 });
 
+Route::group(['prefix' => 'pricing'], function () {
+    Route::get('/', [PriceController::class, 'indexHome'])->name('pricing.index');
+    Route::post('/data', [PriceController::class, 'create'])->name('register.create');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -50,7 +57,7 @@ Route::get('/', function () {
     if (Auth::check()) {
         return redirect('/admin');
     } else {
-        return redirect('login');
+        return view('home');
     }
 });
 
