@@ -1,11 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('css')
-<link href="{{ asset('admin_assets\assets\css\fileupload.css') }}" rel="stylesheet" />
 @endsection
 
 @section('content')
-<section class="vh-100">
-    <div class="container h-100">
+<div class=" py-5 bg-primary hero-header">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-12 text-center">
+                <h1 class="text-white animated slideInDown">إعادة تعيين كلمة المرور </h1>
+                <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                <nav aria-label="breadcrumb">
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="">
+    <div class="container ">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
@@ -59,7 +71,7 @@
                                             index="6" min="0" max="9" step="1">
                                     </div>
 
-                                    <button type="button" class="btn btn-primary mb-3" onclick="verify()">
+                                    <button type="button" class="btn btn-primary mb-3 form-control" onclick="verify()">
                                         تحقق
                                     </button>
                                 </form>
