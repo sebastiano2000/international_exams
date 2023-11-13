@@ -40,6 +40,26 @@ class UserController extends Controller
             abort(404);
     }
 
+    public function payment(Request $request)
+    {
+        return User::payment($request);
+    }
+
+    public function save(Request $request)
+    {
+        return User::saveData($request);
+    }
+    
+    public function paymentSucess(Request $request)
+    {
+        return view('admin.pages.paymentSuccess');
+    }
+    
+    public function paymentFailure(Request $request)
+    {
+        return view('admin.pages.paymentFailure');
+    }
+
     public function reset()
     {
         return view('auth.password-reset-user');

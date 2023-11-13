@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\price;
+use App\Models\Price;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -61,8 +61,34 @@ class PriceController extends Controller
     }
 
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(Price $price)
+    {
+        //
+    }
 
-    public function destroy(price $price)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Price $price)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Price $price)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Price $price)
     {
      
         $price->delete();

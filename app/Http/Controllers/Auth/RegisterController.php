@@ -60,6 +60,7 @@ class RegisterController extends Controller
                 'phone' => $phone,
                 'password' => $request->password,
                 'country_code' => $request->countryCode,
+                'high' => $request->high,
             ]
         );
 
@@ -69,6 +70,7 @@ class RegisterController extends Controller
     public function verification()
     {
         $user = session()->get('user');
+        
         return view(
             'auth.verification',
             [
@@ -80,6 +82,7 @@ class RegisterController extends Controller
     public function success()
     {
         $user = session()->get('user');
+
         return view(
             'auth.success',
             [
@@ -97,6 +100,7 @@ class RegisterController extends Controller
             'phone' => $user['phone'],
             'password' => Hash::make($user['password']),
             'role_id' => 2,
+            'high' => $user['high'],
         ]);
 
         return redirect()->route('register.success');

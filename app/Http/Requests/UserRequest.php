@@ -39,6 +39,7 @@ class UserRequest extends FormRequest
                     return $fail('يجب عليك إدخال  كلمة السر');
                 }
             }],
+            'high' => 'required|min:3'
         ];
     }
 
