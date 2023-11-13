@@ -35,9 +35,10 @@
                                                 <th>{{ __('pages.name') }}</th>
                                                 <th>{{ __('pages.mobile') }}</th>
                                                 <th>{{ __('pages.role') }}</th>
+                                                <th>{{ __('pages.high') }}</th>
                                                 <th>حالة الاشتراك</th>
                                                 <th>حالة التسجيل</th>
-                                                <th> الحد الأقصي للأجزة</th>
+                                                <th>الحد الأقصي للأجزة</th>
                                                 <th class="text-end">{{ __('pages.actions') }}</th>
                                             </tr>
                                         </thead>
@@ -51,6 +52,7 @@
                                                     @elseif($user->role_id == '2')
                                                         <td>المتدرب</td>
                                                     @endif
+                                                    <td>{{ $user->high }}</td>
                                                     <td>
                                                         @if($user->role_id != 1)
                                                             <label class="switch switch_user_status" style="width: 50px; height: 25px;">
@@ -79,6 +81,7 @@
                                                                 data-full_name="{{$user->name}}"
                                                                 data-role="{{$user->role_id}}"
                                                                 data-phone="{{$user->phone}}"
+                                                                data-high="{{$user->high}}"
                                                                 class="btn btn-sm bg-success-light"
                                                             >
                                                                 <i class="ti-pencil"></i> {{ __('pages.edit') }}  
@@ -133,6 +136,7 @@
                                         <label for="name" class="col-sm-2 mb-2 control-label">{{ __('pages.name') }}</label>
                                         <div class="col-sm-12">
                                             <input type="text" class="form-control" id="full_name" name="name" placeholder="Enter Name" value="" maxlength="50" required="">
+                                            <p class="error error_name"></p>
                                         </div>
                                     </div>
                                     <div class="row mb-2">
@@ -145,6 +149,13 @@
                                         </div>
                                         <div class="col-md-4">
                                             <x-country-phone-code></x-country-phone-code>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-2 mb-2 control-label">{{ __('pages.high') }}</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="high" name="high" placeholder="{{ __('pages.high') }}" value="" maxlength="50" required="">
+                                            <p class="error error_high"></p>
                                         </div>
                                     </div>
                                     <div class="col-sm-offset-2 col-sm-12 text-center">
@@ -203,10 +214,12 @@
         var modal = $("#edit_partner");
         var full_name = link.data('full_name');
         var id = link.data('id');
+        var high = link.data('high');
         var phone = link.data('phone');
     
         modal.find('#full_name').val(full_name);
         modal.find('#id').val(id);
+        modal.find('#high').val(high);
         modal.find('#phone').val(phone);
     }
 
