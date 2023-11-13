@@ -829,3 +829,9 @@ pricing-end
 .mt-10 {
     margin-top: 10px !important;
 }
+.form-control {
+    background-color: white !important;
+}
+.btn-primary {
+    background-color: #fc8422 !important;
+}
