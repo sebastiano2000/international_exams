@@ -85,9 +85,7 @@ class User extends Authenticatable
                     'high' => $request->high,
                 ]
             );
-
-            
-                Mail::to('sebastianosaad@gmail.com')->send(new PackageSubscribtion($user->name));
+                // Mail::to('sebastianosaad@gmail.com')->send(new PackageSubscribtion($user->name));
         }
 
         return $user;
@@ -190,9 +188,9 @@ class User extends Authenticatable
                 'suspend' => 1,
             ]);
 
-            if($user->email){
-                Mail::to($user->email)->send(new PackageSubscribtion($user->name));
-            }
+            // if($user->email){
+            //     Mail::to($user->email)->send(new PackageSubscribtion($user->name));
+            // }
         }
 
         Cache::flush();
