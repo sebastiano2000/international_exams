@@ -18,6 +18,7 @@ use App\Http\Controllers\ResultTotalController;
 use App\Http\Controllers\UserTotalController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FinancialTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -153,19 +154,15 @@ Route::group(['prefix' => 'log'],function(){
     Route::get('/filter',[LogController::class,'filter'])->name('log.filter');
 });
 
-
 Route::group(['prefix' => 'prices'],function(){
     Route::get('/', [PriceController::class,"index"])->name('prices');
     Route::get('/upsert/{price?}',[PriceController::class,'upsert'])->name('prices.upsert');
-
     Route::post('/modify/{price?}',[PriceController::class,'modify'])->name('prices.modify');
-
-    // Route::get('/store',[PriceController::class,'create'])->name('prices.store');
-    // Route::get('/update',[PriceController::class,'create'])->name('prices.update');
-    // Route::get('/delete',[PriceController::class,'delete'])->name('prices.delete');
     Route::post('/destroy/{price}',[PriceController::class,'destroy'])->name('prices.destroy');
-
     Route::get('/filter',[PriceController::class,'filter'])->name('prices.filter');
 });
 
-
+Route::group(['prefix' => 'financial_transaction'],function(){
+    Route::get('/', [FinancialTransactionController::class, "index"])->name('financial_transaction');
+    Route::get('/filter', [FinancialTransactionController::class, 'filter'])->name('financial_transaction.filter');
+});

@@ -41,7 +41,7 @@
     </div>
     <div id="main-wrapper">
         <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark" style="background: #fc8423;">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         <b class="small-icon">
@@ -131,17 +131,12 @@
                                     محضرين
                                 </a>
                             </li>
-
-
                             <li>
                                 <a href="{{ route('prices') }}">
                                     <i class="ti-control-record text-success"></i>
                                     الاسعار
                                 </a>
                             </li>
-
-
-
                             <li>
                                 <a href="{{ route('report') }}">
                                     <i class="ti-control-record text-success"></i>
@@ -151,7 +146,13 @@
                             <li>
                                 <a href="{{ route('log') }}">
                                     <i class="ti-control-record text-success"></i>
-                                    <span>سجل العمليات</span>
+                                    سجل العمليات
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('financial_transaction') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    سجل عمليات الدفع
                                 </a>
                             </li>
                         @elseif(Auth::user()->suspend)
@@ -197,17 +198,34 @@
                         @else
                             @foreach(\App\Models\Subject::all() as $subject)
                                 <li>
-                                    <a href="{{ route('exam', ['subject_id' => $subject->id]) }}">
+                                    <a href="{{ route('pricing.index') }}">
                                         <i class="ti-control-record text-success"></i>
                                         Demo {{$subject->name}}
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('pricing.index') }}">
+                                        <i class="ti-control-record text-success"></i>
+                                        اختبار تجريبي {{$subject->name}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('pricing.index') }}">
+                                        <i class="ti-control-record text-success"></i>
+                                        مراجعة {{$subject->name}}
+                                    </a>
+                                </li>
                             @endforeach
+                            <li>
+                                <a href="{{ route('pricing.index') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    الأختبار الشامل</a>
+                            </li>
                         @endif
                         <li><a class="waves-effect waves-dark" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                                aria-expanded="false"><i class="ti-control-record text-success"></i><span>{{
-                                    __('pages.Logout') }}</span></a></li>
+                                aria-expanded="false"><i class="ti-control-record text-success"></i>{{
+                                    __('pages.Logout') }}</a></li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
                     </ul>
                 </nav>
@@ -324,7 +342,7 @@
             
             $(".sorting").css({ 'text-align': 'right' });
             $("#example_filter").css({ 'margin-bottom': "20px" });
-            $(".buttons-excel").css({ 'background': "#0171dc", 'margin-right': "10px !important" });
+            $(".buttons-excel").css({ 'background': "#fc8423", 'margin-right': "10px !important" });
             $(".dt-buttons").css({ 'padding-top': "15px" });
 
             function route(){

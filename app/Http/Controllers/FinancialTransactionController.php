@@ -10,22 +10,10 @@ class FinancialTransactionController extends Controller
 {
     public function index(Request $request)
     {
-        if(Auth::user()->isSuperAdmin())
+        if(Auth::user()->isAdmin())
             return view('admin.pages.financial.index',[
-                'financial_transactions' => Financial_transaction::filter($request->all())->orderByDesc('created_at')->paginate(50),
+                'financial_transactions' => Financial_transaction::filter($request->all())->orderByDesc('created_at', 'desc')->paginate(50),
             ]);
-        elseif(Auth::user()->role_id == 2){
-            return view('admin.pages.financial.index',[
-                'financial_transactions' => Financial_transaction::WhereHas('tenancy', function ($query) {
-                    $query->where('user_id', Auth::user()->id);
-                })->orderByDesc('created_at')->paginate(50),
-            ]);
-        }
-        elseif(Auth::user()->role_id == 3){
-            return view('admin.pages.financial.index',[
-                'financial_transactions' => Financial_transaction::where('tenant_id', Auth::user()->id)->orderByDesc('created_at')->paginate(50)
-            ]);
-        }
         else 
             abort(404);
     }
@@ -34,20 +22,8 @@ class FinancialTransactionController extends Controller
     {
         if(Auth::user()->isAdmin())
             return view('admin.pages.financial.index',[
-                'financial_transactions' => Financial_transaction::filter($request->all())->orderByDesc('created_at')->paginate(50),
+                'financial_transactions' => Financial_transaction::filter($request->all())->orderByDesc('created_at', 'desc')->paginate(50),
             ]);
-        elseif(Auth::user()->role_id == 2){
-            return view('admin.pages.financial.index',[
-                'financial_transactions' => Financial_transaction::WhereHas('tenancy', function ($query) {
-                    $query->where('user_id', Auth::user()->id);
-                })->orderByDesc('created_at')->paginate(50),
-            ]);
-        }
-        elseif(Auth::user()->role_id == 3){
-            return view('admin.pages.financial.index',[
-               'financial_transactions' => Financial_transaction::where('tenant_id', Auth::user()->id)->orderByDesc('created_at')->paginate(50)
-            ]);
-        }
         else 
             abort(404);
     }

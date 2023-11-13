@@ -20,7 +20,7 @@ class PriceObserver
             'user_id' => $user_id,
             'action' => 'created',
             'action_id' => $price->id,
-            'message' => "لقد قام " . Auth::user()->name ."باضافة باقة جديدة"."$price->name" ,
+            'message' => " لقد قام " . Auth::user()->name . " باضافة باقة جديدة " . $price->name,
             'action_model' => $price->getTable(),
         ]);
     }
@@ -30,17 +30,15 @@ class PriceObserver
      */
     public function updated(Price $price): void
     {
-  
         $user_id =  Auth::user()->id ?? null;
 
         Log::create([
             'user_id' => $user_id,
             'action' => 'updated',
             'action_id' => $price->id,
-            'message' => "لقد قام " . Auth::user()->name . "بتعديل الباقة $price->name",
+            'message' => " لقد قام " . Auth::user()->name . " بتعديل الباقة $price->name",
             'action_model' => $price->getTable(),
         ]);
-
     }
 
     /**
@@ -54,27 +52,10 @@ class PriceObserver
             'user_id' => $user_id,
             'action' => 'deleted',
             'action_id' => $price->id,
-            'message' => "لقد قام " . Auth::user()->name . "بمسح الباقة $price->name"."صاحبة ال id $price->id",
+            'message' => " لقد قام " . Auth::user()->name . " بمسح الباقة $price->name ",
             'action_model' => $price->getTable(),
         ]);
     }
-
-    /**
-     * Handle the Price "restored" event.
-     */
-    public function restored(Price $price): void
-    {
-        $user_id =  Auth::user()->id ?? null;
-
-        Log::create([
-            'user_id' => $user_id,
-            'action' => 'deleted',
-            'action_id' => $price->id,
-            'message' => "لقد قام " . Auth::user()->name . "بإستعادة الباقة $price->name",
-            'action_model' => $price->getTable(),
-        ]);
-    }
-
     /**
      * Handle the Price "force deleted" event.
      */

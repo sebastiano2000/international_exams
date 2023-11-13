@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Financial_transaction;
 use App\Models\User;
 use App\Models\Result;
 use App\Models\UserFav;
@@ -14,21 +15,16 @@ use App\Observers\UserFavObserver;
 use App\Observers\UserResultObserver;
 use App\Observers\UserTestObserver;
 use App\Observers\PriceObserver;
+use App\Observers\FinancialTransactionObserver;
 use App\Models\Price;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
     public function register(): void
     {
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
 
@@ -38,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         UserResult::observe(UserResultObserver::class);
         UserTest::observe(UserTestObserver::class);
         Price::observe(PriceObserver::class);
+        Financial_transaction::observe(FinancialTransactionObserver::class);
         app()->setLocale('ar');
     }
 }
