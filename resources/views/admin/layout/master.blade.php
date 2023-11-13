@@ -131,6 +131,17 @@
                                     محضرين
                                 </a>
                             </li>
+
+
+                            <li>
+                                <a href="{{ route('prices') }}">
+                                    <i class="ti-control-record text-success"></i>
+                                    الاسعار
+                                </a>
+                            </li>
+
+
+
                             <li>
                                 <a href="{{ route('report') }}">
                                     <i class="ti-control-record text-success"></i>

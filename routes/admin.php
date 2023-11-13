@@ -16,6 +16,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\PreparatorController;
 use App\Http\Controllers\ResultTotalController;
 use App\Http\Controllers\UserTotalController;
+use App\Http\Controllers\PriceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,6 +116,7 @@ Route::group(['prefix' => 'paragraph'],function(){
     Route::post('/importParagraph',[ParagraphController::class,'importParagraph'])->name('paragraph.import');
 });
 
+
 Route::group(['prefix' => 'subject'],function(){
     Route::get('/', [SubjectController::class,"index"])->name('subject');
     Route::get('/upsert/{subject?}',[SubjectController::class,'upsert'])->name('subject.upsert');
@@ -132,3 +134,20 @@ Route::group(['prefix' => 'log'],function(){
     Route::get('/', [LogController::class,"index"])->name('log');
     Route::get('/filter',[LogController::class,'filter'])->name('log.filter');
 });
+
+
+Route::group(['prefix' => 'prices'],function(){
+    Route::get('/', [PriceController::class,"index"])->name('prices');
+    Route::get('/upsert/{price?}',[PriceController::class,'upsert'])->name('prices.upsert');
+
+    Route::post('/modify/{price?}',[PriceController::class,'modify'])->name('prices.modify');
+
+    // Route::get('/store',[PriceController::class,'create'])->name('prices.store');
+    // Route::get('/update',[PriceController::class,'create'])->name('prices.update');
+    // Route::get('/delete',[PriceController::class,'delete'])->name('prices.delete');
+    Route::post('/destroy/{price}',[PriceController::class,'destroy'])->name('prices.destroy');
+
+    Route::get('/filter',[PriceController::class,'filter'])->name('prices.filter');
+});
+
+

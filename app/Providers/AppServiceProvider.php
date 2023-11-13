@@ -13,6 +13,8 @@ use App\Observers\ResultObserver;
 use App\Observers\UserFavObserver;
 use App\Observers\UserResultObserver;
 use App\Observers\UserTestObserver;
+use App\Observers\PriceObserver;
+use App\Models\Price;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,11 +31,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
         User::observe(UserObserver::class);
         Result::observe(ResultObserver::class);
         UserFav::observe(UserFavObserver::class);
         UserResult::observe(UserResultObserver::class);
         UserTest::observe(UserTestObserver::class);
+        Price::observe(PriceObserver::class);
         app()->setLocale('ar');
     }
 }
