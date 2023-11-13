@@ -19,6 +19,17 @@ class SubjectController extends Controller
             abort(404);
         }
     }
+
+    public function filter(Request $request)
+    {
+        if (Auth::user()->isAdmin()) {
+            return view('admin.pages.subject.index', [
+                'subjects' => Subject::filter($request->all())->paginate(50),
+            ]);
+        } else {
+            abort(404);
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -230,6 +230,29 @@ class QuestionController extends Controller
             ->with('total', $total1 + $total2 + $total3);
     }
 
+    public function try(Request $request)
+    {
+        $page = !empty($request->input('page')) ? $request->input('page') : '1';        
+        $total = $request->subject_id == 3 ? 5 : 3;
+
+        $array_questions = Question::where('subject_id', $request->subject_id)->with('answers')->take($page)->get();
+
+        if($request->subject_id == 3){
+            $array_questions = Question::where('paragraph_id', $array_questions->first()->paragraph_id)->orderBy('id', 'asc')->with('answers')->take($page)->get();
+        }
+
+        $array_questions = $array_questions->last();
+
+        return view('admin.pages.exam.try')
+            ->with('slice', $array_questions)
+            ->with('page', $page)
+            ->with('total', $total);
+    }
+
+    public function deleteAll(Request $request)
+    {
+        return Question::deleteAll($request);
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -49,6 +49,11 @@ class UserController extends Controller
     {
         return User::modifyPassword($request);
     }
+    
+    public function otp(Request $request)
+    {
+        return User::otpUpdate($request);
+    }
 
     public function status(Request $request)
     {

@@ -9,7 +9,7 @@
                 <div class="ring2"></div>
             </div>
             <div class="text-container">
-                <h3>مراجعة  {{$slice->subject->name}}</h3>
+                <h3 class="exam-title"><p @if($slice->paragraph)style="font-size: 18px;" @endif>{{$slice->subject->name}}</p> Review</h3>
                 @if($slice->paragraph)<p class="test-paragraph" style="text-align: left; direction: ltr;" onmousedown="return false" onselectstart="return false">{!! nl2br($slice->paragraph->title) !!}</p>@endif
                 <p class="question" style="font-size: 24px;" onmousedown="return false" onselectstart="return false">{{$slice->title}}</p>
             </div>

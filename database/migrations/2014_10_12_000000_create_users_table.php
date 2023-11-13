@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('suspend')->default(0);
             $table->boolean('finish')->default(0);
             $table->string('password')->nullable();
-            $table->integer('session_limit')->default(2);
+            $table->integer('session_limit')->default(4);
             $table->text('logintoken');
             $table->rememberToken();
             $table->timestamps();
