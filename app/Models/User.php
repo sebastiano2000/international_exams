@@ -9,7 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Support\Facades\Cache;
+use App\Hesabe\Controllers\PaymentController;
+use App\Models\Financial_transaction;
+use App\Models\Price;
 
 class User extends Authenticatable
 {
@@ -31,7 +34,8 @@ class User extends Authenticatable
         'logintoken',
         'role_id',
         'suspend',
-        'finish'
+        'finish',
+        'high'
     ];
 
     /**
@@ -63,6 +67,7 @@ class User extends Authenticatable
                 [
                     'name' => $request->name,
                     'phone' => $request->phone,
+                    'high' => $request->high,
                     'password' => Hash::make($request->password),
                     'role_id' => 2,
                 ]
@@ -75,11 +80,117 @@ class User extends Authenticatable
                 [
                     'name' => $request->name,
                     'phone' => $request->phone,
+                    'high' => $request->high,
                 ]
             );
         }
 
         return $user;
+    }
+
+    static function payment($request)
+    {
+        $request->merge([
+            'cost' => Price::where('id', $request->package_number)->first()->price
+        ]);
+
+        $date = \Carbon\Carbon::now();
+        $request->merge([
+            'merchantCode' => '842217',
+            // 'merchantCode' => '88750523',
+            'amount' => $request->cost,
+            'currency' => 'KWD',
+            'paymentType' => '1',
+            'orderReferenceNumber' => $date->timestamp,
+            'variable1' => null,
+            'variable2' => null,
+            'variable3' => null,
+            'variable4' => null,
+            'variable5' => null,
+            'paymentType' => '0',
+            'responseUrl' => 'https://localhost:8000/admin/payment/success',
+            'failureUrl' => 'https://localhost:8000/admin/payment/failure',
+            'version' => '2.0',
+            'isOrderReference' => '1'
+        ]);
+
+        $payment_data = [
+            'user_id' => Auth::user()->id,
+            'package_number' => $request->package_number,
+            'cost' => $request->cost,
+            'time' => $date
+        ];
+
+        $paymentController = new PaymentController();
+        $url = $paymentController->formSubmit($request);
+
+        $request->session()->regenerate();
+        session()->put('payment.data', $payment_data);
+        Cache::put('payment.data', $payment_data, now()->addMinutes(30));
+        cookie('payment.data', json_encode($payment_data));
+
+        $credential = [
+            'username' => Auth::user()->email,
+            'password' => Auth::user()->password,
+        ];
+        
+        Cache::put('credential', $credential, now()->addMinutes(30));
+        
+        return $url;
+    }
+
+    static function saveData($request)
+    {
+        if (!Auth::check()) {
+            if (Cache::has('credential')) {
+                $credential = Cache::get('credential');
+            } else {
+                return false;
+            }
+
+            $user = User::where('email', $credential['username'])->first();
+            Auth::login($user);
+        }
+
+        $paymentController = new PaymentController();
+        $response = $paymentController->getPaymentResponse($request->data);
+
+        $payment_data_cookie = json_decode(cookie('payment.data'));
+        $payment_data_cache = Cache::get('payment.data');
+
+        $package_number = $payment_data_cache['package_number'] ?? $payment_data_cookie['package_number'] ?? getDataFromPayment('package_number');
+        $user_id = $payment_data_cache['user_id'] ?? $payment_data_cookie['user_id'] ?? getDataFromPayment('user_id');
+
+        Financial_transaction::create([
+            'resultCode' => $response->status ? 'CAPTURED' : 'NOT CAPTURED',
+            'total_amount' => $response->response['amount'],
+            'paymentToken' => $response->response['paymentToken'],
+            'paymentId' => $response->response['paymentId'],
+            'paidOn' => $response->response['paidOn'],
+            'orderReferenceNumber' => $response->response['orderReferenceNumber'],
+            'variable1' => $response->response['variable1'],
+            'variable2' => $response->response['variable2'],
+            'variable3' => $response->response['variable3'],
+            'variable4' => $response->response['variable4'],
+            'variable5' => $response->response['variable5'],
+            'method' => $response->response['method'],
+            'administrativeCharge' => $response->response['administrativeCharge'],
+            'paid' => $response->status ? 1 : 0,
+            'package_number' => $package_number,
+            'user_id' => $user_id,
+        ]);
+
+        if ($response->status) {
+            User::where('id', $user_id)->update([
+                'suspend' => 1,
+            ]);
+        }
+
+        Cache::flush();
+        cookie()->forget('payment.data');
+        $request->session()->regenerate();
+
+        return true;
     }
 
     static function statusUpdate($request)
