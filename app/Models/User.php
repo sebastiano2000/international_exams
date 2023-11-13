@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Cache;
 use App\Hesabe\Controllers\PaymentController;
 use App\Models\Financial_transaction;
 use App\Models\Price;
+use App\Mail\PackageSubscribtion;
+use Mail;
 
 class User extends Authenticatable
 {
@@ -83,6 +85,9 @@ class User extends Authenticatable
                     'high' => $request->high,
                 ]
             );
+
+            
+                Mail::to('sebastianosaad@gmail.com')->send(new PackageSubscribtion($user->name));
         }
 
         return $user;
@@ -184,6 +189,10 @@ class User extends Authenticatable
             User::where('id', $user_id)->update([
                 'suspend' => 1,
             ]);
+
+            if($user->email){
+                Mail::to($user->email)->send(new PackageSubscribtion($user->name));
+            }
         }
 
         Cache::flush();
