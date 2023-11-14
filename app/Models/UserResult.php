@@ -29,11 +29,11 @@ class UserResult extends Model
         $user_result = UserResult::updateOrCreate(
             [
                 'question_id' => $request->question_id,
-                'user_id' => Auth::user()->id,
+                'user_id' => Auth::user()->id ?? 2,
             ],
             [
                 'question_id' => $request->question_id,
-                'user_id' => Auth::user()->id,
+                'user_id' => Auth::user()->id  ?? 2,
                 'answer_id' => $request->answer_id,
                 'result' => $answer->status,
             ]

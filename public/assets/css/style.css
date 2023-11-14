@@ -880,3 +880,6 @@ pricing-end
 .hide {
     display: none !important;
 }
+.show-first  {
+    display: none !important;
+}

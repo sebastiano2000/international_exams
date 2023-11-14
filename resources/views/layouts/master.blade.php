@@ -48,8 +48,8 @@
                 <div class="   container position-relative p-0">
                     <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                         <a href="" class="navbar-brand p-0">
-                            <h1 class="m-0"><img class="w-250" src="{{ asset('assets/img/خريج.svg')}}"></h1>
-                            <!-- <img src="img/logo.png')}}" alt="Logo"> -->
+                            <h1 class="m-0"><img class="w-250 " src="{{ asset('assets/img/خريج.svg')}}"/></h1>
+                            {{-- <img class="d-none d-lg-block " src="{{ asset('assets/img/logo_web.svg')}}" alt="Logo">  --}}
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="fa fa-bars"></span>
@@ -58,7 +58,7 @@
                             <div class="navbar-nav mx-auto py-0">
                                 <a href="/" class="nav-item nav-link {{is_active('')}} ">الرئيسيه</a>
                                 <a href="{{route('contact')}}" class="nav-item nav-link {{is_active('contact')}} ">تواصل  معنا</a>
-                                <a href="{{route('register')}}" class="nav-item nav-link  {{is_active('register')}}">Demo </a>
+                                <a  href="{{route('demo.data')}}" class="nav-item nav-link  {{is_active('demo.data')}}">Demo </a>
                                 <a href="{{route('pricing.index')}}" class="nav-item nav-link {{is_active('pricing')}}">الأسعار</a>
                             </div>
        
@@ -93,7 +93,37 @@
     
           
             </div>
-    
+
+            <div id="payment" class="modal fade">   
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modelHeading">الملاحظات</h4>
+                            <span class="button" data-dismiss="modal" aria-label="Close"><i class="bi-x-square"></i> </span>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" enctype="multipart/form-data" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}">
+                                @csrf
+                                <input type="hidden" name="package_number" id="id">
+                                <input type="hidden" name="user_id" id="user_id">
+                                <div class="form-group">
+                                    <label class="mb-2">
+                                        سيتمكن كل متدرب من الدخول للنظام عن طريق متصفحين اثنين (أو جهازين) كحد أقصى
+                                        لا يسمح بمشاركة الحساب الخاص بك مع أي شخص آخر
+                                        استخدام الـ VPN سيؤدي لاحتساب أكثر من جهاز عند الدخول
+                                        آخر يوم لصلاحية الاشتراك هو يوم السبت الموافق 1 يونيو 2024
+                                    </label>
+                                </div>
+                                <div class="col-sm-offset-2 col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">موافق
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
             @yield('content')
     
             <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
@@ -104,7 +134,7 @@
                             <p class="section-title text-white h5 mb-4">الروابط<span></span></p>
                             <a class="btn btn-link" href="/">الرئيسيه</a>
                             <a class="btn btn-link" href="{{route('contact')}}">تواصل معنا </a>
-                            <a class="btn btn-link" href="">ديمو</a>
+                            <a class="btn btn-link" href="{{route('demo.data')}}">ديمو</a>
                             <a class="btn btn-link" href="{{route('pricing.index')}}">الأسعار</a>
                             <a class="btn btn-link" href="{{route('terms')}}">الشروط والأحكام</a>
                         </div>
@@ -190,6 +220,15 @@
                 $(".navbar-collapse").removeClass('hide');
             }
         });
+
+        $(document).scroll(function(){
+            var scrollTop = $("html").scrollTop();
+            if(scrollTop > 150){
+                $(".show-first").removeClass('d-none');
+            }
+            else
+                $(".background2").fadeOut();
+            })
     </script>
     @yield('js')
 </body>

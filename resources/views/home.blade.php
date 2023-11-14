@@ -51,7 +51,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="{{route('register')}}">
+                        <a href="{{route('demo.data')}}">
                             <div class="feature-item bg-light rounded text-center p-4">
                                 <h5 class="mb-3">تجربة النظام Demo  </h5>
                                 <img class="img-fluid" src="{{ asset('assets/img/Picture2.png')}}" alt="Image">

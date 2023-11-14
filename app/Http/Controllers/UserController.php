@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserRequest2;
+use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -101,6 +102,12 @@ class UserController extends Controller
         return User::upsertInstance($request);
     }
 
+    public function question()
+    {
+        
+        return view('question',['subjects' => Subject::all()]);
+    }
+    
     /**
      * Display the specified resource.
      *

@@ -223,7 +223,7 @@
             </p>
             
             <p class='lead'>
-                WhatsApp: +965 96615789
+                WhatsApp: +96599870752
             </p>
             
             <p class='lead'>

@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\UserResultController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -62,6 +64,16 @@ Route::group(['prefix' => 'forget-password'], function () {
     Route::get('/change-password/verfication', [ResetPasswordController::class, 'changeForm'])->name('forget-password.change-password.form');
     Route::post('/store', [ResetPasswordController::class, 'store'])->name('forget-password.change-password.store');
     Route::get('/success', [ResetPasswordController::class, 'success'])->name('forget-password.success');
+});
+
+Route::get('/try', [QuestionController::class, "try"])->name('exam.try');
+
+Route::group(['prefix' => 'user_result'],function(){
+    Route::post('/insert/result', [UserResultController::class, "enterResult"])->name('save.data');
+});
+
+Route::group(['prefix' => 'demo'],function(){
+    Route::get('/', [UserController::class, "question"])->name('demo.data');
 });
 
 Route::get('/', function () {
