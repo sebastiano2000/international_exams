@@ -30,7 +30,7 @@
                             <div @if(count($prices) == 1 || $key == 1) class="pricing-item-pro" @else class="pricing-item-regular" @endif>
                                 <span class="price"> {{ $price->price }} د ك</span>
                                 <h4>{{ $price->name }}</h4>
-                                <div class="icon">
+                                <div class="">
                                     <img src="{{ asset('assets/img/Pricing plans-rafiki.svg')}}" alt="">
                                 </div>
                                 <div class="border-button">
