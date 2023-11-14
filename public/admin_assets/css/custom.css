@@ -6612,3 +6612,17 @@ span:active {
     display: inline-block;
     margin-bottom: 20px;
 }
+
+@media  (max-width: 575.98px)
+{
+    .container-tenant {
+        width: 152px !important;
+        height: 173px !important;
+    }
+    .container-tenant h1 {
+        font-size: 10px !important;
+        margin-top: -130px !important;
+        /* padding: 1px; */
+    }
+    
+}
