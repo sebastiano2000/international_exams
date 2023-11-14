@@ -31,7 +31,7 @@
                                 <span class="price"> {{ $price->price }} د ك</span>
                                 <h4>{{ $price->name }}</h4>
                                 <div class="icon">
-                                    <img src="{{ asset('assets/img/pricing-table-01.png')}}" alt="">
+                                    <img src="{{ asset('assets/img/Pricing plans-rafiki.svg')}}" alt="">
                                 </div>
                                 <div class="border-button">
                                     <a href="{{route('register')}}" 
