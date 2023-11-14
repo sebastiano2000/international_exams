@@ -84,8 +84,11 @@ class User extends Authenticatable
                     'phone' => $request->phone,
                     'high' => $request->high,
                 ]
-            );
-                // Mail::to('sebastianosaad@gmail.com')->send(new PackageSubscribtion($user->name));
+            );    
+
+            $name = $user->name;
+
+            Mail::to('sebastianosaad@gmail.com')->send(new PackageSubscribtion($name));
         }
 
         return $user;
