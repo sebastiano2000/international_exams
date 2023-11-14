@@ -16,24 +16,29 @@
 
 <div class="container-xxl">
     <div class=" py-3 px-lg-5 card shadow" style="border-radius: 25px;">
-        <div class=" py-5 px-lg-5">
-            <div class="row row-cols-2 justify-content-center">
-                <div class="col-auto">
-                    <a href="{{ route('exam.try', ['subject_id' => $subjects->first()->id]) }}">
-                        <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/vocab-demo.svg'); width: 411px; height: 411px;"></div>
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="{{ route('exam.try', ['subject_id' => $subjects->get(1)->id]) }}">
-                        <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/grammar-demo.svg'); width: 411px; height: 411px;"></div>
-                    </a>
-                </div>
-                <div class="col-auto">
-                    <a href="{{ route('exam.try', ['subject_id' => $subjects->last()->id]) }}">
-                        <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/reading-demo.svg'); width: 411px; height: 411px;"></div>
-                    </a>
-                </div>
+        <div class=" py-5 px-lg-5 row">
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <a href="{{ route('exam.try', ['subject_id' => $subjects->first()->id]) }}">
+                    <div class="feature-item bg-light rounded text-center p-4">
+                        <img class="img-fluid" src="{{ asset('admin_assets/images/vocab-demo.svg')}}" alt="Image">
+                    </div>
+                </a>
             </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <a href="{{ route('exam.try', ['subject_id' => $subjects->get(1)->id]) }}">
+                    <div class="feature-item bg-light rounded text-center p-4">
+                        <img class="img-fluid" src="{{ asset('admin_assets/images/grammar-demo.svg')}}" alt="Image">
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <a href="{{ route('exam.try', ['subject_id' => $subjects->last()->id]) }}">
+                    <div class="feature-item bg-light rounded text-center p-4">
+                        <img class="img-fluid" src="{{ asset('admin_assets/images/reading-demo.svg')}}" alt="Image">
+                    </div>
+                </a>
+            </div>
+
         </div>
     </div>
 </div>
