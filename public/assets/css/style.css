@@ -863,3 +863,20 @@ pricing-end
 .otp-field input::-webkit-outer-spin-button {
     display: none;
 }
+.first {
+    padding-left: var(--bs-gutter-x, .75rem);
+    padding-right: var(--bs-gutter-x, .75rem);
+    background-color: #fc8422;
+}
+@media (max-width: 991.98px)
+{
+    
+    .login-button {
+        background-color: #fc8422 !important; 
+        margin-right:0px !important;
+        color: white !important;
+    }
+}
+.hide {
+    display: none !important;
+}

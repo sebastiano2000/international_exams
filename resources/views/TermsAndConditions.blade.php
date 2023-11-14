@@ -56,7 +56,7 @@
         content: "";
         position: absolute;
         color: #ccc;
-        top: 45px;
+        top: 35px;
     }
     </style>
     

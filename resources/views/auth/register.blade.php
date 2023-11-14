@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class=" py-3 bg-primary hero-header">
+<div class="  py-3 bg-primary hero-header">
     <div class="container my-5 py-5 px-lg-5">
         <div class="row g-5 py-5">
             <div class="col-12 text-center">
@@ -16,9 +16,9 @@
     </div>
 </div>
 
-<section class="vh-100">
-    <div class="container h-100">
-        <div class="row d-flex align-items-center h-100">
+<section class="container-xxl">
+    <div class=" h-100">
+        <div class=" d-flex align-items-center h-100">
             <div class="col-lg-12 col-xl-11 m-3">
                 <div class="card text-black shadow" style="border-radius: 25px;">
                     <div class="card-body p-3">
