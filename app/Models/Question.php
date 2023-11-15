@@ -20,7 +20,8 @@ class Question extends Model
         'title',
         'subject_id',
         'notes',
-        'paragraph_id'
+        'paragraph_id',
+        'demo'
     ];
     
     public static function upsertInstance($request)
