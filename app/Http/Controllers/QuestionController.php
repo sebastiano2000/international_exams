@@ -298,7 +298,7 @@ class QuestionController extends Controller
     public function filter(Request $request)
     {
         return view('admin.pages.question.index', [
-            'questions' => Question::filter($request->all())->paginate(50),
+            'questions' => Question::filter($request->all())->where('demo' , 0)->paginate(50),
             'subjects' => Subject::all(),
         ]);
     }
