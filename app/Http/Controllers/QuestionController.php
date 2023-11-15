@@ -158,7 +158,7 @@ class QuestionController extends Controller
     {
         if (Auth::user()->isAdmin()) {
             return view('admin.pages.question.index', [
-                'questions' => Question::whereNot('subject_id', 3)->filter($request->all())->paginate(50),
+                'questions' => Question::whereNot('subject_id', 3)->where('demo' , 0)->filter($request->all())->paginate(50),
                 'subjects' => Subject::all(),
             ]);
         } else {
@@ -233,9 +233,9 @@ class QuestionController extends Controller
     public function try(Request $request)
     {
         $page = !empty($request->input('page')) ? $request->input('page') : '1';        
-        $total = $request->subject_id == 3 ? 5 : 3;
+        $total = $request->subject_id == 3 ? 5 : 10;
 
-        $array_questions = Question::where('subject_id', $request->subject_id)->with('answers')->take($page)->get();
+        $array_questions = Question::where('subject_id', $request->subject_id)->where('demo', 1)->with('answers')->take($page)->get();
 
         if($request->subject_id == 3){
             $array_questions = Question::where('paragraph_id', $array_questions->first()->paragraph_id)->orderBy('id', 'asc')->with('answers')->take($page)->get();
@@ -253,6 +253,14 @@ class QuestionController extends Controller
     {
         return Question::deleteAll($request);
     }
+
+    public function removeAll(Request $request)
+    {
+        return Question::removeAll($request);
+    }
+    
+    
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -20,7 +20,8 @@ class Question extends Model
         'title',
         'subject_id',
         'notes',
-        'paragraph_id'
+        'paragraph_id',
+        'demo'
     ];
     
     public static function upsertInstance($request)
@@ -83,6 +84,14 @@ class Question extends Model
         return Question::whereIn('id', $request->id)->delete();
     }
 
+    static function removeAll($request)
+    {
+        $questions = Question::where('demo', 0)->delete();
+
+         return  $questions;
+    }
+
+    
     public function answers()
     {
         return $this->hasMany(Answer::class);

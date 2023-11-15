@@ -19,8 +19,17 @@
                 </div>
 
             </div>
-            <div class="card">
-                <h2 class="card-header">رفع ملف الأسئلة</h2>
+            <div class="card row">
+                <h2 class="card-header ">رفع ملف الأسئلة 
+                    <form action="{{ route('question.dest') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('question') }}"  method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button type="submit" class="btn  bg-danger-light float-end">
+                            <i class="ti-trash"></i>
+                        حذف جميع الاسئله 
+                        </button>
+                    </form>
+                        
+                </h2>
 
                 <div class="card-body p-3">
                     <form action=" {{ route('question.import') }}" class="mt-2 w-50" method="POST"

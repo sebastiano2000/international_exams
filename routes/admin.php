@@ -116,6 +116,7 @@ Route::group(['prefix' => 'user'],function(){
 Route::group(['prefix' => 'question'],function(){
     Route::get('/', [QuestionController::class,"index"])->name('question');
     Route::get('/upsert/{question?}',[QuestionController::class,'upsert'])->name('question.upsert');
+    Route::post('/delete-questions-all',[QuestionController::class,'removeAll'])->name('question.dest');
     Route::get('/filter',[QuestionController::class,'filter'])->name('question.filter');
     Route::post('/delete-all',[QuestionController::class,'deleteAll'])->name('questions.delete');
     Route::post('/modify',[QuestionController::class,'modify'])->name('question.modify');
