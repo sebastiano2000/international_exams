@@ -183,17 +183,17 @@ class QuestionController extends Controller
         $total1 = Subject::where('id', 1)->first()->questions_count;
         $total2 = Subject::where('id', 2)->first()->questions_count;
         $total3 = Subject::where('id', 3)->first()->questions_count;
-        $subject_id = 1;
+        $subject_id = 2;
 
         $array_questions = session()->get('final.exam');
 
         if($array_questions){
-            $count = $array_questions->where('subject_id', 1)->count();
+            $count = $array_questions->where('subject_id', 2)->count();
 
             if($count == 35){
-                $subject_id = 2;
+                $subject_id = 1;
                 
-                $count2 = $array_questions->where('subject_id', 2)->count();
+                $count2 = $array_questions->where('subject_id', 1)->count();
 
                 if($count2 == 35){
                     $subject_id = 3;

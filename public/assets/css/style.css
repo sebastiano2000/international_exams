@@ -646,7 +646,7 @@ pricing
   }
   
   .pricing-item-regular span.price {
-    font-size: 40px;
+    font-size: 26px;
     color: #fff;
     position: absolute;
     font-weight: 700;
@@ -723,7 +723,7 @@ pricing
   }
   
   .pricing-item-pro span.price {
-    font-size: 40px;
+    font-size: 26px;
     color: #fff;
     position: absolute;
     font-weight: 700;

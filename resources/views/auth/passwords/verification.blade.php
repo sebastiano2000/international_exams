@@ -132,6 +132,7 @@
     };
 
     function render() {
+        firebase.auth().languageCode = 'ar';
         window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
         recaptchaVerifier.render();
         
