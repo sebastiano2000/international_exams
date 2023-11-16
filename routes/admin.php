@@ -131,6 +131,7 @@ Route::group(['prefix' => 'paragraph'],function(){
     Route::post('/modify',[ParagraphController::class,'modify'])->name('paragraph.modify');
     Route::post('/delete/{question}',[ParagraphController::class,'destroy'])->name('paragraph.delete');
     Route::post('/importParagraph',[ParagraphController::class,'importParagraph'])->name('paragraph.import');
+    Route::post('/delete-questions-all',[ParagraphController::class,'removeAll'])->name('paragraph.dest');
 });
 
 Route::group(['prefix' => 'subject'],function(){

@@ -86,11 +86,17 @@ class Question extends Model
 
     static function removeAll($request)
     {
-        $questions = Question::where('demo', 0)->delete();
+        $questions = Question::where('demo', 0)->whereNot('subject_id', 3)->delete();
 
-         return  $questions;
+        return  $questions;
     }
 
+    static function removeAllParagraph($request)
+    {
+        $questions = Question::where('demo', 0)->where('subject_id', 3)->delete();
+
+        return  $questions;
+    }
     
     public function answers()
     {

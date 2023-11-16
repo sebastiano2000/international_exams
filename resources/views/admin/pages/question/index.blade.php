@@ -28,7 +28,6 @@
                         حذف جميع الاسئله 
                         </button>
                     </form>
-                        
                 </h2>
 
                 <div class="card-body p-3">

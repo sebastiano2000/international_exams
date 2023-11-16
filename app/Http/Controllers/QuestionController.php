@@ -94,31 +94,31 @@ class QuestionController extends Controller
             }
         }
 
-        if($back_questions && $temp != -1){
-            $question = Question::where('id', $back_questions[$temp][$offset]['id'])->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+        // if($back_questions && $temp != -1){
+        //     $question = Question::where('id', $back_questions[$temp][$offset]['id'])->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
 
-            if(!$question){
-                $array_questions = UserTest::where('user_id', Auth::user()->id)->pluck('question_id');
+        //     if(!$question){
+        //         $array_questions = UserTest::where('user_id', Auth::user()->id)->pluck('question_id');
 
-                if($array_questions){
-                    $question = Question::whereNotIn('id', $array_questions)->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
-                }
-                else {
-                    $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->get();
-                }
+        //         if($array_questions){
+        //             $question = Question::whereNotIn('id', $array_questions)->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+        //         }
+        //         else {
+        //             $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->get();
+        //         }
 
-                if(!$question){
-                    UserTest::where('user_id', Auth::user()->id)->delete();
-                    $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
-                }
+        //         if(!$question){
+        //             UserTest::where('user_id', Auth::user()->id)->delete();
+        //             $question = Question::where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
+        //         }
 
-                $offset_array[$offset] = [ 'id' => $question->id ];
-                array_push($back_questions, $offset_array);
+        //         $offset_array[$offset] = [ 'id' => $question->id ];
+        //         array_push($back_questions, $offset_array);
 
-                session()->put('test.data', $back_questions);
-            }
-        }
-        else {
+        //         session()->put('test.data', $back_questions);
+        //     }
+        // }
+        // else {
             $array_questions = UserTest::where('user_id', Auth::user()->id)->pluck('question_id');
             
             if(count($array_questions) > 0){
@@ -144,7 +144,7 @@ class QuestionController extends Controller
 
             $offset_array[$offset] = ['id' => $question->id];
             array_push($back_questions, $offset_array);
-        }
+        // }
 
         session()->put('test.data', $back_questions);
 
@@ -258,8 +258,6 @@ class QuestionController extends Controller
     {
         return Question::removeAll($request);
     }
-    
-    
     
     /**
      * Show the form for creating a new resource.
