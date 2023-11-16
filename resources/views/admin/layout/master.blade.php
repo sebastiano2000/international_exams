@@ -191,6 +191,18 @@
                                     <div style="text-align: end;">Full Test</div>
                                 </a>
                             </li>
+                            <li>
+                                <a  
+                                    href="#"
+                                    data-target="#show_subscription"
+                                    data-toggle="modal"
+                                    class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
+                                >
+                                    <div>صلاحية الاشتراك</div>
+                                    <i class="icon-calender"></i>
+                                    <div style="text-align: end;">Subscription Validity</div>
+                                </a>
+                            </li>
                             @foreach(\App\Models\Preparator::all() as $preparator)
                                 <li>
                                     <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
@@ -325,6 +337,30 @@
             </div>
         </div> 
     </div>
+    <div id="show_subscription" class="modal fade">   
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelHeading">صلاحية الاشتراك</h4>
+                    <span class="button" data-dismiss="modal" aria-label="Close">   <i class="ti-close"></i> </span>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="mb-2">تاريخ الاشتراك</label>
+                        <div class="col-md-12">
+                            <label class="mb-2 day_create" date="{{explode(' ', Auth::user()->created_at)[0]}}">{{ explode(' ', Auth::user()->created_at)[0] }}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="mb-2">الايام المتبقية</label>
+                        <div class="col-md-12">
+                            <label class="mb-2 day_left" >{{ explode(' ', Auth::user()->created_at)[0] }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
     <script src="{{ asset('admin_assets/node_modules/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{ asset('admin_assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -438,10 +474,24 @@
                 },
             });
 
+            var date1 = new Date().toDateString();
+            var date2 = new Date('6/1/2024').toDateString();
+
+            $('.day_left').text(daysdifference(date1, date2))
+
             function formatRepo (item) {
                 return item.name;
             }
         });
+
+        function daysdifference(firstDate, secondDate){
+            var startDay = new Date(firstDate);
+            var endDay = new Date(secondDate);
+            var millisBetween = startDay.getTime() - endDay.getTime();
+            var days = millisBetween / (1000 * 3600 * 24);
+
+            return Math.round(Math.abs(days));
+        }
 
         function edit_password(el) {
             var link = $(el);

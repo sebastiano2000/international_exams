@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use App\Models\Preparator;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
+        if(date('m/d/Y') == '6/1/2023'){
+            User::where('role_id', 2)->update([
+                'suspend' => 0
+            ]);
+        }
+
         return view('admin.pages.dashboard', [
             'subjects' => Subject::all(),
             'preparators' => Preparator::all(),
