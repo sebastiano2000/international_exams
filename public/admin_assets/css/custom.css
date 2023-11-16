@@ -5718,7 +5718,7 @@ table.table-inbox tbody tr.checked {
     }
 
     .profile-image {
-        flex: 0 0 100%;
+        /* flex: 0 0 100%; */
         margin-bottom: 20px;
         text-align: center;
     }
@@ -6632,4 +6632,26 @@ span:active {
     border: 8px solid #fc8423;
     border-radius: 10px;
     height: auto;
+}
+
+.img-profile {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+}
+
+.profile_letters {
+    font-size: 50px;
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    color: #fff;
+}
+
+.profile-image {
+    background: #bdbdbd;
+    border-radius: 50%;
+    display:block;
+    width: 120px;
+    height: 120px;
 }

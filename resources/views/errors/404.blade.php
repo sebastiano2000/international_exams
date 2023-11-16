@@ -15,7 +15,7 @@
 				<h1>404</h1>
 				<h3 class="h2 mb-3"> {{__('pages.Oops')}} <i class="ti-alert"></i></h3>
 				<p class="h4 font-weight-normal">{{__('pages.oops-request')}}</p>
-				<a href="{{route('dashboard')}}" class="btn btn-primary">{{__('pages.back to home')}}</a>
+				<a href="{{route('home')}}" class="btn btn-primary">{{__('pages.back to home')}}</a>
 			</div>
         </div>
     </body>

@@ -45,10 +45,9 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         <b class="small-icon">
-                            <!-- <img src="{{ asset('admin_assets/images/favicon.jpeg') }}" alt="homepage" class="dark-logo"
-                                style="max-height: 50px" /> -->
-                            <!-- <img src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage" class="light-logo"
-                                style="max-height: 50px; min-width: 50px;" /> -->
+    
+                            <img src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage" class="light-logo d-lg-none "
+                                style="max-height: 50px; min-width: 50px;" /> 
                         </b>
                         <span>
                             <!-- <img src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage"
@@ -62,7 +61,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a
                             class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
-                            href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                            href="javascript:void(0)"><i class="icon-arrow-left-circle" style="font-size: 30px; margin-right: 10px;"></i><i class="icon-arrow-right-circle xl" style="font-size: 30px;"></i></a></li>
                         <li class="nav-item"><a
                             class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
                             href="javascript:void(0)"><i class="icon-arrow-left-circle" style="font-size: 30px; margin-right: 10px;"></i><i class="icon-arrow-right-circle xl" style="font-size: 30px;"></i></a></li>

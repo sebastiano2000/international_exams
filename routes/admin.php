@@ -143,12 +143,15 @@ Route::group(['prefix' => 'subject'],function(){
 
 Route::group(['prefix' => 'profile'],function(){
     Route::get('/', [ProfileController::class, "index"])->name('profile');
+    Route::post('/update', [ProfileController::class,"update"])->name('profile.update');
+
 });
 
 Route::group(['prefix' => 'log'],function(){
     Route::get('/', [LogController::class,"index"])->name('log');
     Route::get('/filter',[LogController::class,'filter'])->name('log.filter');
 });
+
 
 Route::group(['prefix' => 'prices'],function(){
     Route::get('/', [PriceController::class,"index"])->name('prices');

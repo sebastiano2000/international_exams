@@ -35,6 +35,7 @@ class User extends Authenticatable
         'session_limit',
         'logintoken',
         'role_id',
+        'email',
         'suspend',
         'finish',
         'high'
@@ -83,6 +84,7 @@ class User extends Authenticatable
                     'name' => $request->name,
                     'phone' => $request->phone,
                     'high' => $request->high,
+                    'email' => $request->email,
                 ]
             );    
 
@@ -199,6 +201,21 @@ class User extends Authenticatable
         $request->session()->regenerate();
 
         return true;
+    }
+
+    public function getAvatarNameAttribute()
+    {
+        $name = Auth::user()->name;
+        $nameParts = explode(' ', trim($name));
+        $firstName = array_shift($nameParts);
+        $lastName = array_pop($nameParts);
+
+        $initials = (
+            mb_substr(ucfirst($firstName), 0, 1) . ($lastName ?
+            mb_substr(ucfirst($lastName), 0, 1) : mb_substr(ucfirst($firstName), 0, 1))
+        );
+
+        return $initials;
     }
 
     static function statusUpdate($request)

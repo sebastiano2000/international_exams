@@ -42033,7 +42033,7 @@ a.list-group-item {
     padding-left: 15px;
     padding-right: 15px;
     font-size: 18px;
-    line-height: 50px
+    /* line-height: 50px; */
 }
 
 .topbar .top-navbar .navbar-nav>.nav-item>span {
