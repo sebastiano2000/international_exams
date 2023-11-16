@@ -300,7 +300,7 @@
                     <span class="button" data-dismiss="modal" aria-label="Close">   <i class="ti-close"></i> </span>
                 </div>
                 <div class="modal-body">
-                    <form method="post" enctype="multipart/form-data" action="{{ route('user.password') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('user') }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('user.password') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('home') }}">
                         @csrf
                         <input type="hidden" name="id" id="password_id">
                         <div class="form-group">
