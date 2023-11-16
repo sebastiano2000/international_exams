@@ -35,6 +35,8 @@ class QuestionController extends Controller
         $array_questions = session()->get('exam.data');
 
         if($array_questions && $array_questions->where('id', $array_questions->pluck('id')->first())->where('subject_id', $request->subject_id)->first()){
+            $array_question = null;
+
             if($array_questions->last()){
                 if($array_questions->last()->paragraph_id){
                     $array_question = Question::where('paragraph_id', $array_questions->last()->paragraph_id)->whereNotIn('id', $array_questions->pluck('id'))->orderBy('id', 'asc')->with('answers')->take(1)->first();
@@ -94,7 +96,7 @@ class QuestionController extends Controller
             }
         }
 
-        if($back_questions && $temp != -1){
+        if($back_questions && $temp != -1 && !empty($request->input('page'))){
             $question = Question::where('id', $back_questions[$temp][$offset]['id'])->where('subject_id', $request->subject_id)->inRandomOrder()->with('answers')->take(1)->first();
 
             if(!$question){
@@ -258,8 +260,6 @@ class QuestionController extends Controller
     {
         return Question::removeAll($request);
     }
-    
-    
     
     /**
      * Show the form for creating a new resource.

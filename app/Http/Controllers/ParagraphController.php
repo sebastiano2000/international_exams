@@ -46,6 +46,11 @@ class ParagraphController extends Controller
         return Question::upsertInstance($request);
     }
 
+    public function removeAll(Request $request)
+    {
+        return Question::removeAllParagraph($request);
+    }
+
     public function importParagraph(Request $request)
     {
         Excel::import(new ImportParagraph($request->subject_id), $request->file('file')->store('files'));
