@@ -130,9 +130,9 @@ class QuestionController extends Controller
             if(count($array_questions) > 0){
                 $last = Question::where('id', $array_questions->last())->first();
                 $question = null;
-                
+                // dd($array_questions->toArray());
                 if($last->paragraph_id){
-                    $question = Question::where('paragraph_id', $last->paragraph_id)->whereNotIn('id', $array_questions)->orderBy('id', 'asc')->with('answers')->take(1)->first();
+                    $question = Question::where('paragraph_id', $last->paragraph_id)->whereNotIn('id', $array_questions->toArray())->orderBy('id', 'asc')->with('answers')->take(1)->first();
                 }
 
                 if (!$question) {
