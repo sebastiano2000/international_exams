@@ -43,19 +43,28 @@
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark" style="background: #fc8423;">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ route('home') }}">
+                    <div class="navbar-brand" >
                         <b class="small-icon">
-    
-                            <img src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage" class="light-logo d-lg-none "
+                            <a  href="{{route('profile')}}" >
+                                <img  href="{{route('profile')}}" src="{{ asset('admin_assets/images/Picture1.png') }}" alt="homepage" class="light-logo d-lg-none "
                                 style="max-height: 50px; min-width: 50px;" /> 
+                            </a>
+                            <a  href="{{route('home')}}" >
+                                <img  src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage" class="light-logo d-lg-none "
+                                    style="max-height: 50px; min-width: 50px; margin-left:150px !important;" /> 
+                            </a>
                         </b>
                         <span>
-                            <!-- <img src="{{ asset('admin_assets/images/logo.svg') }}" alt="homepage"
-                                class="dark-logo me-2" style="max-height: 50px" /> -->
-                            <img src="{{ asset('admin_assets/images/logo.svg') }}" class="light-logo me-2"
-                                alt="homepage" style="max-height: 50px; width: 150px;"/>
+                            <a  href="{{route('profile')}}" >
+                                <img src="{{ asset('admin_assets/images/Picture1.png') }}" alt="homepage" class="light-logo  "
+                                    style="max-height: 50px; min-width: 50px;" /> 
+                            </a>
+                            <a  href="{{route('home')}}" >
+                                <img src="{{ asset('admin_assets/images/logo.svg') }}" class="light-logo me-2"
+                                    alt="homepage" style="max-height: 50px; width: 150px;"/>
+                            </a>
                         </span>
-                    </a>
+                    </div>
                 </div>
                 <div class=" navbar-collapse">
                     <ul class="navbar-nav ms-auto">
