@@ -228,7 +228,14 @@
                             </li>
                         @endif
                         <li>
-                            <a href="{{ route('forget-password.reset') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                            <a 
+                                href="#"
+                                onclick="edit_password(this)"
+                                data-target="#edit_password"
+                                data-toggle="modal"
+                                data-id="{{Auth::user()->id}}"
+                                class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
+                            >
                                 <div>تعديل كلمة المرور</div>
                                 <i class="icon-refresh"></i>
                                 <div style="text-align: end;">Reset Password</div>
@@ -285,7 +292,40 @@
         </div>
     </div>
     @yield('content')
-
+    <div id="edit_password" class="modal fade">   
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modelHeading">تغير كلمة السر</h4>
+                    <span class="button" data-dismiss="modal" aria-label="Close">   <i class="ti-close"></i> </span>
+                </div>
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('user.password') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('user') }}">
+                        @csrf
+                        <input type="hidden" name="id" id="password_id">
+                        <div class="form-group">
+                            <label class="mb-2">كلمة السر</label>
+                            <div class="col-md-12">
+                                <input class="form-control text-start" id="password" type="text" name="password" placeholder="كلمة السر" >
+                                <p class="error error_password"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-2">تاكيد كلمة السر</label>
+                            <div class="col-md-12">
+                                <input class="form-control text-start" id="confirm_password" type="text" name="password_confirmation" placeholder="كلمة السر" >
+                                <p class="error error_email"></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-12 text-center">
+                            <button type="submit" class="btn btn-primary" id="saveBtn" value="create">{{ __('pages.save') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </div>
     <script src="{{ asset('admin_assets/node_modules/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{ asset('admin_assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -403,6 +443,18 @@
                 return item.name;
             }
         });
+
+        function edit_password(el) {
+            var link = $(el);
+            var modal = $("#edit_password");
+            var password = link.data('password');
+            var id = link.data('id');
+            var confirm_password = link.data('confirm_password');
+        
+            modal.find('#password').val(password);
+            modal.find('#password_id').val(id);
+            modal.find('#confirm_password').val(confirm_password);
+        }
 
         $('.dropify').dropify();
       

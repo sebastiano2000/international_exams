@@ -6100,7 +6100,7 @@ a {
 }
 
 .radio-label {
-    background: rgb(242 249 252);
+    background: rgb(255 239 227);
 
 }
 
@@ -6160,7 +6160,7 @@ label.active {
 #btn, #backbtn {
     box-shadow: 3px 15px 20px rgb(0 0 0 / 4%);
     border-radius: 50px;
-    background: rgb(1 169 243);
+    background: rgb(252 132 35);
     color: white;
     display: block;
     font-size: 1.1rem;
@@ -6184,7 +6184,7 @@ label.active {
 form:invalid #btn {
     box-shadow: 3px 15px 20px rgb(0 0 0 / 4%);
     pointer-events: none;
-    background: rgb(229 244 254);
+    background: rgb(255 239 227);
 }
 
 .btn:hover {
