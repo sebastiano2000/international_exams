@@ -6626,3 +6626,10 @@ span:active {
     }
     
 }
+
+.sidebar-container {
+    margin: 3px;
+    border: 8px solid #fc8423;
+    border-radius: 10px;
+    height: auto;
+}

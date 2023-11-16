@@ -61,16 +61,11 @@
                 <div class=" navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a
-                                class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                            class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
+                            href="javascript:void(0)"><i class="ti-menu"></i></a></li>
                         <li class="nav-item"><a
-                                class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="icon-menu"></i></a></li>
-                        <li class="nav-item">
-                            <form class="app-search d-none d-md-block d-lg-block">
-                                <input type="text" class="form-control" placeholder="Search & enter">
-                            </form>
-                        </li>
+                            class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
+                            href="javascript:void(0)"><i class="icon-arrow-left-circle" style="font-size: 30px; margin-right: 10px;"></i><i class="icon-arrow-right-circle xl" style="font-size: 30px;"></i></a></li>
                     </ul>
                     @if(Auth::user()->isAdmin())
                         <ul class="navbar-nav my-lg-0">
@@ -84,119 +79,122 @@
         <aside class="left-sidebar">
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
-                    <div class="p-2 text-center" style="font-size: 22px; font-weight: bold;">
+                    <div class="p-2 text-right" style="font-size: 16px; font-weight: bold;">
+                        مرحباً بك
+                    </div>
+                    <div class="text-center" style="font-size: 22px; font-weight: bold;">
                         {{ Auth::user()->name }}
                     </div>
                     <ul id="sidebarnav">
                         @if(Auth::user()->isAdmin())
                             <li>
-                                <a href="{{ route('user') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    {{ __('pages.users') }}
+                                <a href="{{ route('user') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"">
+                                    <div>{{ __('pages.users') }}</div>
+                                    <div style="text-align: end;">Users</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('subject') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    المادة
+                                <a href="{{ route('subject') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>المادة</div>
+                                    <div style="text-align: end;">Subject</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('paragraph') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    اسئلة القطعة
+                                <a href="{{ route('paragraph') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>اسئلة القطعة</div>
+                                    <div style="text-align: end;">Paragraph Questions</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('question') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    الاسئلة
+                                <a href="{{ route('question') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>الاسئلة</div>
+                                    <div style="text-align: end;">Questions</div>                                    
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('result') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    نتائج الاختبار
+                                <a href="{{ route('result') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>نتائج الاختبار</div>
+                                    <div style="text-align: end;">Exam Result</div>                                  
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('total') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    نتائج الاختبار الشامل
+                                <a href="{{ route('total') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>نتائج الاختبار الشامل</div>
+                                    <div style="text-align: end;">Full Test Result</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('preparator') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    محضرين
+                                <a href="{{ route('preparator') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>محضرين</div>
+                                    <div style="text-align: end;">Preparators</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('prices') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    الاسعار
+                                <a href="{{ route('prices') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>الاسعار</div>
+                                    <div style="text-align: end;">Pricing</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('report') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    الابلاغات
+                                <a href="{{ route('report') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>الابلاغات</div>
+                                    <div style="text-align: end;">Reports</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('contact.admin') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    رسائل تواصل معنا
+                                <a href="{{ route('contact.admin') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>رسائل تواصل معنا</div>
+                                    <div style="text-align: end;">Contact Messagese</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('log') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    سجل العمليات
+                                <a href="{{ route('log') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>سجل العمليات</div>
+                                    <div style="text-align: end;">Log</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('financial_transaction') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    سجل عمليات الدفع
+                                <a href="{{ route('financial_transaction') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>سجل عمليات الدفع</div>
+                                    <div style="text-align: end;">Financial Transactions</div>
                                 </a>
                             </li>
                         @elseif(Auth::user()->suspend)
                             <li>
-                                <a href="{{ route('home') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    الصفحة الرئسية
+                                <a href="{{ route('home') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>الصفحة الرئسية</div>
+                                    <div style="text-align: end;">Homepage</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('question.fav') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    <span>الاسئلة المفضلة</span>
+                                <a href="{{ route('question.fav') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>الاسئلة المفضلة</div>
+                                    <div style="text-align: end;">Favourite Questions</div>
                                 </a>
                             </li>
                             @foreach(\App\Models\Subject::all() as $subject)
                                 <li>
-                                    <a href="{{ route('exam', ['subject_id' => $subject->id]) }}">
-                                        <i class="ti-control-record text-success"></i>
-                                        اختبار تجريبي {{$subject->name}}
+                                    <a href="{{ route('exam', ['subject_id' => $subject->id]) }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                        <div>اختبار تجريبي {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
+                                        <div style="text-align: end;">{{$subject->name}} Practice Test</div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('exam.test', ['subject_id' => $subject->id]) }}">
-                                        <i class="ti-control-record text-success"></i>
-                                        مراجعة {{$subject->name}}
+                                    <a href="{{ route('exam.test', ['subject_id' => $subject->id]) }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                        <div>مراجعة {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
+                                        <div style="text-align: end;">{{$subject->name}} Review</div>
                                     </a>
                                 </li>
                             @endforeach
                             <li>
-                                <a href="{{ route('exam.final') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    الأختبار الشامل</a>
+                                <a href="{{ route('exam.final') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>الأختبار الشامل</div>
+                                    <div style="text-align: end;">Full Test</div>
+                                </a>
                             </li>
                             @foreach(\App\Models\Preparator::all() as $preparator)
                                 <li>
-                                    <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank">
-                                        <i class="ti-control-record text-success"></i>
+                                    <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                         مذكرات {{$preparator->name}}
                                     </a>
                                 </li>
@@ -204,34 +202,46 @@
                         @else
                             @foreach(\App\Models\Subject::all() as $subject)
                                 <li>
-                                    <a href="{{ route('pricing.index') }}">
-                                        <i class="ti-control-record text-success"></i>
-                                        Demo {{$subject->name}}
+                                    <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                        <div>ديمو {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
+                                        <div style="text-align: end;">{{$subject->name}} Demo</div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('pricing.index') }}">
-                                        <i class="ti-control-record text-success"></i>
-                                        اختبار تجريبي {{$subject->name}}
+                                    <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                        <div>اختبار تجريبي {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
+                                        <div style="text-align: end;">{{$subject->name}} Practice Test</div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('pricing.index') }}">
-                                        <i class="ti-control-record text-success"></i>
-                                        مراجعة {{$subject->name}}
+                                    <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                        <div>مراجعة {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
+                                        <div style="text-align: end;">{{$subject->name}} Review</div>
                                     </a>
                                 </li>
                             @endforeach
                             <li>
-                                <a href="{{ route('pricing.index') }}">
-                                    <i class="ti-control-record text-success"></i>
-                                    الأختبار الشامل</a>
+                                <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>الأختبار الشامل</div>
+                                    <div style="text-align: end;">Full Test</div>
+                                </a>
                             </li>
                         @endif
-                        <li><a class="waves-effect waves-dark" href="{{ route('logout') }}"
+                        <li>
+                            <a href="{{ route('forget-password.reset') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <div>تعديل كلمة المرور</div>
+                                <i class="icon-refresh"></i>
+                                <div style="text-align: end;">Reset Password</div>
+                            </a>
+                        </li>
+                        <li><a class="waves-effect waves-dark sidebar-container d-flex justify-content-between align-items-center p-2 mb-2" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();"
-                                aria-expanded="false"><i class="ti-control-record text-success"></i>{{
-                                    __('pages.Logout') }}</a></li>
+                                aria-expanded="false">
+                                <div>تسجيل الخروج</div>
+                                <i class="icon-logout"></i>
+                                <div style="text-align: end;">{{ __('pages.Logout') }}</div>
+                            </a>
+                        </li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf</form>
                     </ul>
                 </nav>

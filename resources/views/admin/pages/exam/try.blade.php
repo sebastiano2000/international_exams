@@ -20,7 +20,7 @@
 <div class="container-xxl">
     <div class=" py-5 px-lg-5">
         <div class="">
-            <div class="container" style="">
+            <div class="">
                 <!-- QUIZ ONE -->
                 <div class="section-1 question-card" id="section-1" style="margin-top: 20px; overflow-y: auto;">
                     <div class="question-main">
