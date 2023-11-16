@@ -15,13 +15,17 @@ $(function () {
         if (width < 1170) {
             $("body").addClass("mini-sidebar");
             $('.navbar-brand span').hide();
-            // $(".sidebartoggler i").addClass("ti-menu");
+            $(".sidebartoggler i").addClass("icon-arrow-right-circle");
+            $(".sidebartoggler i").removeClass("icon-arrow-left-circle");
         }
         else {
             $("body").removeClass("mini-sidebar");
+            $(".sidebartoggler i").addClass("icon-arrow-left-circle");
+            $(".sidebartoggler i").removeClass("icon-arrow-right-circle");
             $('.navbar-brand span').show();
         }
-         var height = ((window.innerHeight > 0) ? window.innerHeight : this.screen.height) - 1;
+         
+        var height = ((window.innerHeight > 0) ? window.innerHeight : this.screen.height) - 1;
         height = height - topOffset;
         if (height < 1) height = 1;
         if (height > topOffset) {
@@ -37,17 +41,31 @@ $(function () {
         if ($("body").hasClass("mini-sidebar")) {
             $("body").trigger("resize");
             $("body").removeClass("mini-sidebar");
+            $(".sidebartoggler i").addClass("icon-arrow-right-circle");
+            $(".sidebartoggler i").removeClass("icon-arrow-left-circle");
             $('.navbar-brand span').show();
         }
         else {
             $("body").trigger("resize");
             $("body").addClass("mini-sidebar");
+            $(".sidebartoggler i").addClass("icon-arrow-left-circle");
+            $(".sidebartoggler i").removeClass("icon-arrow-right-circle");
+
             $('.navbar-brand span').hide();
         }
     });
     // this is for close icon when navigation open in mobile view
     $(".nav-toggler").click(function () {
         $("body").toggleClass("show-sidebar");
+
+        if($("body").hasClass("show-sidebar")){
+            $(".sidemobiletoggler i").addClass("icon-arrow-right-circle");
+            $(".sidemobiletoggler i").removeClass("icon-arrow-left-circle");
+        }
+        else {
+            $(".sidemobiletoggler i").addClass("icon-arrow-right-circle");
+            $(".sidemobiletoggler i").removeClass("icon-arrow-left-circle");
+        }
         // $(".nav-toggler i").toggleClass("ti-menu");
         // $(".nav-toggler i").addClass("ti-close");
     });

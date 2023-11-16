@@ -60,11 +60,11 @@
                 <div class=" navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a
-                            class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
-                            href="javascript:void(0)"><i class="icon-arrow-left-circle" style="font-size: 30px; margin-right: 10px;"></i><i class="icon-arrow-right-circle xl" style="font-size: 30px;"></i></a></li>
+                            class="nav-link nav-toggler sidemobiletoggler d-block d-md-none waves-effect waves-dark"
+                            href="javascript:void(0)"><i class="icon-arrow-left-circle" style="font-size: 30px;"></i></a></li>
                         <li class="nav-item"><a
                             class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
-                            href="javascript:void(0)"><i class="icon-arrow-left-circle" style="font-size: 30px; margin-right: 10px;"></i><i class="icon-arrow-right-circle xl" style="font-size: 30px;"></i></a></li>
+                            href="javascript:void(0)"><i class="icon-arrow-right-circle" style="font-size: 30px;"></i></a></li>
                     </ul>
                     @if(Auth::user()->isAdmin())
                         <ul class="navbar-nav my-lg-0">
@@ -555,9 +555,13 @@
         $(".sidebartoggler").on('click', function () {
             if ($("body").hasClass("mini-sidebar")) {
                 $(".left-sidebar").removeClass("d-none");
+                $(".sidebartoggler i").addClass("icon-arrow-right-circle");
+                $(".sidebartoggler i").removeClass("icon-arrow-left-circle");
             }
             else {
                 $(".left-sidebar").addClass("d-none");
+                $(".sidebartoggler i").addClass("icon-arrow-left-circle");
+                $(".sidebartoggler i").removeClass("icon-arrow-right-circle");
             }
         });
         
