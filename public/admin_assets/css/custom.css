@@ -6624,12 +6624,12 @@ span:active {
         margin-top: -130px !important;
         /* padding: 1px; */
     }
-    
 }
 
 .sidebar-container {
     margin: 3px;
     border: 8px solid #fc8423;
+    color: #fc8423;
     border-radius: 10px;
     height: 65px;
 }
@@ -6654,4 +6654,9 @@ span:active {
     display:block;
     width: 120px;
     height: 120px;
+}
+
+.sidebar-container.active {
+    color: white !important;
+    background: #fc8423 !important;
 }
