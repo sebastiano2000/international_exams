@@ -180,7 +180,7 @@
                                     <div style="text-align: end;">Favourite Questions</div>
                                 </a>
                             </li>
-                            @foreach(\App\Models\Subject::all() as $subject)
+                            @foreach(\App\Models\Subject::orderBy('created_at', 'asc')->get() as $subject)
                                 <li>
                                     <a href="{{ route('exam.test', ['subject_id' => $subject->id]) }}" 
                                         @if($subject->name == 'Reading Comprehension')style="font-size: 12px;" @endif    
@@ -227,7 +227,7 @@
                                 </li>
                             @endforeach
                         @else
-                            @foreach(\App\Models\Subject::all() as $subject)
+                            @foreach(\App\Models\Subject::orderBy('created_at', 'asc')->get() as $subject)
                                 <li>
                                     <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                         <div>ديمو {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
