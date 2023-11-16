@@ -121,6 +121,10 @@ class QuestionController extends Controller
             }
         }
         else {
+            if(empty($request->input('page'))){
+                UserTest::where('user_id', Auth::user()->id)->delete();
+            }
+
             $array_questions = UserTest::where('user_id', Auth::user()->id)->pluck('question_id');
             
             if(count($array_questions) > 0){
