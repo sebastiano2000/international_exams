@@ -70,15 +70,12 @@
     
                             <ul class="navbar-nav header-navbar-rht">
                                     <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <a id="navbarDropdown" href="{{ route('home') }}" class="nav-link dropdown-toggle"  >
                                             {{ Auth::user()->name }}
                                         </a>
                                         
                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            @if (Auth::user()->isAdmin())
-                                                <a class="dropdown-item" href="{{ route('home') }}">{{ __('pages.dashboard') }}</a>
-                                            @else
-                                            @endif
+                                            <a class="dropdown-item" href="{{ route('home') }}">{{ __('pages.dashboard') }}</a>
                                             <a class="dropdown-item"  onclick="event.preventDefault();document.getElementById('logout-form').submit();" aria-expanded="false" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                 {{ __('pages.Logout') }}
                                             </a>
