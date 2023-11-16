@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="  py-3 bg-primary hero-header">
-    <div class="container my-5 py-5 px-lg-5">
+    <div class="container my-5 py-5  register-container px-lg-5">
         <div class="row g-5 py-5">
             <div class="col-12 text-center">
                 <h1 class="text-white animated slideInDown">تسجيل حساب جديد
@@ -23,7 +23,7 @@
                 <div class="card text-black shadow" style="border-radius: 25px;">
                     <div class="card-body p-3">
                         <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-1">
 
                                 <p class="section-title text-secondary  mx-md-auto mt-4">تسجيل الدخول لبنك الأسئلة الموضوعية</p>
 

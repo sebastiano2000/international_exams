@@ -893,3 +893,23 @@ pricing-end
 .color-black:hover {
     color: #fc8422 !important;
 }
+@media (max-width: 991.98px)
+{
+    .hero-header {
+        padding: 4rem 0 2rem 0;
+        margin-bottom: 4rem !important;
+    }
+    .success-section {
+        padding-top:1rem !important;
+        padding-bottom:0rem !important;
+    }
+    .feature-mobile {
+        padding: 0 !important;
+    }
+    .register-container {
+        padding: 1rem !important;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+
+    }
+}

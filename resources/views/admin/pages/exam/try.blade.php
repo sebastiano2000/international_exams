@@ -22,7 +22,7 @@
         <div class="">
             <div class="">
                 <!-- QUIZ ONE -->
-                <div class="section-1 question-card" id="section-1" style="margin-top: 20px; overflow-y: auto;">
+                <div class="section-1 question-card" id="section-1" style="overflow-y: auto;">
                     <div class="question-main">
 
                         <div class="text-container">

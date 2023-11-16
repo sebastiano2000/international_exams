@@ -17,27 +17,27 @@
 <div class="container-xxl">
     <div class=" p-3 px-lg-5 card shadow" style="border-radius: 25px;">
         <div class=" fadeInUp" data-wow-delay="0.1s">
-            <h2 class="text-center "> باستطاعتك تجربة النظام مجاناً ، اختر نوع الاختبار وابدأ فوراً      </h2>
+            <h2 style="line-height: 37px !important;" class="text-center "> باستطاعتك تجربة النظام مجاناً ، اختر نوع الاختبار وابدأ فوراً      </h2>
         </div>
        
         <div class=" py-5 px-lg-5 row">
             <div class="col-4 wow fadeInUp" data-wow-delay="0.3s">
                 <a href="{{ route('exam.try', ['subject_id' => $subjects->first()->id]) }}">
-                    <div class="feature-item bg-light rounded text-center p-2">
+                    <div class="feature-item bg-light rounded text-center p-2 feature-mobile">
                         <img class="img-fluid" src="{{ asset('admin_assets/images/vocab-demo.svg')}}" alt="Image">
                     </div>
                 </a>
             </div>
             <div class="col-4 wow fadeInUp" data-wow-delay="0.3s">
                 <a href="{{ route('exam.try', ['subject_id' => $subjects->get(1)->id]) }}">
-                    <div class="feature-item bg-light rounded text-center p-2">
+                    <div class="feature-item bg-light rounded text-center p-2 feature-mobile">
                         <img class="img-fluid" src="{{ asset('admin_assets/images/grammar-demo.svg')}}" alt="Image">
                     </div>
                 </a>
             </div>
             <div class="col-4 wow fadeInUp" data-wow-delay="0.3s">
                 <a href="{{ route('exam.try', ['subject_id' => $subjects->last()->id]) }}">
-                    <div class="feature-item bg-light rounded text-center p-2">
+                    <div class="feature-item bg-light rounded text-center p-2 feature-mobile">
                         <img class="img-fluid" src="{{ asset('admin_assets/images/reading-demo.svg')}}" alt="Image">
                     </div>
                 </a>
