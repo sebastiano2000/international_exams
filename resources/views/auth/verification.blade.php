@@ -132,6 +132,7 @@
     };
 
     function render() {
+        firebase.auth().languageCode = 'ar';
         window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
         recaptchaVerifier.render();
     }
@@ -150,6 +151,7 @@
             return;
         }
 
+        firebase.languageCode = 'ar';
         firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
             window.confirmationResult = confirmationResult;
             coderesult = confirmationResult;

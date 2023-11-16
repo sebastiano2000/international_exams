@@ -65,12 +65,10 @@
                     <input type="hidden" name="package_number" id="id">
                     <input type="hidden" name="user_id" id="user_id">
                     <div class="form-group">
-                        <label class="mb-2">
-                            سيتمكن كل متدرب من الدخول للنظام عن طريق متصفحين اثنين (أو جهازين) كحد أقصى
-                            لا يسمح بمشاركة الحساب الخاص بك مع أي شخص آخر
-                            استخدام الـ VPN سيؤدي لاحتساب أكثر من جهاز عند الدخول
-                            آخر يوم لصلاحية الاشتراك هو يوم السبت الموافق 1 يونيو 2024
-                        </label>
+                        <label class="mb-2">سيتمكن كل متدرب من الدخول للنظام عن طريق متصفحين اثنين (أو جهازين) كحد أقصى</label>
+                        <label class="mb-2">لا يسمح بمشاركة الحساب الخاص بك مع أي شخص آخر</label>
+                        <label class="mb-2">استخدام الـ VPN سيؤدي لاحتساب أكثر من جهاز عند الدخول</label>
+                        <label class="mb-2">آخر يوم لصلاحية الاشتراك هو يوم السبت الموافق 1 يونيو 2024</label>
                     </div>
                     <div class="col-sm-offset-2 col-sm-12 text-center">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">موافق
@@ -91,10 +89,8 @@
         var link = $(el);
         var modal = $("#payment");
         var id = link.data('id');
-        // var phone = link.data('phone');
     
         modal.find('#id').val(id);
-        // modal.find('#phone').val(phone);
     }
 
     $('#payment').submit(function(e) {

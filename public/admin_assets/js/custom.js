@@ -15,7 +15,7 @@ $(function () {
         if (width < 1170) {
             $("body").addClass("mini-sidebar");
             $('.navbar-brand span').hide();
-            $(".sidebartoggler i").addClass("ti-menu");
+            // $(".sidebartoggler i").addClass("ti-menu");
         }
         else {
             $("body").removeClass("mini-sidebar");
@@ -48,8 +48,8 @@ $(function () {
     // this is for close icon when navigation open in mobile view
     $(".nav-toggler").click(function () {
         $("body").toggleClass("show-sidebar");
-        $(".nav-toggler i").toggleClass("ti-menu");
-        $(".nav-toggler i").addClass("ti-close");
+        // $(".nav-toggler i").toggleClass("ti-menu");
+        // $(".nav-toggler i").addClass("ti-close");
     });
     $(".search-box a, .search-box .app-search .srh-btn").on('click', function () {
         $(".app-search").toggle(200);

@@ -95,36 +95,6 @@
           
             </div>
 
-            <div id="payment" class="modal fade">   
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="modelHeading">الملاحظات</h4>
-                            <span class="button" data-dismiss="modal" aria-label="Close"><i class="bi-x-square"></i> </span>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" enctype="multipart/form-data" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}">
-                                @csrf
-                                <input type="hidden" name="package_number" id="id">
-                                <input type="hidden" name="user_id" id="user_id">
-                                <div class="form-group">
-                                    <label class="mb-2">
-                                        سيتمكن كل متدرب من الدخول للنظام عن طريق متصفحين اثنين (أو جهازين) كحد أقصى
-                                        لا يسمح بمشاركة الحساب الخاص بك مع أي شخص آخر
-                                        استخدام الـ VPN سيؤدي لاحتساب أكثر من جهاز عند الدخول
-                                        آخر يوم لصلاحية الاشتراك هو يوم السبت الموافق 1 يونيو 2024
-                                    </label>
-                                </div>
-                                <div class="col-sm-offset-2 col-sm-12 text-center">
-                                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">موافق
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-
             @yield('content')
     
             <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">

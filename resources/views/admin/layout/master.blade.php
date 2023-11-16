@@ -93,7 +93,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('subject') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('subject') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>المادة</div>
                                     <div style="text-align: end;">Subject</div>
                                 </a>
@@ -105,7 +105,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('question') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('question') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الاسئلة</div>
                                     <div style="text-align: end;">Questions</div>                                    
                                 </a>
@@ -117,7 +117,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('total') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('total') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>نتائج الاختبار الشامل</div>
                                     <div style="text-align: end;">Full Test Result</div>
                                 </a>
@@ -129,7 +129,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('prices') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('prices') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الاسعار</div>
                                     <div style="text-align: end;">Pricing</div>
                                 </a>
@@ -141,7 +141,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('contact.admin') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('contact.admin') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>رسائل تواصل معنا</div>
                                     <div style="text-align: end;">Contact Messagese</div>
                                 </a>
@@ -153,7 +153,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('financial_transaction') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('financial_transaction') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>سجل عمليات الدفع</div>
                                     <div style="text-align: end;">Financial Transactions</div>
                                 </a>
@@ -166,20 +166,26 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('question.fav') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('question.fav') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الاسئلة المفضلة</div>
                                     <div style="text-align: end;">Favourite Questions</div>
                                 </a>
                             </li>
                             @foreach(\App\Models\Subject::all() as $subject)
                                 <li>
-                                    <a href="{{ route('exam.test', ['subject_id' => $subject->id]) }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <a href="{{ route('exam.test', ['subject_id' => $subject->id]) }}" 
+                                        @if($subject->name == 'Reading Comprehension')style="font-size: 12px;" @endif    
+                                        class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
+                                    >
                                         <div>مراجعة {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Review</div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('exam', ['subject_id' => $subject->id]) }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <a href="{{ route('exam', ['subject_id' => $subject->id]) }}" 
+                                        @if($subject->name == 'Reading Comprehension')style="font-size: 12px; background: #e2e2e2;" @else style="background: #e2e2e2;" @endif
+                                        class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
+                                    >
                                         <div>اختبار تجريبي {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Practice Test</div>
                                     </a>
@@ -192,11 +198,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a  
+                                <a
                                     href="#"
                                     data-target="#show_subscription"
                                     data-toggle="modal"
                                     class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
+                                    style="background: #e2e2e2;"
                                 >
                                     <div>صلاحية الاشتراك</div>
                                     <i class="icon-calender"></i>
@@ -252,7 +259,9 @@
                                 <div style="text-align: end;">Reset Password</div>
                             </a>
                         </li>
-                        <li><a class="waves-effect waves-dark sidebar-container d-flex justify-content-between align-items-center p-2 mb-2" href="{{ route('logout') }}"
+                        <li><a class="waves-effect waves-dark sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
+                                href="{{ route('logout') }}"
+                                style="background: #e2e2e2;"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();"
                                 aria-expanded="false">
                                 <div>تسجيل الخروج</div>
