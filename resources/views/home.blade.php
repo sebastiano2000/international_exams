@@ -4,13 +4,12 @@
 
     <div class=" bg-primary hero-header">
         <div class=" container-xxl px-lg-5">
-            <div class="row g-5 align-items-end">
+            <div class="row g-5 align-items-center mt-20">
                 <div class="col-lg-6 text-center text-lg-start">
-                    <h3 class="text-white pb-3 animated slideInDown">ثبت معلوماتك و استعد لاختباراتك مع اختبارات خريج الذكية المبنية على اختبارات سابقة و تعالج نقاط ضعفك      </h1>
-                    <p class="text-white mb-4 animated slideInDown">كل اللي تحتاجه
-                        للتفوق بمكان واحد</p>
+                    <h2 class="text-white pb-3 animated slideInDown">استعد  للاختبار الوطني (قسم اللغة الإنجليزية ) مع اختباراتنا الذكية المبنية على اختبارات سابقة والتي تمنحك فرصة الحصول على أداء أفضل      </h2>
+
                     <a href="{{route('login')}}" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">التسجيل والاشتراك</a>
-                    <a href="{{route('contact')}}" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">تواصل معنا</a>
+                    <a href="https://wa.me/+96599870752" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">تواصل معنا</a>
                 </div>
                 <div class="col-lg-6 text-center text-lg-start">
                     <img class="img-fluid animated zoomIn" src="{{ asset('assets/img/hero.png')}}" alt="">
@@ -51,7 +50,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="{{route('demo.data')}}">
+                        <a href="{{route('demo')}}">
                             <div class="feature-item bg-light rounded text-center p-4">
                                 <h5 class="mb-3">تجربة النظام Demo  </h5>
                                 <img class="img-fluid" src="{{ asset('assets/img/Picture2.png')}}" alt="Image">

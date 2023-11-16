@@ -23,7 +23,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <form class="form-horizontal form-material" id="loginform" action="{{ route('login') }}" method="POST">
                         @csrf
-                        <p class="section-title text-secondary">تسجيل الدخول لبنك الأسئلة الموضوعية<span></span></p>
+                        <p class="section-title text-secondary">تسجيل الدخول لبنك الأسئلة <span></span></p>
                         <div class="skill mb-4">
                             @if (session('message'))
                                 <div class="alert alert-danger">{{ session('message') }}</div>
@@ -60,7 +60,7 @@
                                             نسيت كلمة السر؟
                                         </a>
                                         <a href="{{ route('register') }}" class="text-muted">
-                                            ليس لديك حساب؟
+                                          إنشاء حساب جديد 
                                         </a>
                                     </div>
                                 </div>
@@ -72,11 +72,13 @@
                     </form>
                         <a class=" text-center " href="https://wa.me/+96599870752">
                             <h2 class="my-4">
-                                WhatsApp
-                                <img src="{{ asset('admin_assets/images/whatsapp.png') }}" alt="whatsapp" width="40px">
+                                <span class="mt-4">
+                                تواصل معنا 
+                                </span>
+                                <img style="margin-top: -7px;" src="{{ asset('admin_assets/images/whatsapp.png') }}" alt="whatsapp" width="40px">
                             </h1>
                         </a>
-                </div>
+                </div>  
                 <div class="col-lg-6">
                     <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{ asset('assets/img/Mobile login-pana.svg') }}">
                 </div>

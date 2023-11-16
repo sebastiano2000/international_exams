@@ -73,7 +73,11 @@ Route::group(['prefix' => 'user_result'],function(){
 });
 
 Route::group(['prefix' => 'demo'],function(){
-    Route::get('/', [UserController::class, "question"])->name('demo.data');
+    Route::get('/', [UserController::class, "question"])->name('demo');
+});
+
+Route::group(['prefix' => 'success'],function(){
+    Route::get('/', [ContactController::class, "success"])->name('success');
 });
 
 Route::get('/', function () {

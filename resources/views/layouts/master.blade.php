@@ -56,9 +56,9 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <div class="navbar-nav mx-auto py-0">
-                                <a href="/" class="nav-item nav-link {{is_active('')}} ">الرئيسيه</a>
-                                <a href="{{route('contact')}}" class="nav-item nav-link {{is_active('contact')}} ">تواصل  معنا</a>
-                                <a  href="{{route('demo.data')}}" class="nav-item nav-link  {{is_active('demo.data')}}">Demo </a>
+                                <a href="/" class="nav-item nav-link {{is_active('')}} ">الرئيسية</a>
+                                <a href="https://wa.me/+96599870752" class="nav-item nav-link {{is_active('contact')}} ">تواصل  معنا</a>
+                                <a  href="{{route('demo')}}" class="nav-item nav-link  {{is_active('demo')}}">Demo </a>
                                 <a href="{{route('pricing.index')}}" class="nav-item nav-link {{is_active('pricing')}}">الأسعار</a>
                             </div>
        
@@ -130,39 +130,42 @@
                 <div class="container py-5 px-lg-5">
                     <div class="row g-5">
     
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-6">
                             <p class="section-title text-white h5 mb-4">الروابط<span></span></p>
-                            <a class="btn btn-link" href="/">الرئيسيه</a>
-                            <a class="btn btn-link" href="{{route('contact')}}">تواصل معنا </a>
-                            <a class="btn btn-link" href="{{route('demo.data')}}">ديمو</a>
+                            <a class="btn btn-link" href="/">الرئيسية</a>
+                            <a class="btn btn-link" href="https://wa.me/+96599870752">تواصل معنا </a>
+                            <a class="btn btn-link" href="{{route('demo')}}">ديمو</a>
                             <a class="btn btn-link" href="{{route('pricing.index')}}">الأسعار</a>
                             <a class="btn btn-link" href="{{route('terms')}}">الشروط والأحكام</a>
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-6">
                             <p class="section-title text-white h5 mb-4">خدماتنا<span></span></p>
                             <div class="row g-2">
-                                <div class="col-3">
+                                <a class="col-3" href="https://wa.me/+96599870752">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture1.png')}}" alt="Image">
-                                </div>
-                                <div class="col-3">
+                                </a>
+
+                                <a class="col-3" href="{{route('demo')}}">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture2.png')}}" alt="Image">
-                                </div>
-                                <div class="col-3">
+                                </a>
+                          
+                                <a class="col-3" href="{{route('pricing.index')}}">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture3.png')}}" alt="Image">
-                                </div>
-                                <div class="col-3">
+                                </a>
+
+                                <a class="col-3" href="{{route('login')}}">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture4.png')}}" alt="Image">
-                                </div>
+                                </a>
     
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        {{-- <div class="col-md-6 col-lg-4">
                             <p class="section-title text-white h5 mb-4">تواصل معنا<span></span></p>
                             <div class="position-relative w-100 mt-3">
                                 <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="البريد الإلكتروني" style="height: 48px;">
                                 <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="container px-lg-5">
@@ -172,11 +175,11 @@
                                  <a class="border-bottom" href="#"> </a> جميع الحقوق محفوظة.. 
                                 
                                 <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                                تم تصميمه بواسطة  &copy; <a class="border-bottom" href="https://htmlcodex.com">خريج</a>
+                                تم تصميمه بواسطة  &copy; <a class="border-bottom" href="/">خريج</a>
                             </div>
                             <div class="col-md-6 text-center text-md-end">
                                 <div class="footer-menu">
-                                    <a href="/">الرئيسيه</a>
+                                    <a href="/">الرئيسية</a>
                                     <a href="{{route('terms')}}">الشروط والأحكام</a>
                                 </div>
                             </div>

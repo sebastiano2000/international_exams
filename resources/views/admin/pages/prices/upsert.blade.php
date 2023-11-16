@@ -17,7 +17,7 @@
                                 </h3>
                            @else
                            <h3 class="page-title">
-اضف باقة جديدة
+                                اضف باقة جديدة
                         </h3>
                         @endif
                            
@@ -59,7 +59,7 @@
                                             <label class="mb-2">
                                                 سعر الباقة
                                             </label>
-                                            <input class="form-control" type="number" name="price"
+                                            <input class="form-control" type="text"  name="price"
                                                 placeholder="سعر الباقة"
                                                 value="@isset($price->id){{$price->price}}@endisset">
                                             <p class="error error_name"></p>

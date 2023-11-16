@@ -884,5 +884,12 @@ pricing-end
     display: none !important;
 }
 
-
-    
+.mt-20 {
+    margin-top: 20px !important;
+}
+.color-black {
+    color: black !important;
+}
+.color-black:hover {
+    color: #fc8422 !important;
+}

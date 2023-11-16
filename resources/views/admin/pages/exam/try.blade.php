@@ -74,7 +74,7 @@
                                         <a id="btn" type="submit" href="{{route('home')}}">انهاء الاختبار</a>
 
                                     @else
-                                        <a id="btn" type="submit" href="/">انهاء الاختبار</a>
+                                        <a id="btn" type="submit" href="{{route('success')}}">انهاء الاختبار</a>
 
                                     @endif
                                 @endif
