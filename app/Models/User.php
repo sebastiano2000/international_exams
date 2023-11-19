@@ -38,7 +38,8 @@ class User extends Authenticatable
         'email',
         'suspend',
         'finish',
-        'high'
+        'high',
+        'otp'
     ];
 
     /**
