@@ -1163,7 +1163,7 @@ button.bg-danger:hover {
 .card-footer {
     background-color: #fff;
     border-top: 1px solid #e6e6e6;
-    padding: 1rem 1.5rem;
+    padding: 0.6rem 1.5rem;
 }
 
 .card .card-header {
@@ -6660,3 +6660,44 @@ span:active {
     color: white !important;
     background: #fc8423 !important;
 }
+
+.ribbon-tag {
+  text-align: center;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  position: relative;
+  padding: 4px 0;
+  right: 169px;
+  top: 133px;
+  width: 73px;
+  color: #ffffff;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  /* text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px; */
+  background: linear-gradient(45deg, #fc8423, #f8670a);
+}
+
+.ribbon-tag:before,
+.ribbon-tag:after {
+  content: "";
+  border-top: 3px solid #50504f;
+  border-right: 3px solid transparent;
+  border-left: 3px solid transparent;
+  position: absolute;
+  bottom: -3px;
+}
+.ribbon-tag:before {
+  right: 0;
+}
+.ribbon-tag:after {
+  left: 0;
+}
+.mt-30 {
+    margin-top:30px !important;
+}
+
+
+

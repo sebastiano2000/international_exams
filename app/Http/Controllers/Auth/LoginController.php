@@ -95,7 +95,7 @@ class LoginController extends Controller
                 }
             } else {
                 if (count($tokens) > $user->session_limit) {
-                    return redirect()->back()->withErrors(['session' => 'لقد تجاوزت الحد الأقصي للأجهزة']);
+                    return redirect()->back()->withErrors(['session' => 'هذا الجهاز غير مسموح  به برجاء الدخول بالاجهزه المسجله']);
                 }
 
                 $token =  bin2hex(random_bytes(32));
@@ -119,7 +119,7 @@ class LoginController extends Controller
         }
 
         if (count($tokens) >= $user->session_limit) {
-            return redirect()->back()->withErrors(['session' => 'لقد تجاوزت الحد الأقصي للأجهزة']);
+                    return redirect()->back()->withErrors(['session' => 'هذا الجهاز غير مسموح  به برجاء الدخول بالاجهزه المسجله']);
         }
 
         $token =  bin2hex(random_bytes(32));

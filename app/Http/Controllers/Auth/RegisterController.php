@@ -59,6 +59,7 @@ class RegisterController extends Controller
                 'name' => $request->name,
                 'phone' => $phone,
                 'password' => $request->password,
+                'email' => $request->email,
                 'country_code' => $request->countryCode,
                 'high' => $request->high,
             ]
@@ -100,6 +101,7 @@ class RegisterController extends Controller
             'phone' => $user['phone'],
             'password' => Hash::make($user['password']),
             'role_id' => 2,
+            'email' => $user['email'],
             'high' => $user['high'],
             'otp' => 1
         ]);

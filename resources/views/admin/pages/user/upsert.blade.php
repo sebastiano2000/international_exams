@@ -52,6 +52,11 @@
                                                     <input class="form-control text-start" type="text" name="high" value="@isset($user->id){{$user->high}}@endisset" placeholder="{{ __('pages.high') }}" >
                                                     <p class="error error_high"></p>
                                                 </div>
+                                                      <div class="col-md-6">
+                                                    <label class="mb-2">{{ __('pages.email') }}</label>
+                                                    <input class="form-control text-start" type="text" name="email" value="@isset($user->id){{$user->email}}@endisset" placeholder="{{ __('pages.email') }}" >
+                                                    <p class="error error_high"></p>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <label class="mb-2">كلمة السر</label>
                                                     <input class="form-control text-start" type="text" name="password" value="@isset($user->id){{$user->password}}@endisset" placeholder="كلمة السر" >

@@ -28,6 +28,11 @@
                             @if (session('message'))
                                 <div class="alert alert-danger">{{ session('message') }}</div>
                             @endif
+                            @error('session')
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
                         </div>
                         <div class="skill mb-4">
                             <div class="d-flex justify-content-between">

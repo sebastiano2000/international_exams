@@ -22,16 +22,16 @@
 								<div class="row align-items-center">
                                     <div class="col-md-2">
                                         <div class=" user-profile-image profile-image position-relative">
-                                            {{-- <img 
-                                                src="{{ Auth::user()->picture ?
-                                                        asset('/users/'.Auth::user()->id.'/'.Auth::user()->picture->name) : 
-                                                        ' '
+                                            <img 
+                                                src="
+                                                        {{ asset('admin_assets/images/Picture1.png')
+                                                     
                                                     }}" 
                                                 class="img-profile" alt="User Image"
-                                            > --}}
-                                            @if (!Auth::user()->picture)
-                                                <div class="profile_letters">{{ Auth::user()->avatar_name }}</div>
-                                            @endif
+                                            > 
+                                            <!--@if (!Auth::user()->picture)-->
+                                            <!--    <div class="profile_letters">{{ Auth::user()->avatar_name }}</div>-->
+                                            <!--@endif-->
                                         </div>
                                     </div>
 									<div class="col-md-10 text-right mt-2">

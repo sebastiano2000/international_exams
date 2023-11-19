@@ -24,21 +24,21 @@
             <div class="col-4 wow fadeInUp" data-wow-delay="0.3s">
                 <a href="{{ route('exam.try', ['subject_id' => $subjects->first()->id]) }}">
                     <div class="feature-item bg-light rounded text-center p-2 feature-mobile">
-                        <img class="img-fluid" src="{{ asset('admin_assets/images/vocab-demo.svg')}}" alt="Image">
+                        <img class="img-fluid" src="{{ asset('admin_assets/images/vocab-demo.jpg')}}" alt="Image">
                     </div>
                 </a>
             </div>
             <div class="col-4 wow fadeInUp" data-wow-delay="0.3s">
                 <a href="{{ route('exam.try', ['subject_id' => $subjects->get(1)->id]) }}">
                     <div class="feature-item bg-light rounded text-center p-2 feature-mobile">
-                        <img class="img-fluid" src="{{ asset('admin_assets/images/grammar-demo.svg')}}" alt="Image">
+                        <img class="img-fluid" src="{{ asset('admin_assets/images/grammar-demo.jpg')}}" alt="Image">
                     </div>
                 </a>
             </div>
             <div class="col-4 wow fadeInUp" data-wow-delay="0.3s">
                 <a href="{{ route('exam.try', ['subject_id' => $subjects->last()->id]) }}">
                     <div class="feature-item bg-light rounded text-center p-2 feature-mobile">
-                        <img class="img-fluid" src="{{ asset('admin_assets/images/reading-demo.svg')}}" alt="Image">
+                        <img class="img-fluid" src="{{ asset('admin_assets/images/reading-demo.jpg')}}" alt="Image">
                     </div>
                 </a>
             </div>

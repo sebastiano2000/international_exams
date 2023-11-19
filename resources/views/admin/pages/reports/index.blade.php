@@ -28,6 +28,7 @@
                                     <table id="example2" class=" display  table table-hover table-center mb-0"  filter="{{ route('report.filter') }}">
                                         <thead>
                                             <tr>
+                                                <th>المستخدم</th>
                                                 <th>رأس السؤال</th>
                                                 <th>{{ __('pages.note') }}</th>
                                             </tr>
@@ -36,6 +37,7 @@
                                             @foreach($reports as $report)
                                                 @if($report->question)
                                                     <tr class="record">
+                                                        <td>  {{ $report->user->name }} </td>
                                                         <td>  {{ $report->question->title }} </td>
                                                         <td>{{ $report->notes }}</td>
                                                     </tr>

@@ -75,12 +75,21 @@
                             class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
                             href="javascript:void(0)"><i class="icon-arrow-right-circle" style="font-size: 30px;"></i></a></li>
                     </ul>
-                    @if(Auth::user()->isAdmin())
                         <ul class="navbar-nav my-lg-0">
-                            <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light"
-                                    href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                                <li class="nav-item">       
+                                    <a style="    color: black;padding: 7px; font-weight: 900;margin-left: 16px; background: white;" class=""  onclick="event.preventDefault();document.getElementById('logout-form').submit();" aria-expanded="false" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        <i class="icon-logout"></i>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                            </li>
                         </ul>
-                    @endif
+                        <ul class="navbar-nav my-lg-0">
+                            @if(Auth::user()->isAdmin())
+                                <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light"
+                                        href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                            @endif
+                        
+                        </ul>
                 </div>
             </nav>
         </header>
@@ -186,7 +195,7 @@
                                         @if($subject->name == 'Reading Comprehension')style="font-size: 12px;" @endif    
                                         class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
                                     >
-                                        <div>مراجعة {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
+                                        <div>مراجعة {{ $subject->name == 'Grammar' ? 'القواعد' : ($subject->name == 'Vocabulary' ? 'الكلمات' : 'القراءة و الاستيعاب') }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Review</div>
                                     </a>
                                 </li>
@@ -195,7 +204,7 @@
                                         @if($subject->name == 'Reading Comprehension')style="font-size: 12px; background: #e2e2e2;" @else style="background: #e2e2e2;" @endif
                                         class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
                                     >
-                                        <div>اختبار تجريبي {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
+                                        <div>اختبار تجريبي {{ $subject->name == 'Grammar' ? 'القواعد' : ($subject->name == 'Vocabulary' ? 'الكلمات' : 'القراءة و الاستيعاب') }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Practice Test</div>
                                     </a>
                                 </li>
@@ -228,12 +237,12 @@
                             @endforeach
                         @else
                             @foreach(\App\Models\Subject::orderBy('created_at', 'asc')->get() as $subject)
-                                <li>
-                                    <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
-                                        <div>ديمو {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
-                                        <div style="text-align: end;">{{$subject->name}} Demo</div>
-                                    </a>
-                                </li>
+                                <!--<li>-->
+                                <!--    <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">-->
+                                <!--        <div>ديمو {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>-->
+                                <!--        <div style="text-align: end;">{{$subject->name}} Demo</div>-->
+                                <!--    </a>-->
+                                <!--</li>-->
                                 <li>
                                     <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                         <div>مراجعة {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>

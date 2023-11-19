@@ -16,7 +16,7 @@ class ParagraphController extends Controller
     {
         if (Auth::user()->isAdmin()) {
             return view('admin.pages.paragraph.index', [
-                'questions' => Question::where('subject_id', 3)->filter($request->all())->paginate(50),
+                'questions' => Question::where('subject_id', 3)->where('demo' , 0)->filter($request->all())->paginate(50),
                 'subjects' => Subject::all(),
             ]);
         } else {
@@ -39,6 +39,14 @@ class ParagraphController extends Controller
         } else {
             abort(404);
         }
+    }
+    
+    public function filter(Request $request)
+    {
+        return view('admin.pages.paragraph.index', [
+            'questions' => Question::filter($request->all())->where('demo' , 0)->where('subject_id', 3)->paginate(50),
+            'subjects' => Subject::all(),
+        ]);
     }
 
     public function modify(QuestionRequest $request)

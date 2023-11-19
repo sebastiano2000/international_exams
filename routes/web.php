@@ -30,6 +30,9 @@ Route::get("/terms",function(){
     return view('TermsAndConditions');
 })->name('terms');
 
+Route::get("/about",function(){
+    return view('about');
+})->name('about');
 
 Route::group(['prefix' => 'register'], function () {
     Route::post('/data', [RegisterController::class, 'create'])->name('register.create');

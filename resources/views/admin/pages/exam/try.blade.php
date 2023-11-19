@@ -6,10 +6,15 @@
     .footer {
     position: static !important;
     }
+
     @media (max-width: 991.98px) {
         .hero-header {
             padding: 3rem 0 !important;
+            margin-bottom: 6px !important;
         }
+            .question-card {
+        padding-top:0px !important;
+    }
     }
 </style>
 @section('content')
@@ -18,7 +23,7 @@
 
 </div>
 <div class="container-xxl">
-    <div class=" py-5 px-lg-5">
+    <div class="  px-lg-5">
         <div class="">
             <div class="">
                 <!-- QUIZ ONE -->

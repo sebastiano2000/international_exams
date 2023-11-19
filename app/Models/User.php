@@ -71,6 +71,7 @@ class User extends Authenticatable
                     'name' => $request->name,
                     'phone' => $request->phone,
                     'high' => $request->high,
+                    'email' => $request->email,
                     'password' => Hash::make($request->password),
                     'role_id' => 2,
                 ]

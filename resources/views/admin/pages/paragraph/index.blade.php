@@ -21,7 +21,7 @@
             </div>
             <div class="card">
                 <h2 class="card-header">رفع ملف اسئلة القطعة
-                    <form action="{{ route('paragraph.dest') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('question') }}"  method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('paragraph.dest') }}" class="ajax-form" swalOnSuccess="{{ __('pages.sucessdata') }}" title="{{ __('pages.opps') }}" swalOnFail="{{ __('pages.wrongdata') }}" redirect="{{ route('paragraph') }}"  method="POST" enctype="multipart/form-data">
                         @csrf
                         <button type="submit" class="btn bg-danger-light float-end">
                             <i class="ti-trash"></i>
@@ -57,7 +57,7 @@
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="table-responsive">
-                                <form class="form" action="{{ route('question.filter') }}" method="get">
+                                <form class="form" action="{{ route('paragraph.filter') }}" method="get">
                                     <div class="form-group d-flex align-items-center">
                                         <input type="search" placeholder="{{ __('pages.search_by_name') }}" name="name"
                                             class="form-control d-block search_input w-50"
@@ -66,10 +66,10 @@
                                     </div>
                                 </form>
                                 <table id="example" class=" display  table table-hover table-center mb-0"
-                                    filter="{{ route('question.filter') }}">
+                                    filter="{{ route('paragraph.filter') }}">
                                     <thead>
                                         <tr>
-                                            <th>اسم المادة</th>
+                                            <th>القطعة</th>
                                             <th>رأس السؤال</th>
                                             <th class="text-end">{{ __('pages.actions') }}</th>
                                         </tr>
