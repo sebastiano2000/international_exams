@@ -5,7 +5,7 @@
         <div class="content container-fluid">
             <div class="page-header">
                 @if(!Auth::user()->suspend)
-                    <div class="row row-cols-2 justify-content-center">
+                    <div class="row row-cols-2 justify-content-center"> 
                         <div class="col-auto mt-30">
                             <a href="{{ route('exam.try', ['subject_id' => $subjects->first()->id]) }}">
                                 <div class="container-tenant mb-4" style=" width: 411px; height: 411px;">
@@ -88,10 +88,24 @@
                         @endforeach
                     </div>
                 @endif
+                @if(Auth::user()->isAdmin())
+                    <div class="container_dashboard col-md-3">
+                        <div class="card row">
+                            <div class="card-count-container">
+                                <div class="card-count">{{$setting->number}}</div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h4>عدد الدخول علي امتحانات ال DEMO</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                @endif
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection
 
 @section('js')

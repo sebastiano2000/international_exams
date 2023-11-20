@@ -87,6 +87,8 @@ Route::group(['prefix' => 'total'],function(){
     Route::get('/insert/total', [ResultTotalController::class, "enterTotal"])->name('total.result');
 });
 
+
+
 Route::group(['prefix' => 'contact'],function(){
     Route::get('/', [ContactController::class,"adminIndex"])->name('contact.admin');
     Route::get('/filter',[ContactController::class,'filter'])->name('contact.filter');

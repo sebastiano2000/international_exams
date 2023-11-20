@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use App\Models\Preparator;
+use App\Models\Setting;
 use App\Models\User;
 
 class AdminController extends Controller
@@ -17,6 +18,7 @@ class AdminController extends Controller
         }
 
         return view('admin.pages.dashboard', [
+            'setting'=>Setting::find(1),
             'subjects' => Subject::all(),
             'preparators' => Preparator::all(),
         ]);

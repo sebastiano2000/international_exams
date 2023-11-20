@@ -77,7 +77,7 @@
                     </ul>
                         <ul class="navbar-nav my-lg-0">
                                 <li class="nav-item">       
-                                    <a style="    color: black;padding: 7px; font-weight: 900;margin-left: 16px; background: white;" class=""  onclick="event.preventDefault();document.getElementById('logout-form').submit();" aria-expanded="false" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    <a style="    color: rgba(255,255,255,.55); font-weight: 900;margin-left: 10px;" class=""  onclick="event.preventDefault();document.getElementById('logout-form').submit();" aria-expanded="false" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                         <i class="icon-logout"></i>
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>

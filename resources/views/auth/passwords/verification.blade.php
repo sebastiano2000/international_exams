@@ -56,7 +56,7 @@
                                 <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
                                 <form>
                                     @csrf
-                                    <div class="otp-field otp_form mb-4">
+                                    <div dir="ltr" class="otp-field otp_form mb-4">
                                         <input type="number" class="input_1 form-control input_otp mx-2 text-center"
                                             index="1" min="0" max="9" step="1">
                                         <input type="number" class="input_2 form-control input_otp mx-2 text-center"

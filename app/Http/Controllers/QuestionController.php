@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Imports\ImportQuestion;
 use App\Imports\ImportParagraph;
+use App\Models\Setting;
 use App\Models\Subject;
 use App\Models\UserTotal;
 use Maatwebsite\Excel\Facades\Excel;
@@ -253,6 +254,11 @@ class QuestionController extends Controller
             ->with('slice', $array_questions)
             ->with('page', $page)
             ->with('total', $total);
+    }
+
+    public function count(Request $request)
+    {
+        return Setting::upsertInstance($request);
     }
 
     public function deleteAll(Request $request)

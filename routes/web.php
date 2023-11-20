@@ -71,6 +71,10 @@ Route::group(['prefix' => 'forget-password'], function () {
 
 Route::get('/try', [QuestionController::class, "try"])->name('exam.try');
 
+Route::group(['prefix' => 'settings'],function(){
+    Route::post('/', [QuestionController::class, "count"])->name('settings.count');
+});
+
 Route::group(['prefix' => 'user_result'],function(){
     Route::post('/insert/result', [UserResultController::class, "enterResult"])->name('save.data');
 });
