@@ -58,7 +58,7 @@
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <div class="navbar-nav mx-auto py-0">
                                 <a href="/" class="nav-item nav-link {{is_active('')}} ">الرئيسية</a>
-                                <a href="https://wa.me/+96596615789" class="nav-item nav-link {{is_active('contact')}} ">تواصل  معنا</a>
+                                <a href="https://wa.me/+96599870752" class="nav-item nav-link {{is_active('contact')}} ">تواصل  معنا</a>
                                 <a  href="{{route('demo')}}" class="nav-item nav-link  {{is_active('demo')}}">Demo </a>
                                 <a href="{{route('pricing.index')}}" class="nav-item nav-link {{is_active('pricing')}}">الأسعار</a>
                             </div>
@@ -101,7 +101,7 @@
                         <div class="col-md-6 col-lg-6">
                             <p class="section-title text-white h5 mb-4">الروابط<span></span></p>
                             <a class="btn btn-link" href="/">الرئيسية</a>
-                            <a class="btn btn-link" href="https://wa.me/+96596615789">تواصل معنا </a>
+                            <a class="btn btn-link" href="https://wa.me/+96599870752">تواصل معنا </a>
                             <a class="btn btn-link" href="{{route('demo')}}">ديمو</a>
                             <a class="btn btn-link" href="{{route('pricing.index')}}">الأسعار</a>
                             <a class="btn btn-link" href="{{route('terms')}}">الشروط والأحكام</a>
@@ -109,7 +109,7 @@
                         <div class="col-md-6 col-lg-6">
                             <p class="section-title text-white h5 mb-4">خدماتنا<span></span></p>
                             <div class="row g-2">
-                                <a class="col-3" href="https://wa.me/+96596615789">
+                                <a class="col-3" href="https://wa.me/+96599870752">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture1.png')}}" alt="Image">
                                 </a>
 

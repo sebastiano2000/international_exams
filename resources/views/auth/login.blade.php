@@ -75,7 +75,7 @@
                         <button class="btn btn-primary py-sm-3 px-sm-5 form-control rounded-pill jus  btn-khareej" type="submit">تسجيل
                             الدخول</button>
                     </form>
-                        <a class=" text-center " href="https://wa.me/+96596615789">
+                        <a class=" text-center " href="https://wa.me/+96599870752">
                             <h2 class="my-4">
                                 <span class="mt-4">
                                 تواصل معنا 
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div>
-                <a href="https://wa.me/+96596615789">
+                <a href="https://wa.me/+96599870752">
                     <h2 style="text-">
                         WhatsApp
                         <img src="{{ asset('admin_assets/images/whatsapp.png') }}" alt="whatsapp" width="40px">
