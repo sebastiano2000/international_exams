@@ -128,10 +128,29 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('js')
+@if(Request::has('page'))
 <script>
+       $(document).ready(function () {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': '{{csrf_token()}}'
+            },
+            url: '{{ route("settings.count") }}',
+            method: 'post',
+            data: {number: 1},
+            success: function (results) {
+
+            },
+        });
+    });
+</script>
+@endif
+<script>
+    
     // $('.click').click(function() {
     //     if ($('.star').hasClass("test")) {
     //             $('.click').removeClass('active')
