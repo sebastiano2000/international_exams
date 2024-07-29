@@ -32,6 +32,7 @@
                                         <tr>
                                             <th></th>
                                             <th>اسم المشتري</th>
+                                            <th>رقم المشتري</th>
                                             <th>اسم الباقة</th>
                                             <th>تاريخ الدفع</th>
                                             <th>حالة الدفع</th>
@@ -43,6 +44,7 @@
                                             <tr class="record">
                                                 <td>#{{ $financial_transaction->id}}</td>
                                                 <td>{{ $financial_transaction->user->name }}</td>
+                                                <td>{{ $financial_transaction->user->phone }}</td>
                                                 <td>{{ $financial_transaction->package->name }}</td>
                                                 <td>{{ $financial_transaction->paidOn}} </td>
                                                 <td>{{ $financial_transaction->resultCode == 'CAPTURED' ? 'ناجح' : 'غير ناجح' }}</td>

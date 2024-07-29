@@ -41,14 +41,14 @@
                                         <label class="form-label" for="phone">
                                             {{__('pages.Phone')}}
                                         </label>
-                                        <!-- <div class="input-group">
-                                            <x-country-phone-code></x-country-phone-code>
+                                        <div class="input-group">
+                                            <!-- <x-country-phone-code></x-country-phone-code> -->
                                             <input id="phone" type="text"
                                                 class="form-control mr-2 @error('phone') is-invalid @enderror"
                                                 style="width: 33% !important;"
                                                 placeholder="رقم الهاتف" name=" phone" value="{{ old('phone') }}"
                                                 required autocomplete="phone">
-                                        </div> -->
+                                        </div>
                                         @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -72,7 +72,7 @@
                                             value="{{ old('high') }}" required autocomplete="high">
                                     </div>
 
-                                    <div class="form-outline flex-fill mb-2">
+                                    <!-- <div class="form-outline flex-fill mb-2">
                                         <label class="form-label" for="password">
                                             كلمة المرور
                                         </label>
@@ -92,7 +92,7 @@
                                         </label>
                                         <input id="password-confirm" type="password" class="form-control"
                                             name="password_confirmation" required>
-                                    </div>
+                                    </div> -->
                                     <div class="skill mb-4">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -133,15 +133,15 @@
         var password_confirmation = document.getElementById("password-confirm").value;
         var name = document.getElementById("name").value;
 
-        if (phone == "" || password == "" || password_confirmation == "" || name == "" || high == "" || email == "") {
+        if (phone == "" || name == "" || high == "" || email == "") {
             event.preventDefault();
             alert("يجب ملئ جميع الحقول");
         }
 
-        if (password != password_confirmation) {
-            event.preventDefault();
-            alert("كلمة المرور غير متطابقة");
-        }
+        // if (password != password_confirmation) {
+        //     event.preventDefault();
+        //     alert("كلمة المرور غير متطابقة");
+        // }
 
         if (isNaN(phone)) {
             event.preventDefault();

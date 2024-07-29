@@ -34,11 +34,6 @@ class UserRequest extends FormRequest
                     return $fail('رقم الهاتف مسجل لدينا بالفعل');
                 }
             }],
-            'password' => ['confirmed', function ($attribute, $value, $fail) {
-                if (request()->id) {
-                    return $fail('يجب عليك إدخال  كلمة السر');
-                }
-            }],
             'high' => 'required|min:3'
         ];
     }
