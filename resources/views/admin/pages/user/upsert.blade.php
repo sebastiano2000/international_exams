@@ -48,8 +48,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="mb-2">{{ __('pages.high') }}</label>
-                                                    <input class="form-control text-start" type="text" name="high" value="@isset($user->id){{$user->high}}@endisset" placeholder="{{ __('pages.high') }}" >
+                                                    <label class="mb-2">اسم الجامعة</label>
+                                                    <input class="form-control text-start" type="text" name="high" value="@isset($user->id){{$user->high}}@endisset" placeholder="اسم الجامعة" >
                                                     <p class="error error_high"></p>
                                                 </div>
                                                       <div class="col-md-6">

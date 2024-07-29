@@ -31,7 +31,7 @@
                                                 <th>{{ __('pages.name') }}</th>
                                                 <th>{{ __('pages.mobile') }}</th>
                                                 <th>{{ __('pages.role') }}</th>
-                                                <th>{{ __('pages.high') }}</th>
+                                                <th>اسم الجامعة</th>
                                                 <th>حالة الاشتراك</th>
                                                 <th>حالة التسجيل</th>
                                                 <th>الحد الأقصي للأجزة</th>
