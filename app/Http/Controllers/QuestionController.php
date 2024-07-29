@@ -173,7 +173,7 @@ class QuestionController extends Controller
         }
     }
 
-    public function finalExam (Request $request)
+    public function finalExam(Request $request)
     {
         $page = !empty($request->input('page')) ? $request->input('page') : '1';
         $perpage = '1';

@@ -18,7 +18,7 @@ class AdminController extends Controller
         }
 
         return view('admin.pages.dashboard', [
-            'setting'=>Setting::find(1),
+            'setting'=> Setting::find(1),
             'subjects' => Subject::all(),
             'preparators' => Preparator::all(),
         ]);

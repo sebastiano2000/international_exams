@@ -116,12 +116,12 @@
                                     <div style="text-align: end;">Subject</div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="{{ route('paragraph') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>اسئلة القطعة</div>
                                     <div style="text-align: end;">Paragraph Questions</div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="{{ route('question') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الاسئلة</div>
@@ -199,7 +199,7 @@
                                         <div style="text-align: end;">{{$subject->name}} Review</div>
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="{{ route('exam', ['subject_id' => $subject->id]) }}" 
                                         @if($subject->name == 'Reading Comprehension')style="font-size: 12px; background: #e2e2e2;" @else style="background: #e2e2e2;" @endif
                                         class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
@@ -207,14 +207,14 @@
                                         <div>اختبار تجريبي {{ $subject->name == 'Grammar' ? 'القواعد' : ($subject->name == 'Vocabulary' ? 'الكلمات' : 'القراءة و الاستيعاب') }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Practice Test</div>
                                     </a>
-                                </li>
+                                </li> -->
                             @endforeach
-                            <li>
+                            <!-- <li>
                                 <a href="{{ route('exam.final') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الأختبار الشامل</div>
                                     <div style="text-align: end;">Full Test</div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a
                                     href="#"
@@ -237,31 +237,25 @@
                             @endforeach
                         @else
                             @foreach(\App\Models\Subject::orderBy('created_at', 'asc')->get() as $subject)
-                                <!--<li>-->
-                                <!--    <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">-->
-                                <!--        <div>ديمو {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>-->
-                                <!--        <div style="text-align: end;">{{$subject->name}} Demo</div>-->
-                                <!--    </a>-->
-                                <!--</li>-->
                                 <li>
                                     <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                         <div>مراجعة {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Review</div>
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                         <div>اختبار تجريبي {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Practice Test</div>
                                     </a>
-                                </li>
+                                </li> -->
                             @endforeach
-                            <li>
+                            <!-- <li>
                                 <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الأختبار الشامل</div>
                                     <div style="text-align: end;">Full Test</div>
                                 </a>
-                            </li>
+                            </li> -->
                         @endif
                         <li>
                             <a 

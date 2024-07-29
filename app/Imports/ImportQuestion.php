@@ -53,13 +53,15 @@ class ImportQuestion implements ToModel
                     ]
                 );
             } else {
-                Answer::create(
-                    [
-                        'question_id' => $question->id,
-                        'title' => $answers[$i],
-                        'status' => 0,
-                    ]
-                );
+                if($answers[$i]) {
+                    Answer::create(
+                        [
+                            'question_id' => $question->id,
+                            'title' => $answers[$i],
+                            'status' => 0,
+                        ]
+                    );
+                }
             }
         }
 

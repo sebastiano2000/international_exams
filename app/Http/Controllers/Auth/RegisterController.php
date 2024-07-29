@@ -50,7 +50,6 @@ class RegisterController extends Controller
 
     protected function create(UserRequest $request)
     {
-        // remove white space from phone number
         $phone = preg_replace('/\s+/', '', $request->phone);
 
         $request->session()->put(
@@ -92,7 +91,7 @@ class RegisterController extends Controller
         );
     }
 
-    public function store()
+    public function store($request)
     {
         $user = session()->get('user');
 
@@ -106,6 +105,6 @@ class RegisterController extends Controller
             'otp' => 1
         ]);
 
-        return redirect()->route('register.success');
+        return User::payment($request);
     }
 }

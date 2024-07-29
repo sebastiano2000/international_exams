@@ -14,19 +14,15 @@
                                     <!--<h2 style="font-size: 24px; margin-top: -20px;">-->
                                     <!--        DEMO-->
                                     <!--    </h2>-->
-                                       <div class="card-footer bg-primary w-100 text-white ">DEMO </div>
+                                       <div class="card-footer bg-primary w-100 text-white ">DEMO</div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-auto mt-30">
                             <a href="{{ route('exam.try', ['subject_id' => $subjects->get(1)->id]) }}">
                                 <div class="container-tenant mb-4" style=" width: 411px; height: 411px;">
-                                        <img  src="{{ asset('admin_assets/images/grammar-demo.jpg') }}" alt="homepage" class="imgage-fluid "
-                                    style="height: 100%;width:100%; " /> 
-                                    <!--<h1 style="font-size: 24px; margin-top: -40px;">-->
-                                    <!--        DEMO-->
-                                    <!--    </h1>-->
-                                     <div class="card-footer bg-primary w-100 text-white ">DEMO </div>
+                                        <img src="{{ asset('admin_assets/images/grammar-demo.jpg') }}" alt="homepage" class="imgage-fluid" style="height: 100%;width:100%;" /> 
+                                     <div class="card-footer bg-primary w-100 text-white ">DEMO</div>
 
                                 </div>                            
                             </a>
@@ -34,9 +30,8 @@
                         <div class="col-auto mt-30">
                             <a href="{{ route('exam.try', ['subject_id' => $subjects->last()->id]) }}">
                                    <div class="container-tenant mb-4" style=" width: 411px; height: 411px;">
-                                        <img  src="{{ asset('admin_assets/images/reading-demo.jpg') }}" alt="homepage" class="imgage-fluid "
-                                                                    style="height: 100%;width:100%; " /> 
-                                     <div class="card-footer bg-primary w-100 text-white ">DEMO </div>
+                                        <img src="{{ asset('admin_assets/images/reading-demo.jpg') }}" alt="homepage" class="imgage-fluid" style="height: 100%;width:100%;" /> 
+                                        <div class="card-footer bg-primary w-100 text-white ">DEMO </div>
                                     </div>                             
                             </a>
                         </div>
@@ -54,7 +49,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-auto">
+                            <!-- <div class="col-auto">
                                 <a @if(Auth::user()->suspend) href="{{ route('exam', ['subject_id' => $subject->id]) }}" @else href="{{ route('pricing.index') }}" @endif>
                                     <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/test.svg'); width: 411px; height: 411px;">
                                         <h1 style="font-size: 24px; margin-top: -320px;">
@@ -62,13 +57,13 @@
                                         </h1>
                                     </div>
                                 </a>
-                            </div>
+                            </div> -->
                         @endforeach
-                        <div class="col-auto">
+                        <!-- <div class="col-auto">
                             <a @if(Auth::user()->suspend) href="{{ route('exam.final') }}" @else href="{{ route('pricing.index') }}" @endif>
                                 <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/final.svg'); width: 411px; height: 411px;"></div>
                             </a>
-                        </div>
+                        </div> -->
                         @foreach($preparators as $preparator)
                             @if($preparator->picture)
                                 <div class="col-auto">

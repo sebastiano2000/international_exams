@@ -99,13 +99,14 @@ class User extends Authenticatable
     static function payment($request)
     {
         $request->merge([
-            'cost' => Price::where('id', $request->package_number)->first()->price
+            'package_number' => Price::first()->id,
+            'cost' => Price::first()->price
         ]);
 
         $date = \Carbon\Carbon::now();
         $request->merge([
-            // 'merchantCode' => '842217',
-            'merchantCode' => '88750523',
+            'merchantCode' => '842217',
+            // 'merchantCode' => '88750523',
             'amount' => $request->cost,
             'currency' => 'KWD',
             'paymentType' => '1',
@@ -116,8 +117,8 @@ class User extends Authenticatable
             'variable4' => null,
             'variable5' => null,
             'paymentType' => '0',
-            'responseUrl' => 'https://khereej.org/payment/success',
-            'failureUrl' => 'https://khereej.org/payment/failure',
+            'responseUrl' => 'https://test.khereej.org/payment/success',
+            'failureUrl' => 'https://test.khereej.org/payment/failure',
             'version' => '2.0',
             'isOrderReference' => '1'
         ]);
