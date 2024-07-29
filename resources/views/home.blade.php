@@ -43,7 +43,7 @@
             <div class=" py-5 px-lg-5">
                 <div class="row g-4">
                     <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <a  href="https://wa.me/+96599870752" >
+                        <a  href="https://wa.me/+96596615789" >
                             <div class="feature-item bg-light rounded text-center p-4">
                                 <h5 class="mb-3">التواصل معنا</h5>
                                 <img class="img-fluid" src="{{ asset('assets/img/Picture1.png')}}" alt="Image">

@@ -22,16 +22,15 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/register');
 });
 
-
 Route::get("/terms",function(){
-    return view('TermsAndConditions');
+    return redirect('/register');
 })->name('terms');
 
 Route::get("/about",function(){
-    return view('about');
+    return redirect('/register');
 })->name('about');
 
 Route::group(['prefix' => 'register'], function () {
@@ -85,10 +84,6 @@ Route::group(['prefix' => 'demo'],function(){
 
 Route::group(['prefix' => 'success'],function(){
     Route::get('/', [ContactController::class, "success"])->name('success');
-});
-
-Route::get('/', function () {
-    return view('home');
 });
 
 Route::group(['prefix' => '/payment'],function(){

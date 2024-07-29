@@ -21,7 +21,7 @@
                                         <div class="content text-center">
                                             <h2 class="text-success">تم الدفع بنجاح </h2>
                                             <h1 class="text-dark thanks_div">
-                                                شكرا للاشتراك في خريج
+                                                سيتم التواصل بك لتفعيل الحساب
                                             </h1>
                                         </div>
                                     </div>
@@ -39,11 +39,4 @@
 @section('js')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        setTimeout(function () {
-            window.location.href = "{{ route('home') }}";
-        }, 3000);
-    });
-</script>
 @endsection
