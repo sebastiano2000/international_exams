@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Financial_transaction;
 use App\Models\Subject;
 use App\Models\Preparator;
 use App\Models\Setting;
@@ -18,7 +19,7 @@ class AdminController extends Controller
         }
 
         return view('admin.pages.dashboard', [
-            'setting'=> Setting::find(1),
+            'financial'=> Financial_transaction::count(),
             'subjects' => Subject::all(),
             'preparators' => Preparator::all(),
         ]);

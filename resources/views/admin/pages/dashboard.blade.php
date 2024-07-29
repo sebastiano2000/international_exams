@@ -80,16 +80,18 @@
                 @endif
                 @if(Auth::user()->isAdmin())
                     <div class="container_dashboard col-md-3">
-                        <div class="card row">
-                            <div class="card-count-container">
-                                <div class="card-count">{{$setting->number}}</div>
-                            </div>
-                            
-                            <div class="card-content">
-                                <h4>عدد الدخول علي امتحانات ال DEMO</h4>
-                            </div>
+                        <a href="{{ route('financial_transaction') }}">
+                            <div class="card row">
+                                <div class="card-count-container">
+                                    <div class="card-count">{{$financial}}</div>
+                                </div>
+                                
+                                <div class="card-content">
+                                    <h4>عدد الدخول علي امتحانات ال DEMO</h4>
+                                </div>
 
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 @endif
                     </div>
