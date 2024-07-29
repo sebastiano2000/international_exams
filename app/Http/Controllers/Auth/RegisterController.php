@@ -53,19 +53,36 @@ class RegisterController extends Controller
     {
         $phone = preg_replace('/\s+/', '', $request->phone);
 
-        $request->session()->put(
-            'user',
-            [
-                'name' => $request->name,
-                'phone' => $phone,
-                'password' => $request->password,
-                'email' => $request->email,
-                'country_code' => $request->countryCode,
-                'high' => $request->high,
-            ]
-        );
+        // $request->session()->put(
+        //     'user',
+        //     [
+        //         'name' => $request->name,
+        //         'phone' => $phone,
+        //         'password' => $request->password,
+        //         'email' => $request->email,
+        //         'country_code' => $request->countryCode,
+        //         'high' => $request->high,
+        //     ]
+        // );
 
-        return redirect()->route('register.verification');
+        $user = User::create([
+            'name' => $request->name,
+            'phone' => $phone,
+            'password' => Hash::make($request->password),
+            'role_id' => 2,
+            'email' => $request->email,
+            'high' => $request->high,
+            'otp' => 1,
+            'suspend' => 1,
+        ]);
+
+        $request->merge([
+            'id' => $user->id,
+        ]);
+
+        return User::payment($request);
+
+        // return redirect()->route('register.verification');
     }
 
     public function verification()

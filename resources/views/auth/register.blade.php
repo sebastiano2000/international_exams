@@ -41,14 +41,14 @@
                                         <label class="form-label" for="phone">
                                             {{__('pages.Phone')}}
                                         </label>
-                                        <div class="input-group">
+                                        <!-- <div class="input-group">
                                             <x-country-phone-code></x-country-phone-code>
                                             <input id="phone" type="text"
                                                 class="form-control mr-2 @error('phone') is-invalid @enderror"
                                                 style="width: 33% !important;"
                                                 placeholder="رقم الهاتف" name=" phone" value="{{ old('phone') }}"
                                                 required autocomplete="phone">
-                                        </div>
+                                        </div> -->
                                         @error('phone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

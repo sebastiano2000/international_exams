@@ -105,8 +105,8 @@ class User extends Authenticatable
 
         $date = \Carbon\Carbon::now();
         $request->merge([
-            'merchantCode' => '842217',
-            // 'merchantCode' => '88750523',
+            // 'merchantCode' => '842217',
+            'merchantCode' => '88750523',
             'amount' => $request->cost,
             'currency' => 'KWD',
             'paymentType' => '1',
@@ -117,8 +117,8 @@ class User extends Authenticatable
             'variable4' => null,
             'variable5' => null,
             'paymentType' => '0',
-            'responseUrl' => 'https://test.khereej.org/payment/save',
-            'failureUrl' => 'https://test.khereej.org/payment/save',
+            'responseUrl' => 'https://inv.khereej.org/payment/save',
+            'failureUrl' => 'https://inv.khereej.org/payment/save',
             'version' => '2.0',
             'isOrderReference' => '1'
         ]);
@@ -145,7 +145,8 @@ class User extends Authenticatable
         
         // Cache::put('credential', $credential, now()->addMinutes(30));
         
-        return $url;
+        header("Location: $url");
+        exit;
     }
 
     static function saveData($request)
@@ -194,7 +195,7 @@ class User extends Authenticatable
                 'suspend' => 0,
             ]);
 
-            header("Location: https://test.khereej.org/payment/success");
+            header("Location: https://inv.khereej.org/payment/success");
             exit;
 
             // if($user->email){
@@ -206,7 +207,7 @@ class User extends Authenticatable
         // cookie()->forget('payment.data');
         // $request->session()->regenerate();
 
-        header("Location: https://test.khereej.org/payment/failure");
+        header("Location: https://inv.khereej.org/payment/failure");
         exit;
     }
 
