@@ -1,4 +1,4 @@
-@extends('admin.layout.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -6,23 +6,22 @@
 
 <!-- Page Content -->
 <div class="main-wrapper">
-    <div class="page-wrapper" style="margin-top: 200px;">
+    <div class="page-wrapper">
         <div class="content container-fluid">
             <div class="page-header">
                 <div class="row">
                     <div class="row justify-content-center">
-                        <div class="container">
+                        <div class="container" style="margin: 200px 0 200px 0;">
                             <div class="row">
-                                <div class="col-md-6 mx-auto ">
+                                <div class="col-md-6 mx-auto">
                                     <div class="payment">
-                                        <div class="payment_header ">
+                                        <div class="payment_header">
                                             <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
                                         </div>
                                         <div class="content text-center">
-                                            {{-- use the auth to get the financai trasnaction --}}
                                             <h2 class="text-success">تم الدفع بنجاح </h2>
                                             <h1 class="text-dark thanks_div">
-                                                شكرا للاشتراك في خاريج
+                                                شكرا للاشتراك في خريج
                                             </h1>
                                         </div>
                                     </div>
@@ -42,24 +41,9 @@
 
 <script>
     $(document).ready(function () {
-        if(window.location.href.includes('?data=')){
-            $.ajax({
-                url: '{{ route("payment.save") }}',
-                headers: {
-                    'X-CSRF-TOKEN': '{{csrf_token()}}'
-                },
-                method: 'POST',
-                data: {data: window.location.href.split('?data=')[1]},
-                success: function (data) {
-                    window.location.href = window.location.href.split('?data=')[0];
-                }
-            });
-        }
-        else{
-            setTimeout(function () {
-                window.location.href = "{{ route('home') }}";
-            }, 3000);
-        }
+        setTimeout(function () {
+            window.location.href = "{{ route('home') }}";
+        }, 3000);
     });
 </script>
 @endsection

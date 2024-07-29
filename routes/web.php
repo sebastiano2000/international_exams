@@ -95,5 +95,5 @@ Route::group(['prefix' => '/payment'],function(){
     Route::post('/subscription', [UserController::class,"payment"])->name('payment.subscription');
     Route::get('/success', [UserController::class,"paymentSucess"])->name('payment.success');
     Route::get('/failure', [UserController::class,"paymentFailure"])->name('payment.failure');
-    Route::post('/save', [UserController::class,"save"])->name('payment.save');
+    Route::get('/save', [UserController::class,"save"])->name('payment.save');
 });

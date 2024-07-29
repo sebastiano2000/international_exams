@@ -194,7 +194,8 @@ class User extends Authenticatable
                 'suspend' => 0,
             ]);
 
-            return 'https://test.khereej.org/payment/success';
+            header("Location: https://test.khereej.org/payment/success");
+            exit;
 
             // if($user->email){
             //     Mail::to($user->email)->send(new PackageSubscribtion($user->name));
@@ -205,7 +206,8 @@ class User extends Authenticatable
         // cookie()->forget('payment.data');
         // $request->session()->regenerate();
 
-        return 'https://test.khereej.org/payment/failure';
+        header("Location: https://test.khereej.org/payment/failure");
+        exit;
     }
 
     public function getAvatarNameAttribute()
@@ -225,7 +227,7 @@ class User extends Authenticatable
 
     static function statusUpdate($request)
     {
-        return User::where('id', $request->id)->update(['suspend' => $request->suspend]);
+        return User::where('id', $request->id)->update(['activation' => $request->activation]);
     }
     
     static function otpUpdate($request)

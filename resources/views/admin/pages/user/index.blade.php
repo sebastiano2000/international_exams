@@ -52,7 +52,7 @@
                                                     <td>
                                                         @if($user->role_id != 1)
                                                             <label class="switch switch_user_status" style="width: 50px; height: 25px;">
-                                                                <input type="checkbox" class="user_status" @if($user->suspend) value="1" @else value="0" @endif user_id="{{ $user->id }}" name="user_suspend" style="width: 15px; height: 15px;">
+                                                                <input type="checkbox" class="user_status" @if($user->activation) value="1" @else value="0" @endif user_id="{{ $user->id }}" name="user_suspend" style="width: 15px; height: 15px;">
                                                                 <span class="slider round" style="border-radius: 25px;"></span>
                                                             </label>
                                                         @endif
@@ -200,7 +200,7 @@
             },
             url: '{{ route("user.status") }}',
             method: 'post',
-            data: {id: $(this).attr("user_id"), suspend: $(this).val()},
+            data: {id: $(this).attr("user_id"), activation: $(this).val()},
             success: () => {
                 Swal.fire({
                     toast: true,

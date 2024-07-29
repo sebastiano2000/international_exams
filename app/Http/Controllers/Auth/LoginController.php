@@ -67,7 +67,7 @@ class LoginController extends Controller
 
         $user = User::where('phone', $request->phone)->first();
 
-        if (!password_verify($request->password, $user->password)) {
+        if (!password_verify($request->password, $user->password) || $user->activation == 0) {
             return redirect()->back();
         }
 
@@ -119,7 +119,7 @@ class LoginController extends Controller
         }
 
         if (count($tokens) >= $user->session_limit) {
-                    return redirect()->back()->withErrors(['session' => 'هذا الجهاز غير مسموح  به برجاء الدخول بالاجهزه المسجله']);
+            return redirect()->back()->withErrors(['session' => 'هذا الجهاز غير مسموح  به برجاء الدخول بالاجهزه المسجله']);
         }
 
         $token =  bin2hex(random_bytes(32));
@@ -136,9 +136,7 @@ class LoginController extends Controller
             $user->save();
             return $this->sendLoginResponse($request);
         }
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
+        
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
@@ -151,9 +149,7 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-        return $this->guard()->attempt(
-            $this->credentials($request)
-        );
+        return $this->guard()->attempt($this->credentials($request));
     }
 
     /**
