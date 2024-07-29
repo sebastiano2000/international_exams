@@ -134,12 +134,12 @@
                                     <div style="text-align: end;">Exam Result</div>                                  
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="{{ route('total') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>نتائج الاختبار الشامل</div>
                                     <div style="text-align: end;">Full Test Result</div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="{{ route('preparator') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>محضرين</div>
