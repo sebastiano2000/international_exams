@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get("/terms",function(){
-    return redirect('/register');
+    return view('TermsAndConditions');
 })->name('terms');
 
 Route::get("/about",function(){

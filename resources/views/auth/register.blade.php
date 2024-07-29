@@ -66,7 +66,7 @@
 
                                     <div class="form-outline flex-fill mb-2">
                                         <label class="form-label" for="name">
-                                            {{__('pages.high')}}
+                                            اسم الجامعة
                                         </label>
                                         <input id="high" type="text" class="form-control" name="high"
                                             value="{{ old('high') }}" required autocomplete="high">
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                         <button class="btn btn-primary py-sm-3 px-sm-5 form-control rounded-pill jus  btn-khareej disabled" type="submit">
-                                            الإنضمام
+                                            التسجيل بالدورة
                                         </button>
                                     </div>
                                 </form>

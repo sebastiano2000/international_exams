@@ -55,7 +55,7 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="fa fa-bars"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="collapse navbar-collapse" id="navbarCollapse" style="flex-direction: row-reverse;">
                             <!-- <div class="navbar-nav mx-auto py-0">
                                 <a href="/" class="nav-item nav-link {{is_active('')}} ">الرئيسية</a>
                                 <a href="https://wa.me/+96596615789" class="nav-item nav-link {{is_active('contact')}} ">تواصل  معنا</a>
