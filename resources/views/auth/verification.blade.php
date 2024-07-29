@@ -180,7 +180,7 @@
                 url: '{{ route("register.store") }}',
                 method: 'POST',
                 success: function (data) {
-                    window.location.href = "{{ route('register.success') }}";
+                    window.location.href = data;
                 },
                 error: function (error) {
                     $("#error").text(error.responseJSON.message);

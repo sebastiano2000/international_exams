@@ -111,55 +111,55 @@ class User extends Authenticatable
             'currency' => 'KWD',
             'paymentType' => '1',
             'orderReferenceNumber' => $date->timestamp,
-            'variable1' => null,
-            'variable2' => null,
-            'variable3' => null,
+            'variable1' => $request->package_number,
+            'variable2' => $request->cost,
+            'variable3' => $request->id,
             'variable4' => null,
             'variable5' => null,
             'paymentType' => '0',
-            'responseUrl' => 'https://test.khereej.org/payment/success',
-            'failureUrl' => 'https://test.khereej.org/payment/failure',
+            'responseUrl' => 'https://test.khereej.org/payment/save',
+            'failureUrl' => 'https://test.khereej.org/payment/save',
             'version' => '2.0',
             'isOrderReference' => '1'
         ]);
 
-        $payment_data = [
-            'user_id' => Auth::user()->id,
-            'package_number' => $request->package_number,
-            'cost' => $request->cost,
-            'time' => $date
-        ];
+        // $payment_data = [
+        //     'user_id' => $request->id,
+        //     'package_number' => $request->package_number,
+        //     'cost' => $request->cost,
+        //     'time' => $date
+        // ];
 
         $paymentController = new PaymentController();
         $url = $paymentController->formSubmit($request);
 
-        $request->session()->regenerate();
-        session()->put('payment.data', $payment_data);
-        Cache::put('payment.data', $payment_data, now()->addMinutes(30));
-        cookie('payment.data', json_encode($payment_data));
+        // $request->session()->regenerate();
+        // session()->put('payment.data', $payment_data);
+        // Cache::put('payment.data', $payment_data, now()->addMinutes(30));
+        // cookie('payment.data', json_encode($payment_data));
 
-        $credential = [
-            'username' => Auth::user()->email,
-            'password' => Auth::user()->password,
-        ];
+        // $credential = [
+        //     'username' => Auth::user()->email,
+        //     'password' => Auth::user()->password,
+        // ];
         
-        Cache::put('credential', $credential, now()->addMinutes(30));
+        // Cache::put('credential', $credential, now()->addMinutes(30));
         
         return $url;
     }
 
     static function saveData($request)
     {
-        if (!Auth::check()) {
-            if (Cache::has('credential')) {
-                $credential = Cache::get('credential');
-            } else {
-                return false;
-            }
+        // if (!Auth::check()) {
+        //     if (Cache::has('credential')) {
+        //         $credential = Cache::get('credential');
+        //     } else {
+        //         return false;
+        //     }
 
-            $user = User::where('email', $credential['username'])->first();
-            Auth::login($user);
-        }
+        //     $user = User::where('email', $credential['username'])->first();
+        //     Auth::login($user);
+        // }
 
         $paymentController = new PaymentController();
         $response = $paymentController->getPaymentResponse($request->data);
@@ -167,8 +167,8 @@ class User extends Authenticatable
         $payment_data_cookie = json_decode(cookie('payment.data'));
         $payment_data_cache = Cache::get('payment.data');
 
-        $package_number = $payment_data_cache['package_number'] ?? $payment_data_cookie['package_number'] ?? getDataFromPayment('package_number');
-        $user_id = $payment_data_cache['user_id'] ?? $payment_data_cookie['user_id'] ?? getDataFromPayment('user_id');
+        // $package_number = $payment_data_cache['package_number'] ?? $payment_data_cookie['package_number'] ?? getDataFromPayment('package_number');
+        // $user_id = $payment_data_cache['user_id'] ?? $payment_data_cookie['user_id'] ?? getDataFromPayment('user_id');
 
         Financial_transaction::create([
             'resultCode' => $response->status ? 'CAPTURED' : 'NOT CAPTURED',
@@ -185,25 +185,27 @@ class User extends Authenticatable
             'method' => $response->response['method'],
             'administrativeCharge' => $response->response['administrativeCharge'],
             'paid' => $response->status ? 1 : 0,
-            'package_number' => $package_number,
-            'user_id' => $user_id,
+            'package_number' => $response->response['variable1'],
+            'user_id' => $response->response['variable3'],
         ]);
 
         if ($response->status) {
-            User::where('id', $user_id)->update([
-                'suspend' => 1,
+            User::where('id', $response->response['variable3'])->update([
+                'suspend' => 0,
             ]);
 
-            if($user->email){
-                Mail::to($user->email)->send(new PackageSubscribtion($user->name));
-            }
+            return 'https://test.khereej.org/payment/success';
+
+            // if($user->email){
+            //     Mail::to($user->email)->send(new PackageSubscribtion($user->name));
+            // }
         }
 
-        Cache::flush();
-        cookie()->forget('payment.data');
-        $request->session()->regenerate();
+        // Cache::flush();
+        // cookie()->forget('payment.data');
+        // $request->session()->regenerate();
 
-        return true;
+        return 'https://test.khereej.org/payment/failure';
     }
 
     public function getAvatarNameAttribute()

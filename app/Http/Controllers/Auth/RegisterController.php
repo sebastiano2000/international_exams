@@ -7,6 +7,7 @@ use App\Http\Requests\UserRequest;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -91,7 +92,7 @@ class RegisterController extends Controller
         );
     }
 
-    public function store($request)
+    public function store(Request $request)
     {
         $user = session()->get('user');
 
@@ -102,7 +103,12 @@ class RegisterController extends Controller
             'role_id' => 2,
             'email' => $user['email'],
             'high' => $user['high'],
-            'otp' => 1
+            'otp' => 1,
+            'suspend' => 1,
+        ]);
+
+        $request->merge([
+            'id' => $user->id,
         ]);
 
         return User::payment($request);

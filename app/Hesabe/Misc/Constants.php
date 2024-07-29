@@ -28,8 +28,8 @@ class Constants
     public const MERCHANT_CODE = "842217";
 
     // This URL are defined by you to get the response from Payment Gateway after success and failure
-    public const RESPONSE_URL = 'https://test.khereej.org/payment/success';
-    public const FAILURE_URL = 'https://test.khereej.org/payment/failure';
+    public const RESPONSE_URL = 'https://test.khereej.org/payment/save';
+    public const FAILURE_URL = 'https://test.khereej.org/payment/save';
 
     //Codes
     public const SUCCESS_CODE = 200;
