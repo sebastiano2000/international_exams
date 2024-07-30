@@ -195,7 +195,7 @@
                                         @if($subject->name == 'Reading Comprehension')style="font-size: 12px;" @endif    
                                         class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
                                     >
-                                        <div>مراجعة {{ $subject->name == 'Grammar' ? 'القواعد' : ($subject->name == 'Vocabulary' ? 'الكلمات' : 'القراءة و الاستيعاب') }}</div>
+                                        <div>مراجعة {{ $subject->name }}</div>
                                         <div style="text-align: end;">{{$subject->name}} Review</div>
                                     </a>
                                 </li>
@@ -215,7 +215,7 @@
                                     <div style="text-align: end;">Full Test</div>
                                 </a>
                             </li> -->
-                            <li>
+                            <!-- <li>
                                 <a
                                     href="#"
                                     data-target="#show_subscription"
@@ -227,7 +227,7 @@
                                     <i class="icon-calender"></i>
                                     <div style="text-align: end;">Subscription Validity</div>
                                 </a>
-                            </li>
+                            </li> -->
                             @foreach(\App\Models\Preparator::all() as $preparator)
                                 @if($preparator->picture)
                                     <li>
