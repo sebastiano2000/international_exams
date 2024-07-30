@@ -196,7 +196,7 @@
                                         class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
                                     >
                                         <div>مراجعة {{ $subject->name }}</div>
-                                        <div style="text-align: end;">{{$subject->name}} Review</div>
+                                        <!-- <div style="text-align: end;">{{$subject->name}} Review</div> -->
                                     </a>
                                 </li>
                                 <!-- <li>
