@@ -229,11 +229,13 @@
                                 </a>
                             </li>
                             @foreach(\App\Models\Preparator::all() as $preparator)
-                                <li>
-                                    <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
-                                        مذكرات {{$preparator->name}}
-                                    </a>
-                                </li>
+                                @if($preparator->picture)
+                                    <li>
+                                        <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                            مذكرات {{$preparator->name}}
+                                        </a>
+                                    </li>
+                                @endif
                             @endforeach
                         @else
                             @foreach(\App\Models\Subject::orderBy('created_at', 'asc')->get() as $subject)
