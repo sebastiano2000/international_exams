@@ -41,7 +41,7 @@
                         font-size: 18px;">
                 </div>
                 <div class="d-flex">
-                    @if($slice->first()->notes)
+                    @if($slice->notes)
                         <a href="#" class="d-none help-btn">
                             <i class="ti-help"></i>
                         </a>
@@ -193,9 +193,9 @@
 
     $('.help-btn').click(function(){
         $('.hint-note').html(`
-        @if ($slice->first()->notes)
-            <p class="text-center m-0"> {{ $slice->first()->notes }} </p>
-        @endif
+            @if ($slice->first()->notes)
+                <p class="text-center m-0"> {{ $slice->notes }} </p>
+            @endif
         `)
         $('.hint-note').toggleClass('d-none')
     })
