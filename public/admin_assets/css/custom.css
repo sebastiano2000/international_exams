@@ -5904,6 +5904,7 @@ body {
 
 .container-tenant {
     backdrop-filter: blur(5px) saturate(180%);
+    height: 411px;
     -webkit-backdrop-filter: blur(5px) saturate(180%);
     background-color: rgb(166 167 169);
     border-radius: 12px;
@@ -6624,11 +6625,11 @@ span:active {
 @media  (max-width: 575.98px)
 {
     .container-tenant {
-        width: 177px !important;
+        width: 184px !important;
         height: 173px !important;
     }
     .container-tenant h2 {
-        font-size: 10px !important;
+        font-size: 12px !important;
     }
     .container-tenant h1 {
         font-size: 10px !important;
