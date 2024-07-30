@@ -5,7 +5,7 @@
     <div class="container my-5 py-5  register-container px-lg-5">
         <div class="row g-5 py-5">
             <div class="col-12 text-center">
-                <h1 class="text-white animated slideInDown">تسجيل حساب جديد
+                <h1 class="text-white animated slideInDown">اهلا بكم بصفحة التسجيل الخاصة بالدورة التحضيرية لاختبار اعلان وظيفة باحث قانوني (محقق ج)
                 </h1>
                 <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                 <nav aria-label="breadcrumb">
@@ -25,7 +25,7 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-1">
 
-                                <p class="section-title text-secondary  mx-md-auto mt-4">تسجيل الدخول لبنك الأسئلة الموضوعية</p>
+                                <p class="section-title text-secondary  mx-md-auto mt-4">تسجيل الدخول بالدورة التحضيرية </p>
 
                                 <form method="POST" action="{{ route('register.create')}}" onsubmit="validate()">
                                     @csrf
@@ -142,11 +142,6 @@
         //     event.preventDefault();
         //     alert("كلمة المرور غير متطابقة");
         // }
-
-        if (isNaN(phone)) {
-            event.preventDefault();
-            alert("رقم الهاتف يجب أن يكون أرقام فقط");
-        }
     }
     var chk1 = $("input[type='checkbox'][value='1']");
 

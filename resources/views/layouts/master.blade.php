@@ -97,7 +97,6 @@
             <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
                 <div class="container py-5 px-lg-5">
                     <div class="row g-5">
-    
                         <!-- <div class="col-md-6 col-lg-6">
                             <p class="section-title text-white h5 mb-4">الروابط<span></span></p>
                             <a class="btn btn-link" href="/">الرئيسية</a>
@@ -105,28 +104,24 @@
                             <a class="btn btn-link" href="{{route('demo')}}">ديمو</a>
                             <a class="btn btn-link" href="{{route('pricing.index')}}">الأسعار</a>
                             <a class="btn btn-link" href="{{route('terms')}}">الشروط والأحكام</a>
-                        </div>
+                        </div> -->
                         <div class="col-md-6 col-lg-6">
                             <p class="section-title text-white h5 mb-4">خدماتنا<span></span></p>
                             <div class="row g-2">
                                 <a class="col-3" href="https://wa.me/+96596615789">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture1.png')}}" alt="Image">
                                 </a>
-
-                                <a class="col-3" href="{{route('demo')}}">
+                                <!-- <a class="col-3" href="{{route('demo')}}">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture2.png')}}" alt="Image">
                                 </a>
-                          
                                 <a class="col-3" href="{{route('pricing.index')}}">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture3.png')}}" alt="Image">
-                                </a>
-
+                                </a> -->
                                 <a class="col-3" href="{{route('login')}}">
                                     <img class="img-fluid" src="{{ asset('assets/img/Picture4.png')}}" alt="Image">
                                 </a>
-    
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-md-6 col-lg-4">
                             <p class="section-title text-white h5 mb-4">تواصل معنا<span></span></p>
                             <div class="position-relative w-100 mt-3">

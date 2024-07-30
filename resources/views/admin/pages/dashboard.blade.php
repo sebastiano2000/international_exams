@@ -87,7 +87,7 @@
                                 </div>
                                 
                                 <div class="card-content">
-                                    <h4>عدد الدخول علي امتحانات ال DEMO</h4>
+                                    <h4>عدد عمليات الدفع</h4>
                                 </div>
 
                             </div>

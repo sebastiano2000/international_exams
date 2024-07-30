@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3',
-            'phone' => ['required', 'digits:8', function ($attribute, $value, $fail) {
+            'phone' => ['required', function ($attribute, $value, $fail) {
                 $count = User::where('phone', $value)->where('id', '!=', request()->id)->count();
 
                 if ($count > 0) {
