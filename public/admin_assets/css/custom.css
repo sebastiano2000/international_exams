@@ -5905,11 +5905,11 @@ body {
 .container-tenant {
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);
-    background-color: rgba(128, 128, 128, 0.29);
-    /* border-radius: 12px; */
-    /* border: 1px solid rgba(209, 213, 219, 0.3); */
+    background-color: rgb(166 167 169);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    /* padding: 38px; */
+    padding: 38px;
     filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
     display: flex;
     flex-direction: column;
@@ -5930,6 +5930,14 @@ body {
     width: 100%;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.255);
+}
+
+.container-tenant h2 {
+    font-family: "Righteous", sans-serif;
+    color: rgba(255, 255, 255, 0.98);
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    font-weight: bold;
 }
 
 h1 {
@@ -6245,9 +6253,9 @@ form:invalid #btn {
 
 h1::before {
     content: attr(data-heading);
-    position: absolute;
-    left: 0;
-    top: 0;
+    /* position: absolute; */
+    /* left: 0;
+    top: 0; */
     width: 100%;
     background: linear-gradient(45deg, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0) 100%);
     -webkit-background-clip: text;
@@ -6616,8 +6624,11 @@ span:active {
 @media  (max-width: 575.98px)
 {
     .container-tenant {
-        width: 152px !important;
+        width: 177px !important;
         height: 173px !important;
+    }
+    .container-tenant h2 {
+        font-size: 10px !important;
     }
     .container-tenant h1 {
         font-size: 10px !important;
