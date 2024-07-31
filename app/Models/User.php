@@ -271,4 +271,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserFav::class);
     }
+
+    public function financials()
+    {
+        return $this->hasMany(Financial_transaction::class);
+    }
 }

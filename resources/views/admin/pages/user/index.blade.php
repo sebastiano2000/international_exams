@@ -32,6 +32,7 @@
                                                 <th>{{ __('pages.mobile') }}</th>
                                                 <th>{{ __('pages.role') }}</th>
                                                 <th>اسم الجامعة</th>
+                                                <th>حالة الدفع</th>
                                                 <th>حالة الاشتراك</th>
                                                 <th>حالة التسجيل</th>
                                                 <th>الحد الأقصي للأجزة</th>
@@ -49,6 +50,13 @@
                                                         <td>المتدرب</td>
                                                     @endif
                                                     <td>{{ $user->high }}</td>
+                                                    <td>
+                                                        @if($user->financials()->first())
+                                                            {{$user->financials()->first()->paid ? 'مدفوع' : 'غير مدفوع'}}
+                                                        @else
+                                                            غير مدفوع
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         @if($user->role_id != 1)
                                                             <label class="switch switch_user_status" style="width: 50px; height: 25px;">

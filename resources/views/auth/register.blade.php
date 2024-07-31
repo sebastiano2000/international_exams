@@ -109,7 +109,7 @@
                                 </form>
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                                <img src="{{ asset('assets/img/Sign up-cuate.png') }}"
+                                <img src="{{ asset('assets/img/khereej-list.jpg') }}"
                                     class="img-fluid" alt="Sample image">
                             </div>
                         </div>

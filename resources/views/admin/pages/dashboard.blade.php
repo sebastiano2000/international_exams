@@ -39,7 +39,7 @@
                                 <a @if(Auth::user()->suspend) href="{{ route('exam.test', ['subject_id' => $subject->id]) }}" @else href="{{ route('pricing.index') }}" @endif>
                                     <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/review.svg'); width: 411px; height: 411px;">
                                         <h1 style="font-size: 24px; margin-top: -320px;">
-                                            {{$subject->name}} <br> REVIEW 
+                                            {{$subject->name}} <br> 
                                         </h1>
                                     </div>
                                 </a>
