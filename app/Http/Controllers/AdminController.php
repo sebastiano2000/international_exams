@@ -23,7 +23,7 @@ class AdminController extends Controller
             'financial'=> Financial_transaction::count(),
             'subjects' => Subject::all(),
             'preparators' => Preparator::all(),
-            'atttachments' => Attachment::all(),
+            'attachments' => Attachment::all(),
         ]);
     }
 }

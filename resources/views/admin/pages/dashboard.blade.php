@@ -68,7 +68,7 @@
                                                 مذكرات {{$preparator->name}}
                                             </h2>
                                             <div class="button-wrapper">
-                                                <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank"
+                                                <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank" 
                                                     class="btn-tenant fill-tenant">إبدأ</a>
                                             </div>
                                         </div>
@@ -76,18 +76,21 @@
                                 </div>
                             @endif
                         @endforeach
-                        @foreach($atttachments as $atttachment)
-                            @if($atttachment->picture)
+                        @foreach($attachments as $attachment)
+                            @if($attachment->picture)
                                 <div class="col-auto">
                                     <div class="container-tenant mb-4">
                                         <div class="">
                                             <h2>
-                                                مرفق {{$atttachment->name}}
+                                                مرفق {{$attachment->name}}
                                             </h2>
                                             <div class="button-wrapper">
-                                                <a href="{{ asset('/atttachments/'.$atttachment->picture->name) }}" target="_blank"
+                                                <a href="{{ asset('/attachment/'.$attachment->picture->name) }}" target="_blank"
                                                     class="btn-tenant fill-tenant">إبدأ</a>
                                             </div>
+                                            <video oncontextmenu="return false;" id="myVideo" autoplay controls controlsList="nodownload">
+                                                <source src="{{ asset('/attachments/'.$attachment->picture->name) }}" type="video/mp4">
+                                            </video>
                                         </div>
                                     </div>
                                 </div>
