@@ -27,13 +27,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3',
-            'phone' => ['required', function ($attribute, $value, $fail) {
-                $count = User::where('phone', $value)->where('id', '!=', request()->id)->count();
-
-                if ($count > 0) {
-                    return $fail('رقم الهاتف مسجل لدينا بالفعل');
-                }
-            }],
+            'phone' => ['required'],
             'high' => 'required|min:3'
         ];
     }

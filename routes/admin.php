@@ -142,6 +142,14 @@ Route::group(['prefix' => 'subject'],function(){
     Route::post('/delete/{subject}',[SubjectController::class,'destroy'])->name('subject.delete');
 });
 
+Route::group(['prefix' => 'attachment'],function(){
+    Route::get('/', [SubjectController::class, "indexAttachment"])->name('attachment');
+    Route::get('/upsert/{attachment?}',[SubjectController::class, 'upsertAttachment'])->name('attachment.upsert');
+    Route::get('/filter',[SubjectController::class,'filterAttachment'])->name('attachment.filter');
+    Route::post('/modify',[SubjectController::class, 'modifyAttachment'])->name('attachment.modify');
+    Route::post('/delete/{attachment}',[SubjectController::class, 'destroyAttachment'])->name('attachment.delete');
+});
+
 Route::group(['prefix' => 'profile'],function(){
     Route::get('/', [ProfileController::class, "index"])->name('profile');
     Route::post('/update', [ProfileController::class,"update"])->name('profile.update');
@@ -152,7 +160,6 @@ Route::group(['prefix' => 'log'],function(){
     Route::get('/', [LogController::class,"index"])->name('log');
     Route::get('/filter',[LogController::class,'filter'])->name('log.filter');
 });
-
 
 Route::group(['prefix' => 'prices'],function(){
     Route::get('/', [PriceController::class,"index"])->name('prices');

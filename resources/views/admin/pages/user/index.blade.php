@@ -30,12 +30,14 @@
                                             <tr>
                                                 <th>{{ __('pages.name') }}</th>
                                                 <th>{{ __('pages.mobile') }}</th>
+                                                <th>البريد</th>
                                                 <th>{{ __('pages.role') }}</th>
                                                 <th>اسم الجامعة</th>
                                                 <th>حالة الدفع</th>
                                                 <th>حالة الاشتراك</th>
                                                 <th>حالة التسجيل</th>
                                                 <th>الحد الأقصي للأجزة</th>
+                                                <th>وقت التسجيل</th>
                                                 <th class="text-end">{{ __('pages.actions') }}</th>
                                             </tr>
                                         </thead>
@@ -44,6 +46,7 @@
                                                 <tr class="record">
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->phone }}</td>
+                                                    <td>{{ $user->email }}</td>
                                                     @if($user->role_id == '1')
                                                         <td>{{ __('pages.admin') }}</td>
                                                     @elseif($user->role_id == '2')
@@ -76,6 +79,7 @@
                                                     <td>
                                                         <input type="number" class="form-control session_limit" value="{{ $user->session_limit }}"  user_id="{{ $user->id }}" name="session_limit" style="width: 80px; height: 25px; text-align: center;" >
                                                     </td>
+                                                    <td>{{ $user->created_at }}</td>
                                                     <td class="text-end">
                                                         <div class="actions">
                                                             <a href="#" onclick="edit_partner(this)"

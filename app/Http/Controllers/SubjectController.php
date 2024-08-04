@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AttachmentRequest;
 use App\Http\Requests\SubjectRequest;
+use App\Models\Attachment;
 use App\Models\Subject;
 use Auth;
 use Illuminate\Http\Request;
@@ -30,11 +32,7 @@ class SubjectController extends Controller
             abort(404);
         }
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function upsert(Subject $subject)
     {
         if (Auth::user()->isAdmin()) {
@@ -54,5 +52,48 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         return $subject->deleteInstance();
+    }
+
+    public function indexAttachment(Request $request)
+    {
+        if (Auth::user()->isAdmin()) {
+            return view('admin.pages.attachment.index', [
+                'attachments' => Attachment::filter($request->all())->paginate(50),
+            ]);
+        } else {
+            abort(404);
+        }
+    }
+
+    public function filterAttachment(Request $request)
+    {
+        if (Auth::user()->isAdmin()) {
+            return view('admin.pages.attachment.index', [
+                'attachments' => Attachment::filter($request->all())->paginate(50),
+            ]);
+        } else {
+            abort(404);
+        }
+    }
+
+    public function upsertAttachment(Attachment $attachment)
+    {
+        if (Auth::user()->isAdmin()) {
+            return view('admin.pages.attachment.upsert', [
+                'attachment' => $attachment,
+            ]);
+        } else {
+            abort(404);
+        }
+    }
+
+    public function modifyAttachment(AttachmentRequest $request)
+    {
+        return Attachment::upsertInstance($request);
+    }
+
+    public function destroyAttachment(Attachment $attachment)
+    {
+        return $attachment->deleteInstance();
     }
 }
