@@ -76,6 +76,23 @@
                                 </div>
                             @endif
                         @endforeach
+                        @foreach($atttachments as $atttachment)
+                            @if($atttachment->picture)
+                                <div class="col-auto">
+                                    <div class="container-tenant mb-4">
+                                        <div class="">
+                                            <h2>
+                                                مرفق {{$atttachment->name}}
+                                            </h2>
+                                            <div class="button-wrapper">
+                                                <a href="{{ asset('/atttachments/'.$atttachment->picture->name) }}" target="_blank"
+                                                    class="btn-tenant fill-tenant">إبدأ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                 @endif
                 @if(Auth::user()->isAdmin())
