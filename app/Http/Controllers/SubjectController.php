@@ -8,6 +8,8 @@ use App\Models\Attachment;
 use App\Models\Subject;
 use Auth;
 use Illuminate\Http\Request;
+use Response;
+use Storage;
 
 class SubjectController extends Controller
 {
@@ -95,5 +97,14 @@ class SubjectController extends Controller
     public function destroyAttachment(Attachment $attachment)
     {
         return $attachment->deleteInstance();
+    }
+
+    public function getVideo(Attachment $attachment)
+    {
+        $name = $attachment->name;
+        $fileContents = Storage::disk('local')->get("attachments/{$name}");
+        $response = Response::make($fileContents, 200);
+        $response->header('Content-Type', "video/mp4");
+        return $response;
     }
 }
