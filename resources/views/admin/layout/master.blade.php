@@ -147,31 +147,37 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('prices') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('attachment') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>مرفقات</div>
+                                    <div style="text-align: end;">»Attachments</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('prices') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الاسعار</div>
                                     <div style="text-align: end;">Pricing</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('report') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('report') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الابلاغات</div>
                                     <div style="text-align: end;">Reports</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('contact.admin') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('contact.admin') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>رسائل تواصل معنا</div>
                                     <div style="text-align: end;">Contact Messagese</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('log') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('log') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>سجل العمليات</div>
                                     <div style="text-align: end;">Log</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('financial_transaction') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('financial_transaction') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>سجل عمليات الدفع</div>
                                     <div style="text-align: end;">Financial Transactions</div>
                                 </a>
@@ -237,6 +243,15 @@
                                     </li>
                                 @endif
                             @endforeach
+                            @foreach(\App\Models\Attachment::all() as $attachment)
+                                @if($attachment->picture)
+                                    <li>
+                                        <a href="{{ asset('/attachments/'.$attachment->picture->name) }}" target="_blank" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                            مذكرات {{$attachment->name}}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
                         @else
                             @foreach(\App\Models\Subject::orderBy('created_at', 'asc')->get() as $subject)
                                 <li>
@@ -265,6 +280,7 @@
                                 onclick="edit_password(this)"
                                 data-target="#edit_password"
                                 data-toggle="modal"
+                                style="background: #e2e2e2;"
                                 data-id="{{Auth::user()->id}}"
                                 class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
                             >
@@ -275,7 +291,6 @@
                         </li>
                         <li><a class="waves-effect waves-dark sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"
                                 href="{{ route('logout') }}"
-                                style="background: #e2e2e2;"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();"
                                 aria-expanded="false">
                                 <div>تسجيل الخروج</div>
