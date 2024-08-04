@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attachment;
 use App\Models\Financial_transaction;
 use App\Models\Subject;
 use App\Models\Preparator;
