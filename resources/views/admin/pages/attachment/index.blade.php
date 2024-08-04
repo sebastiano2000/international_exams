@@ -9,14 +9,14 @@
                 <div class="row">
                     <div class="col-sm-8 col-auto">
                         <h3 class="page-title">
-                            المادة
+                            المرفقات  
                         </h3>
 
                     </div>
                     <div class="col-sm-4">
                         <a href="{{ route('attachment.upsert') }}" class="btn btn-primary float-end mt-2"> <i
                                 class="ti-plus"></i>
-                            اضف مادة جديدة
+                            اضف مرفق جديدة
                         </a>
                     </div>
                 </div>

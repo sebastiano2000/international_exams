@@ -149,7 +149,7 @@
                             <li>
                                 <a href="{{ route('attachment') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>مرفقات</div>
-                                    <div style="text-align: end;">»Attachments</div>
+                                    <div style="text-align: end;">Attachments</div>
                                 </a>
                             </li>
                             <li>

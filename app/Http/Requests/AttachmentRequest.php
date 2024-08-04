@@ -22,7 +22,7 @@ class AttachmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'attachment' => 'mimetypes:video/avi,video/mpeg,video/quicktime'
+            'attachment' => 'mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4'
         ];
     }
 }

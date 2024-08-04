@@ -10,11 +10,11 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h3 class="page-title">
-                                اضف مادة جديدة
+                                اضف مرفق جديد
                             </h3>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:(0);">
-                                        المادة
+                                    المرفق
                                     </a>
                                 </li>
                             </ul>
