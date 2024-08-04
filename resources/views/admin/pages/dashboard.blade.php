@@ -84,12 +84,8 @@
                                             <h2>
                                                 مرفق {{$attachment->name}}
                                             </h2>
-                                            <div class="button-wrapper">
-                                                <a href="{{ asset('/attachment/'.$attachment->picture->name) }}" target="_blank"
-                                                    class="btn-tenant fill-tenant">إبدأ</a>
-                                            </div>
                                             <video oncontextmenu="return false;" id="myVideo" autoplay controls controlsList="nodownload">
-                                                <source src="{{ asset('/attachments/'.$attachment->picture->name) }}" type="video/mp4">
+                                                <source src="{{ storage_path('/attachments/'.$attachment->picture->name) }}" type="video/mp4">
                                             </video>
                                         </div>
                                     </div>

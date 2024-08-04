@@ -28,7 +28,7 @@ class Attachment extends Model
         if ($request->file('attachment')) {
             $file = $request->file('attachment');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $destinationPath = public_path() . '/attachments/';
+            $destinationPath = storage_path() . '/attachments/';
             $file->move($destinationPath, $filename);
 
             $attachment->picture()->updateOrCreate(
