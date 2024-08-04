@@ -174,4 +174,4 @@ Route::group(['prefix' => 'financial_transaction'],function(){
     Route::get('/filter', [FinancialTransactionController::class, 'filter'])->name('financial_transaction.filter');
 });
 
-Route::get('get-video/{attachment}', 'SubjectController@getVideo')->name('getVideo');
+Route::get('get-video/{attachment}', [SubjectController::class, 'getVideo'])->name('getVideo');
