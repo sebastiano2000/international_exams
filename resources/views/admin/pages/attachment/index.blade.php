@@ -41,10 +41,7 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                اسم المادة
-                                            </th>
-                                            <th>
-                                                عدد الاسئلة
+                                                اسم المرفق
                                             </th>
                                             <th class="text-end">{{ __('pages.actions') }}</th>
                                         </tr>
@@ -53,7 +50,6 @@
                                         @foreach($attachments as $attachment)
                                             <tr class="record">
                                                 <td>{{ $attachment->name }}</td>
-                                                <td>{{ $attachment->questions_count }}</td>
                                                 <td class="text-end">
                                                     <div class="actions">
                                                         <a href="{{ route('attachment.upsert',['attachment' => $attachment->id]) }}"

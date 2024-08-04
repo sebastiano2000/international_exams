@@ -35,6 +35,11 @@
                                     @csrf
                                     <input type="hidden" name="id" value="@isset($attachment->id){{$attachment->id}}@endisset">
                                     <div class="col-md-12 ps-5">
+                                        <label class="mb-2">اسم المرفق</label>
+                                        <input class="form-control" type="text" name="name" placeholder="{{ __('pages.name') }}" value="@isset($attachment->id){{$attachment->name}}@endisset">
+                                        <p class="error error_name"></p>
+                                    </div>
+                                    <div class="col-md-12 ps-5">
                                         <label class="mb-2">مذكرات </label>
                                         <input type="file" class="dropify" data-default-file="@if($attachment->picture){{ asset('/attachments/' . $attachment->picture->name) }}@endif" name="attachment"/>
                                         <p class="error error_picture"></p>
