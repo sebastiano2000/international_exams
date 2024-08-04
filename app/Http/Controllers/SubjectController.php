@@ -101,10 +101,8 @@ class SubjectController extends Controller
 
     public function getVideo(Attachment $attachment)
     {
-        $name = $attachment->name;
-        $fileContents = Storage::disk('local')->get("attachments/{$name}");
-        $response = Response::make($fileContents, 200);
-        $response->header('Content-Type', "video/mp4");
-        return $response;
+        $filename = $attachment->picture->name;
+        $second_id = $attachment->picture->second_id;
+        return response()->download(storage_path('/app/public/' . $filename . '/' . $second_id), null, [], null);
     }
 }

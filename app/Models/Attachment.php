@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Storage;
 
 class Attachment extends Model
 {
@@ -28,16 +29,20 @@ class Attachment extends Model
         if ($request->file('attachment')) {
             $file = $request->file('attachment');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $destinationPath = storage_path() . '/attachments/';
-            $file->move($destinationPath, $filename);
+            // $destinationPath = storage_path() . '/attachments/';
+            Storage::disk('public')->put($filename, $file);
+// dd($filename, $file->hashName());
+            // $file->move($destinationPath, $filename);
 
             $attachment->picture()->updateOrCreate(
                 [
                     'imageable_id' => $attachment->id,
+                    'second_id' => $file->hashName(),
                     'use_for' => 'attachment'
                 ],
                 [
                     'name' => $filename,
+                    'second_id' => $file->hashName(),
                     'use_for' => 'attachment'
                 ]);
         }
