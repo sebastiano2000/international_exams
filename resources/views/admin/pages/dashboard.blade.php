@@ -10,25 +10,25 @@
                             <a href="{{ route('exams') }}">
                                 <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/review.svg'); width: 411px; height: 411px;">
                                     <h1 style="font-size: 24px; margin-top: -320px;">
-                                        المواد <br> 
+                                        بنك الأسئلة <br> 
                                     </h1>
                                 </div>
                             </a>
                         </div>
                         <div class="col-auto">
                             <a href="{{ route('attachments') }}">
-                                <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/review.svg'); width: 411px; height: 411px;">
+                                <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/video.svg'); width: 411px; height: 411px;">
                                     <h1 style="font-size: 24px; margin-top: -320px;">
-                                        المرفقات <br> 
+                                        تسجيل المحاضرات <br> 
                                     </h1>
                                 </div>
                             </a>
                         </div>
                         <div class="col-auto">
                             <a href="{{ route('preparators') }}">
-                                <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/review.svg'); width: 411px; height: 411px;">
+                                <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/note.svg'); width: 411px; height: 411px;">
                                     <h1 style="font-size: 24px; margin-top: -320px;">
-                                        المحضرين <br> 
+                                        مذكرات المحاضرين <br> 
                                     </h1>
                                 </div>
                             </a>
