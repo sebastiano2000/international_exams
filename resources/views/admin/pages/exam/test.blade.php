@@ -193,8 +193,8 @@
 
     $('.help-btn').click(function(){
         $('.hint-note').html(`
-            @if ($slice->first()->notes)
-                <p class="text-center m-0"> {{ $slice->notes }} </p>
+            @if ($slice->notes)
+                <p class="text-center m-0">{{ $slice->notes }}</p>
             @endif
         `)
         $('.hint-note').toggleClass('d-none')

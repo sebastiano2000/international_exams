@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Storage;
+use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
+use Pion\Laravel\ChunkUpload\Handler\AbstractHandler;
+use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
+use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 
 class Attachment extends Model
 {
@@ -18,26 +22,26 @@ class Attachment extends Model
     
     static function upsertInstance($request)
     {
-        $attachment = Attachment::updateOrCreate(
-            [
-                'id' => $request->id ?? null,
-            ],
-                $request->all()
-            );
-
-        
-        if ($request->file('attachment')) {
-            $file = $request->file('attachment');
+        $file = $request->file('file');
+        $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
+        $fileReceived = $receiver->receive(); // receive file
+        if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
+            $file = $fileReceived->getFile(); // get file
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            // $destinationPath = storage_path() . '/attachments/';
-            Storage::disk('public')->put($filename, $file);
-// dd($filename, $file->hashName());
-            // $file->move($destinationPath, $filename);
-
+    
+            $path = Storage::disk('public')->put($filename, $file);
+            // unlink($file->getPathname());
+            
+            $attachment = Attachment::updateOrCreate(
+                [
+                    'id' => $request->id ?? null,
+                ],
+                    $request->all()
+                );
+    
             $attachment->picture()->updateOrCreate(
                 [
                     'imageable_id' => $attachment->id,
-                    'second_id' => $file->hashName(),
                     'use_for' => 'attachment'
                 ],
                 [
@@ -45,9 +49,10 @@ class Attachment extends Model
                     'second_id' => $file->hashName(),
                     'use_for' => 'attachment'
                 ]);
+                    
+            return $attachment;
         }
-
-        return $attachment;
+        return true;
     }
 
     public function scopeFilter($query,$request)

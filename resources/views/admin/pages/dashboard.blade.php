@@ -84,8 +84,9 @@
                                             <h2>
                                                 مرفق {{$attachment->name}}
                                             </h2>
-                                            <video oncontextmenu="return false;" id="myVideo" autoplay controls controlsList="nodownload">
-                                                <source src="{{ route('getVideo', ['attachment' => $attachment->id])  }}" type="video/mp4">
+                                            <video oncontextmenu="return false;" id="myVideo" height='320px' controls controlsList="nodownload">
+                                                <!--<source src="{{ storage_path($attachment->picture->name) }}" type="video/mp4">-->
+                                                <source src="{{ route('getVideo', ['attachment' => $attachment->id])  }}" type="video/mp4"> 
                                             </video>
                                         </div>
                                     </div>

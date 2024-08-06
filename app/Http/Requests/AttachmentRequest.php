@@ -22,8 +22,8 @@ class AttachmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'attachment' => 'required|mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4,video/wav,video/webm,video/ogg,video/flv,video/3gpp,video/3gpp2,video/x-msvideo,video/x-ms-wmv,video/x-flv,video/x-matroska,video/x-ms-asf,video/x-m4v,video/x-m4v'
+            // 'name' => 'required',
+            // 'attachment' => 'required|mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4,video/wav,video/webm,video/ogg,video/flv,video/3gpp,video/3gpp2,video/x-msvideo,video/x-ms-wmv,video/x-flv,video/x-matroska,video/x-ms-asf,video/x-m4v,video/x-m4v'
         ];
     }
 }

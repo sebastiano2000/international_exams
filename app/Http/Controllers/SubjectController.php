@@ -89,7 +89,7 @@ class SubjectController extends Controller
         }
     }
 
-    public function modifyAttachment(AttachmentRequest $request)
+    public function modifyAttachment(Request $request)
     {
         return Attachment::upsertInstance($request);
     }
