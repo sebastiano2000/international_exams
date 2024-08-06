@@ -66,7 +66,7 @@
                             <div class="d-flex">
                                 @if($slice->notes)
                                     <a href="#" class="d-none help-btn">
-                                        <i class="ti-help"></i>
+                                        <i class="ti-help-alt"></i>
                                     </a>
                                 @endif
                                 @if($page < $total)

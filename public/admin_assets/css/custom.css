@@ -6622,8 +6622,7 @@ span:active {
     margin-bottom: 20px;
 }
 
-@media  (max-width: 575.98px)
-{
+@media  (max-width: 575.98px) {
     .container-tenant {
         width: 184px !important;
         height: 173px !important;
@@ -6634,8 +6633,15 @@ span:active {
     .container-tenant h1 {
         font-size: 10px !important;
         margin-top: -130px !important;
-        /* padding: 1px; */
     }
+}
+
+.ti-help-alt {
+    font-size: 30px;
+}
+
+.help-btn {
+    align-content: center !important;
 }
 
 .sidebar-container {

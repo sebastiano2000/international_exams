@@ -45,7 +45,7 @@
                 <div class="d-flex">
                     @if($slice->first()->notes)
                         <a href="#" class="d-none help-btn">
-                            <i class="ti-help"></i>
+                            <i class="ti-help-alt"></i>
                         </a>
                     @endif
                     @if($page < $total)
@@ -189,11 +189,10 @@
     });
 
     $('.help-btn').click(function(){
-
         $('.hint-note').html(`
-        @if ($slice->first()->notes)
-            <p class="text-center m-0"> {{ $slice->first()->notes }} </p>
-        @endif
+            @if ($slice->first()->notes)
+                <p class="text-center m-0"> {{ $slice->first()->notes }} </p>
+            @endif
         `)
 
         $('.hint-note').toggleClass('d-none')

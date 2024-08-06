@@ -194,6 +194,7 @@ class User extends Authenticatable
         if ($response->status) {
             User::where('id', $response->response['variable3'])->update([
                 'suspend' => 0,
+                'payed' => 1,
             ]);
 
             header("Location: https://inv.khereej.org/payment/success");

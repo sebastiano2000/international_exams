@@ -33,6 +33,9 @@ use App\Http\Controllers\FinancialTransactionController;
 
 Route::group(['prefix' => '/'],function(){
     Route::get('/', [AdminController::class,"dashboard"])->name('home');
+    Route::get('/exams', [AdminController::class,"exams"])->name('exams');
+    Route::get('/attachments', [AdminController::class,"attachments"])->name('attachments');
+    Route::get('/preparators', [AdminController::class,"preparators"])->name('preparators');
 });
 
 Route::group(['prefix' => 'exam'],function(){

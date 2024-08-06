@@ -21,8 +21,26 @@ class AdminController extends Controller
 
         return view('admin.pages.dashboard', [
             'financial'=> Financial_transaction::count(),
+        ]);
+    }
+
+    public function exams()
+    {
+        return view('admin.pages.exams', [
             'subjects' => Subject::all(),
+        ]);
+    }
+
+    public function preparators()
+    {
+        return view('admin.pages.preparators', [
             'preparators' => Preparator::all(),
+        ]);
+    }
+
+    public function attachments()
+    {
+        return view('admin.pages.attachments', [
             'attachments' => Attachment::all(),
         ]);
     }
