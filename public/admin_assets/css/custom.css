@@ -6637,7 +6637,7 @@ span:active {
 }
 
 .ti-help-alt {
-    font-size: 30px;
+    font-size: 30px !important;
 }
 
 .help-btn {
