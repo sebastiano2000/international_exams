@@ -106,6 +106,7 @@ Route::group(['prefix' => 'user'],function(){
     Route::get('/upsert/{user?}',[UserController::class,'upsert'])->name('user.upsert');
     Route::get('/filter',[UserController::class,'filter'])->name('user.filter');
     Route::post('/status/update',[UserController::class,'status'])->name('user.status');
+    Route::post('/status/payed',[UserController::class,'pay'])->name('user.pay');
     Route::post('/status/otp',[UserController::class,'otp'])->name('user.otp');
     Route::post('/limit/update',[UserController::class,'limit'])->name('user.limit');
     Route::post('/modify',[UserController::class,'modify'])->name('user.modify');

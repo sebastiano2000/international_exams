@@ -39,7 +39,8 @@ class User extends Authenticatable
         'suspend',
         'finish',
         'high',
-        'otp'
+        'otp',
+        'payed'
     ];
 
     /**
@@ -229,6 +230,11 @@ class User extends Authenticatable
     static function statusUpdate($request)
     {
         return User::where('id', $request->id)->update(['activation' => $request->activation]);
+    }
+
+    static function payUpdate($request)
+    {
+        return User::where('id', $request->id)->update(['payed' => $request->payed]);
     }
     
     static function otpUpdate($request)

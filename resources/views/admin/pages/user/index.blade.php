@@ -53,11 +53,19 @@
                                                         <td>المتدرب</td>
                                                     @endif
                                                     <td>{{ $user->high }}</td>
-                                                    <td>
+                                                    <!-- <td>
                                                         @if($user->financials()->first())
                                                             {{$user->financials()->first()->paid ? 'مدفوع' : 'غير مدفوع'}}
                                                         @else
                                                             غير مدفوع
+                                                        @endif
+                                                    </td> -->
+                                                    <td>
+                                                        @if($user->role_id != 1)
+                                                            <label class="switch switch_user_status" style="width: 50px; height: 25px;">
+                                                                <input type="checkbox" class="user_payed" @if($user->payed) value="1" @else value="0" @endif user_id="{{ $user->id }}" name="user_payment" style="width: 15px; height: 15px;">
+                                                                <span class="slider round" style="border-radius: 25px;"></span>
+                                                            </label>
                                                         @endif
                                                     </td>
                                                     <td>
@@ -227,6 +235,36 @@
         });
     });
 
+    $(".user_payed").on("change", function(){   
+        if ($(this).is(":checked"))
+        {
+            $(this).val(1);
+        }   
+        else {
+            $(this).val(0);
+        }
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': '{{csrf_token()}}'
+            },
+            url: '{{ route("user.pay") }}',
+            method: 'post',
+            data: {id: $(this).attr("user_id"), payed: $(this).val()},
+            success: () => {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    icon: 'success',
+                    title: "{{ __('pages.sucessdata') }}"
+                });
+            }
+        });
+    });
+
     $(".user_otp").on("change", function(){   
         if ($(this).is(":checked"))
         {
@@ -281,6 +319,16 @@
     
     $(document).ready(function(){
         for(let status of $('.user_status')){
+            if (status.value == 1)
+            {
+                status.checked = true;
+            } 
+            else{
+                status.checked = false;
+            }
+        }
+
+        for(let status of $('.user_payed')){
             if (status.value == 1)
             {
                 status.checked = true;

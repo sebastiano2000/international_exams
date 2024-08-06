@@ -81,6 +81,11 @@ class UserController extends Controller
         return User::statusUpdate($request);
     }
 
+    public function pay(Request $request)
+    {
+        return User::payUpdate($request);
+    }
+
     public function limit(Request $request)
     {
         return User::limitUpdate($request);
