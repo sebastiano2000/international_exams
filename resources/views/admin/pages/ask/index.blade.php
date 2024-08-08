@@ -31,15 +31,15 @@
                                     filter="{{ route('ask.filter') }}">
                                     <thead>
                                         <tr>
-                                            <th>اسم المحضر</th>
+                                            <th>اسم المستخدم</th>
+                                            <th>رأس السؤال</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($asks as $ask)
                                             <tr class="record">
+                                                <td>{{ $ask->user->name }}</td>
                                                 <td>{{ $ask->question }}</td>
-                                                <td class="text-end">
-                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
