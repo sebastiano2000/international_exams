@@ -19,6 +19,11 @@ class AskController extends Controller
         }
     }
 
+    public function modify(Request $request)
+    {
+        return Ask::upsertInstance($request);
+    }
+
     public function filter(Request $request)
     {
         return view('admin.pages.ask.index', [
