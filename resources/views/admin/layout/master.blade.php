@@ -105,13 +105,13 @@
                     <ul id="sidebarnav">
                         @if(Auth::user()->isAdmin())
                             <li>
-                                <a href="{{ route('user') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"">
+                                <a href="{{ route('user') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2"">
                                     <div>{{ __('pages.users') }}</div>
                                     <div style="text-align: end;">Users</div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('subject') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('subject') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>المادة</div>
                                     <div style="text-align: end;">Subject</div>
                                 </a>
@@ -123,23 +123,23 @@
                                 </a>
                             </li> -->
                             <li>
-                                <a href="{{ route('question') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('question') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>الاسئلة</div>
                                     <div style="text-align: end;">Questions</div>                                    
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('result') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                <a href="{{ route('result') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>نتائج الاختبار</div>
                                     <div style="text-align: end;">Exam Result</div>                                  
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="{{ route('total') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
-                                    <div>نتائج الاختبار الشامل</div>
-                                    <div style="text-align: end;">Full Test Result</div>
+                            <li>
+                                <a href="{{ route('ask') }}" style="background: #e2e2e2;" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
+                                    <div>وجّه سؤالك</div>
+                                    <div style="text-align: end;">Ask Question</div>
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="{{ route('preparator') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
                                     <div>محضرين</div>

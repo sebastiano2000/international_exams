@@ -1,19 +1,15 @@
 @extends('admin.layout.master')
 @section('content')
 <div class="main-wrapper">
-    <!-- Page Wrapper -->
     <div class="page-wrapper">
         <div class="content container-fluid">
-            <!-- Page Header -->
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-8 col-auto">
-                        <h3 class="page-title">محضرين</h3>
+                        <h3 class="page-title">وجّه سؤالك</h3>
                     </div>
                 </div>
-
             </div>
-
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
