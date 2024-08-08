@@ -24,8 +24,7 @@
                                         <input type="search" placeholder="{{ __('pages.search_by_name') }}" name="name"
                                             class="form-control d-block search_input w-50"
                                             value="{{request()->input('name')}}">
-                                        <button class="btn btn-primary mx-2 btn-search">{{ __('pages.search')
-                                            }}</button>
+                                        <button class="btn btn-primary mx-2 btn-search">{{ __('pages.search')}}</button>
                                     </div>
                                 </form>
                                 <table id="example" class=" display  table table-hover table-center mb-0"
@@ -33,27 +32,15 @@
                                     <thead>
                                         <tr>
                                             <th>اسم المحضر</th>
-                                            <th class="text-end">{{ __('pages.actions') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($asks as $ask)
-                                        <tr class="record">
-                                            <td>{{ $ask->name }}</td>
-                                            <td class="text-end">
-                                                <div class="actions">
-                                                    <a href="{{ route('ask.upsert',['ask' => $ask->id]) }}"
-                                                        class="btn btn-sm bg-success-light">
-                                                        <i class="ti-pencil"></i> {{ __('pages.edit') }}
-                                                    </a>
-                                                    <a data-bs-toggle="modal" href="#"
-                                                        class="btn btn-sm bg-danger-light btn_delete"
-                                                        route="{{ route('ask.delete',['ask' => $ask->id])}}">
-                                                        <i class="ti-trash"></i> {{ __('pages.delete') }}
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            <tr class="record">
+                                                <td>{{ $ask->question }}</td>
+                                                <td class="text-end">
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -61,9 +48,8 @@
                              <nav aria-label="Page navigation example" class="mt-2">
                                     <ul class="pagination">
                                         @for($i = 1; $i <= $asks->lastPage(); $i++)
-                                                <li class="page-item @if(request()->input('page')== $i ) active @else @endif"><a class="page-link" href="?name={{request()->input('name')}}&page={{$i}}">{{$i}}</a></li>
+                                            <li class="page-item @if(request()->input('page')== $i ) active @else @endif"><a class="page-link" href="?name={{request()->input('name')}}&page={{$i}}">{{$i}}</a></li>
                                         @endfor
-                        
                                     </ul>
                             </nav>
                         </div>
