@@ -13,7 +13,7 @@ class Ask extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'title',
+        'question',
         'user_id',
     ];
 
@@ -24,7 +24,7 @@ class Ask extends Model
                 'id' => $request->id ?? null,
             ],
             [
-                'title' => $request->title,
+                'question' => $request->question,
                 'user_id' => Auth::user()->id,
             ]);
     }
@@ -32,7 +32,7 @@ class Ask extends Model
     public function scopeFilter($query, $request)
     {
         if ( isset($request['name']) ) {
-            $query->where('title','like','%'.$request['name'].'%');
+            $query->where('question','like','%'.$request['name'].'%');
         }
 
         return $query;
