@@ -68,7 +68,7 @@
                         <label class="mb-2">سيتمكن كل متدرب من الدخول للنظام عن طريق متصفحين اثنين (أو جهازين) كحد أقصى</label>
                         <label class="mb-2">لا يسمح بمشاركة الحساب الخاص بك مع أي شخص آخر</label>
                         <label class="mb-2">استخدام الـ VPN سيؤدي لاحتساب أكثر من جهاز عند الدخول</label>
-                        <label class="mb-2">آخر يوم لصلاحية الاشتراك هو يوم السبت الموافق 1 يونيو 2024</label>
+                        <label class="mb-2">آخر موعد لصلاحية الاشتراك هو أغسطس 2024.</label>
                     </div>
                     <div class="col-sm-offset-2 col-sm-12 text-center">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">موافق

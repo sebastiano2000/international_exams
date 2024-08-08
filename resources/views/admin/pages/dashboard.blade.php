@@ -40,7 +40,7 @@
                                 data-target="#send_question" 
                                 data-toggle="modal"
                             >
-                                <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/note.svg'); width: 411px; height: 411px;">
+                                <div class="container-tenant mb-4" style="background-image: url('/admin_assets/images/ask.svg'); width: 411px; height: 411px;">
                                     <h1 style="font-size: 24px; margin-top: -320px;">
                                         وجّه سؤالك<br> 
                                     </h1>
