@@ -41,6 +41,8 @@ class Preparator extends Model
                     'name' => $filename,
                     'use_for' => 'picture'
                 ]);
+        } elseif (!$request->old_picture) {
+            $preparator->picture()->delete();
         }
 
         return $preparator;

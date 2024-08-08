@@ -60,6 +60,12 @@ Route::group(['prefix' => 'preparator'],function(){
     Route::post('/delete/{preparator}',[PreparatorController::class,'destroy'])->name('preparator.delete');
 });
 
+Route::group(['prefix' => 'ask'],function(){
+    Route::get('/', [PreparatorController::class,"index"])->name('preparator');
+    Route::get('/filter',[PreparatorController::class,'filter'])->name('preparator.filter');
+    Route::post('/modify',[PreparatorController::class,'modify'])->name('ask.modify');
+});
+
 Route::group(['prefix' => 'user_result'],function(){
     Route::post('/insert/result', [UserResultController::class, "enterResult"])->name('save.data');
 });

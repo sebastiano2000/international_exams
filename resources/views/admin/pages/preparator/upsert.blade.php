@@ -37,6 +37,7 @@
                                                 <div class="col-md-12 ps-5">
                                                     <label class="mb-2">مذكرات </label>
                                                     <input type="file" class="dropify" data-default-file="@if($preparator->picture){{ asset('/preparators/'.$preparator->picture->name) }}@endif" name="picture"/>
+                                                    <input type="hidden" class="old_image" name="old_picture" value="@if($preparator->picture){{ $preparator->picture->name }}@endif">
                                                     <p class="error error_picture"></p>
                                                 </div>
                                             </div>
@@ -63,5 +64,8 @@
 <script>
     $('.dropify').dropify();
 
+    $(document).on("click", ".dropify-clear", function() {
+        $('.old_image').val(null);
+    });
 </script>
 @endsection
