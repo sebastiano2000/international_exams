@@ -62,8 +62,8 @@ Route::group(['prefix' => 'preparator'],function(){
 });
 
 Route::group(['prefix' => 'ask'],function(){
-    Route::get('/', [AskController::class,"index"])->name('preparator');
-    Route::get('/filter',[AskController::class,'filter'])->name('preparator.filter');
+    Route::get('/', [AskController::class,"index"])->name('ask');
+    Route::get('/filter',[AskController::class,'filter'])->name('ask.filter');
     Route::post('/modify',[AskController::class,'modify'])->name('ask.modify');
 });
 
