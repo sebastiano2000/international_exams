@@ -45,10 +45,10 @@
                                         @foreach($financial_transactions as $financial_transaction)
                                             <tr class="record">
                                                 <td>#{{ $financial_transaction->id}}</td>
-                                                <td>{{ $financial_transaction->user->name }}</td>
-                                                <td>{{ $financial_transaction->user->phone }}</td>
-                                                <td>{{ $financial_transaction->user->email }}</td>
-                                                <td>{{ $financial_transaction->user->high }}</td>
+                                                <td>@if($financial_transaction->user){{ $financial_transaction->user->name }}@endif</td>
+                                                <td>@if($financial_transaction->user){{ $financial_transaction->user->phone }}@endif</td>
+                                                <td>@if($financial_transaction->user){{ $financial_transaction->user->email }}@endif</td>
+                                                <td>@if($financial_transaction->user){{ $financial_transaction->user->high }}@endif</td>
                                                 <td>{{ $financial_transaction->package->name }}</td>
                                                 <td>{{ $financial_transaction->paidOn}} </td>
                                                 <td>{{ $financial_transaction->resultCode == 'CAPTURED' ? 'ناجح' : 'غير ناجح' }}</td>
