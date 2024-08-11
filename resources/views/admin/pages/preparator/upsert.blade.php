@@ -27,7 +27,7 @@
                                     @csrf
                                     <div class="service-fields mb-3">
                                         <div class="form-group">
-                                            <div class="row">
+                                            <div class="row file-container">
                                                 <div class="col-md-12 ps-5">
                                                     <label class="mb-2">اسم المحضر</label>
                                                     <input class="form-control" type="text" name="name" placeholder="{{ __('pages.name') }}" value="@isset($preparator->id){{$preparator->name}}@endisset">
@@ -36,9 +36,15 @@
                                                 
                                                 <div class="col-md-12 ps-5">
                                                     <label class="mb-2">مذكرات </label>
-                                                    <input type="file" class="dropify" data-default-file="@if($preparator->picture){{ asset('/preparators/'.$preparator->picture->name) }}@endif" name="picture"/>
-                                                    <input type="hidden" class="old_image" name="old_picture" value="@if($preparator->picture){{ $preparator->picture->name }}@endif">
-                                                    <p class="error error_picture"></p>
+                                                    @foreach($preparator->picture as $picture)
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="file" class="dropify" data-default-file="{{ asset('/preparators/'.$picture->name) }}" name="picture[]" />
+                                                                <input type="hidden" class="old_image" name="old_picture[]" value="{{ $picture->name }}">
+                                                                <p class="error error_picture"></p>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
@@ -62,14 +68,19 @@
 @endsection
 @section('js')
 <script>
-    var drEvent = $('.dropify').dropify();
+    $('.dropify').dropify();
 
     $(document).on("click", ".dropify-clear", function() {
-        $('.old_image').val(null);
+        $(this).parent().siblings().eq(0).val(null);
     });
 
-    drEvent.on('dropify.afterChange', function(event, element){
-        alert('Has Errors!');
+    $(document).on('change', '.dropify', function() {
+        $('.file-container').append(`<div class="col-md-12 ps-5">
+            <input type="file" class="dropify" data-default-file="" name="picture[]"/>
+            <p class="error error_picture"></p>
+        </div>`);
+
+        $('.dropify').dropify()
     });
 </script>
 @endsection

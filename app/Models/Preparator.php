@@ -23,26 +23,30 @@ class Preparator extends Model
             );
 
         
-        if ($request->file('picture')) {
-            // $name = 'picture_'.$preparator->id . '.' . $request->file('picture')->getClientOriginalExtension();
-            // $image = $request->file('picture');
-            // $image->move(public_path('preparators/'.$preparator->id), $name);
-            $file = $request->file('picture');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $destinationPath = public_path() . '/preparators/';
-            $file->move($destinationPath, $filename);
+        if ($request->file('picture')[0] ?? null) {
+            foreach($request->file('picture') as $index => $file) {
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                $destinationPath = public_path() . '/preparators/';
+                $file->move($destinationPath, $filename);
 
-            $preparator->picture()->updateOrCreate(
-                [
-                    'imageable_id' => $preparator->id,
-                    'use_for' => 'picture'
-                ],
-                [
-                    'name' => $filename,
-                    'use_for' => 'picture'
-                ]);
-        } elseif (!$request->old_picture) {
-            $preparator->picture()->delete();
+                $preparator->picture()->updateOrCreate(
+                    [
+                        'imageable_id' => $preparator->id,
+                        'use_for' => 'picture',
+                        'second_id' => $index
+                    ],
+                    [
+                        'second_id' => $index,
+                        'name' => $filename,
+                        'use_for' => 'picture'
+                    ]);
+            }
+        } else {
+            foreach($preparator->picture as $index => $picture) {
+                if(!in_array($picture->name,$request->old_picture ?? [])) {
+                    $picture->delete();
+                }
+            }
         }
 
         return $preparator;
@@ -64,6 +68,6 @@ class Preparator extends Model
     
     public function picture()
     {
-        return $this->morphOne(Gallary::class,'imageable')->where('use_for','picture');
+        return $this->morphMany(Gallary::class,'imageable')->where('use_for','picture');
     }
 }
