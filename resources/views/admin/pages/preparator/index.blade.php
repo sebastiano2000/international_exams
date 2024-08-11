@@ -44,22 +44,22 @@
                                     </thead>
                                     <tbody>
                                         @foreach($preparators as $preparator)
-                                        <tr class="record">
-                                            <td>{{ $preparator->name }}</td>
-                                            <td class="text-end">
-                                                <div class="actions">
-                                                    <a href="{{ route('preparator.upsert',['preparator' => $preparator->id]) }}"
-                                                        class="btn btn-sm bg-success-light">
-                                                        <i class="ti-pencil"></i> {{ __('pages.edit') }}
-                                                    </a>
-                                                    <a data-bs-toggle="modal" href="#"
-                                                        class="btn btn-sm bg-danger-light btn_delete"
-                                                        route="{{ route('preparator.delete',['preparator' => $preparator->id])}}">
-                                                        <i class="ti-trash"></i> {{ __('pages.delete') }}
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            <tr class="record">
+                                                <td>{{ $preparator->name }}</td>
+                                                <td class="text-end">
+                                                    <div class="actions">
+                                                        <a href="{{ route('preparator.upsert',['preparator' => $preparator->id]) }}"
+                                                            class="btn btn-sm bg-success-light">
+                                                            <i class="ti-pencil"></i> {{ __('pages.edit') }}
+                                                        </a>
+                                                        <a data-bs-toggle="modal" href="#"
+                                                            class="btn btn-sm bg-danger-light btn_delete"
+                                                            route="{{ route('preparator.delete',['preparator' => $preparator->id])}}">
+                                                            <i class="ti-trash"></i> {{ __('pages.delete') }}
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

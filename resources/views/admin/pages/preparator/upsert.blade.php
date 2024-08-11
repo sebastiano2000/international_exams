@@ -62,10 +62,14 @@
 @endsection
 @section('js')
 <script>
-    $('.dropify').dropify();
+    var drEvent = $('.dropify').dropify();
 
     $(document).on("click", ".dropify-clear", function() {
         $('.old_image').val(null);
+    });
+
+    drEvent.on('dropify.afterUpload', function(event, element){
+        alert('File deleted');
     });
 </script>
 @endsection
