@@ -237,17 +237,19 @@
                             @foreach(\App\Models\Preparator::all() as $preparator)
                                 @if($preparator->picture)
                                     <li>
-                                        <a href="{{ asset('/preparators/'.$preparator->picture->name) }}" target="_blank" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
-                                            مذكرات {{$preparator->name}}
-                                        </a>
+                                        <a href="#" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2 fill-preparator">مذكرات {{$preparator->name}}</a>
+                                        @foreach($preparator->picture as $picture)
+                                            <input hidden value="{{ asset('/preparators/'.$picture->name)}}" class="preparator-files" />
+                                        @endforeach
                                     </li>
                                 @endif
+                                
                             @endforeach
                             @foreach(\App\Models\Attachment::all() as $attachment)
                                 @if($attachment->picture)
                                     <li>
                                         <a href="{{ asset('/attachments/'.$attachment->picture->name) }}" target="_blank" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
-                                            مذكرات {{$attachment->name}}
+                                            مرفق {{$attachment->name}}
                                         </a>
                                     </li>
                                 @endif
@@ -256,8 +258,7 @@
                             @foreach(\App\Models\Subject::orderBy('created_at', 'asc')->get() as $subject)
                                 <li>
                                     <a href="{{ route('pricing.index') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
-                                        <div>مراجعة {{ ($subject->name == 'Grammar' ? 'القواعد' : $subject->name == 'Vocabulary') ? 'الكلمات' : 'القراءة و الاستيعاب' }}</div>
-                                        <div style="text-align: end;">{{$subject->name}} Review</div>
+                                        <div>مراجعة {{ $subject->name }}</div>
                                     </a>
                                 </li>
                                 <!-- <li>
@@ -520,6 +521,23 @@
             function formatRepo (item) {
                 return item.name;
             }
+        });
+
+        $(document).on('click', '.fill-preparator', function() {
+            let preparator_files = $(this).siblings('.preparator-files');
+            let files = [];
+            preparator_files.each(function() {
+                files.push($(this).val());
+            });
+            let i = 0;
+            let interval = setInterval(() => {
+                if(i < files.length) {
+                    window.open(files[i]);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 0);
         });
 
         function daysdifference(firstDate, secondDate){
