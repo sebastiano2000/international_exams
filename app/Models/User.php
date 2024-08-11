@@ -235,7 +235,7 @@ class User extends Authenticatable
 
     static function payUpdate($request)
     {
-        return User::where('id', $request->id)->update(['payed' => $request->payed]);
+        return User::where('id', $request->id)->update(['payed' => $request->payed, 'suspend' => 0]);
     }
     
     static function otpUpdate($request)
