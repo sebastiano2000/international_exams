@@ -36,7 +36,7 @@
                                                 
                                                 <div class="col-md-12 ps-5">
                                                     <label class="mb-2">مذكرات </label>
-                                                    @foreach($preparator->picture as $picture)
+                                                    @forelse($preparator->picture as $picture)
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <input type="file" class="dropify" data-default-file="{{ asset('/preparators/'.$picture->name) }}" name="picture[]" />
@@ -44,7 +44,14 @@
                                                                 <p class="error error_picture"></p>
                                                             </div>
                                                         </div>
-                                                    @endforeach
+                                                    @empty
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="file" class="dropify" data-default-file="" name="picture[]" />
+                                                                <p class="error error_picture"></p>
+                                                            </div>
+                                                        </div>
+                                                    @endforelse
                                                 </div>
                                             </div>
                                         </div>
