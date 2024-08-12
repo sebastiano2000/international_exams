@@ -235,15 +235,12 @@
                                 </a>
                             </li> -->
                             @foreach(\App\Models\Preparator::all() as $preparator)
-                                @if($preparator->picture)
+                                @foreach($preparator->picture as $key => $picture)
                                     <li>
-                                        <a href="#" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2 fill-preparator">مذكرات {{$preparator->name}}</a>
-                                        @foreach($preparator->picture as $picture)
-                                            <input hidden value="{{ asset('/preparators/'.$picture->name)}}" class="preparator-files" />
-                                        @endforeach
+                                        <a href="{{ asset('/preparators/'.$picture->name)}}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2 fill-preparator">مذكرات {{$preparator->name . ' ' . ($key + 1)}}</a>
+                                        <!-- <input hidden value="{{ asset('/preparators/'.$picture->name)}}" class="preparator-files" /> -->
                                     </li>
-                                @endif
-                                
+                                @endforeach
                             @endforeach
                             @foreach(\App\Models\Attachment::all() as $attachment)
                                 @if($attachment->picture)
@@ -523,22 +520,22 @@
             }
         });
 
-        $(document).on('click', '.fill-preparator', function() {
-            let preparator_files = $(this).siblings('.preparator-files');
-            let files = [];
-            preparator_files.each(function() {
-                files.push($(this).val());
-            });
-            let i = 0;
-            let interval = setInterval(() => {
-                if(i < files.length) {
-                    window.open(files[i]);
-                    i++;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 0);
-        });
+        // $(document).on('click', '.fill-preparator', function() {
+        //     let preparator_files = $(this).siblings('.preparator-files');
+        //     let files = [];
+        //     preparator_files.each(function() {
+        //         files.push($(this).val());
+        //     });
+        //     let i = 0;
+        //     let interval = setInterval(() => {
+        //         if(i < files.length) {
+        //             window.open(files[i]);
+        //             i++;
+        //         } else {
+        //             clearInterval(interval);
+        //         }
+        //     }, 0);
+        // });
 
         function daysdifference(firstDate, secondDate){
             var startDay = new Date(firstDate);

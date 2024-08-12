@@ -7,23 +7,21 @@
                 @if(!Auth::user()->isAdmin())
                     <div class="row justify-content-center">
                         @foreach($preparators as $preparator)
-                            @if($preparator->picture)
+                            @foreach($preparator->picture as $key => $picture)
                                 <div class="col-auto">
                                     <div class="container-tenant mb-4">
                                         <div class="">
                                             <h2>
-                                                مذكرات {{$preparator->name}}
+                                                مذكرات {{$preparator->name . ' ' . ($key + 1)}} 
                                             </h2>
                                             <div class="button-wrapper">
-                                                <a href="#" class="btn-tenant fill-tenant">إبدأ</a>
-                                                @foreach($preparator->picture as $picture)
-                                                    <input hidden value="{{ asset('/preparators/'.$picture->name)}}" class="preparator-files" />
-                                                @endforeach
+                                                <a href="{{ asset('/preparators/'.$picture->name)}}" class="btn-tenant fill-tenant">إبدأ</a>
+                                                <!-- <input hidden value="{{ asset('/preparators/'.$picture->name)}}" class="preparator-files" /> -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                            @endforeach
                         @endforeach
                     </div>
                 @endif
@@ -35,21 +33,21 @@
 
 @section('js')
 <script>
-    $(document).on('click', '.fill-tenant', function() {
-        let preparator_files = $(this).siblings('.preparator-files');
-        let files = [];
-        preparator_files.each(function() {
-            files.push($(this).val());
-        });
-        let i = 0;
-        let interval = setInterval(() => {
-            if(i < files.length) {
-                window.open(files[i]);
-                i++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 0);
-    });
+    // $(document).on('click', '.fill-tenant', function() {
+    //     let preparator_files = $(this).siblings('.preparator-files');
+    //     let files = [];
+    //     preparator_files.each(function() {
+    //         files.push($(this).val());
+    //     });
+    //     let i = 0;
+    //     let interval = setInterval(() => {
+    //         if(i < files.length) {
+    //             window.open(files[i]);
+    //             i++;
+    //         } else {
+    //             clearInterval(interval);
+    //         }
+    //     }, 0);
+    // });
 </script>
 @endsection
