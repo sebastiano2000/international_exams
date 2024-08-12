@@ -185,7 +185,7 @@
                         @elseif(!Auth::user()->suspend)
                             <li>
                                 <a href="{{ route('home') }}" class="sidebar-container d-flex justify-content-between align-items-center p-2 mb-2">
-                                    <div>الصفحة الرئسية</div>
+                                    <div>الصفحة الرئيسية</div>
                                     <div style="text-align: end;">Homepage</div>
                                 </a>
                             </li>

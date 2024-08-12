@@ -260,7 +260,7 @@ class User extends Authenticatable
 
     static function modifyPassword($request)
     {
-        $user = User::where('id', $request->id)->update(['password' => Hash::make($request->password)]);
+        return User::where('id', $request->id)->update(['password' => Hash::make($request->password)]);
     }
 
     //Roles
