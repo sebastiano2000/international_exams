@@ -14,7 +14,7 @@
                                             <h2>
                                                 مرفق {{$attachment->name}}
                                             </h2>
-                                            <video oncontextmenu="return false;" id="myVideo" height='320px' controls controlsList="nodownload">
+                                            <video oncontextmenu="return false;" class='myVideo' id="myVideo" height='320px' controls controlsList="nodownload">
                                                 <source src="{{ route('getVideo', ['attachment' => $attachment->id])  }}" type="video/mp4"> 
                                             </video>
                                         </div>

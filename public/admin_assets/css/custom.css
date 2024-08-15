@@ -6629,6 +6629,10 @@ span:active {
     }
     .container-tenant h2 {
         font-size: 12px !important;
+        /*margin-top: 180px !important;*/
+    }
+    .myVideo {
+        height: 135px !important;
     }
     .container-tenant h1 {
         font-size: 10px !important;
