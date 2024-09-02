@@ -29,7 +29,8 @@
 
     <link href="{{ asset('admin_assets\css\fileupload.css') }}" rel="stylesheet" />
 
-    <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 </head>
 
 <body class="skin-blue fixed-layout">
